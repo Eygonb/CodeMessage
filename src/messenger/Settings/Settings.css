@@ -1,0 +1,38 @@
+.settings-box{
+    position: static;
+    background-color: rgba(54, 71, 107, 0.89);
+    border-radius:10px;
+    padding:70px 100px;
+    margin-top: 2px;
+    margin-left: 100px;
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /*min-width: 100%;*/
+    min-height: 97vh;
+}
+
+.settings-item{
+    grid-row-start: 1;
+    grid-row-end: span 3;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    border-radius: 10px;
+    align-items: center;
+    position: static;
+    min-width: 100vh;
+    margin-top: 10px;
+    color:#fff;
+    background-color: rgba(0, 13, 38, 0.89);
+}
+
+.text-center1{
+    color:#fff;
+    text-transform:uppercase;
+    font-size: 23px;
+    margin: 0 auto 0;
+    display: block;
+    text-align: center;
+}
