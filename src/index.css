@@ -69,7 +69,7 @@
 
     /*position: fixed;*/
     position: relative;
-    background: #bdcfe0;
+    background: #BCCDD0;
     grid-row-start: 1;
     grid-row-end: span 3;
 }

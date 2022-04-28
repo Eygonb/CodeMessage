@@ -13,14 +13,17 @@ export const NavBar = () => {
     return (<div className="navbar-cm">
 
             <div className="nav_element">
-                <Link to="/home">
+                <Link to="/">
                     <img src={homeIMG} className="nav_element"/>
                 </Link>
             </div>
 
             <div className="nav_element">
+                <Link to="/profile">
                 <img src={profileIMG} className="nav_element"/>
+            </Link>
             </div>
+
             <div className="nav_element">
                 <img src={addIMG} className="nav_element"/>
             </div>

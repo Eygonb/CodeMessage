@@ -30,7 +30,11 @@ export default class Login extends Component {
                                 register
                             </button>
                         </Link>
-
+                        <Link to="/">
+                            <button type="button" className="btn-register">
+                                Home
+                            </button>
+                        </Link>
 
                     </div>
                 </form>
