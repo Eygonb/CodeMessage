@@ -1,0 +1,46 @@
+.admin-box{
+    position: static;
+    background-color: rgba(11, 31, 75, 0.89);
+    border-radius:10px;
+    margin-left: 100px;
+    /*margin-bottom: 20px;*/
+    display: flex;
+    flex-direction: column;
+    /*align-items: center;*/
+    /*min-width: 100%;*/
+    min-height: 97vh;
+}
+
+.search-box{
+    margin: -5px 3px 10px 3px;
+}
+
+.admin-page-element {
+align-self: center;
+    display: flex;
+    flex-direction: column;
+    margin-top: 1%;
+    height: 30%;
+    width: 30%;
+    border: 50px #BCCDD0;
+    /*background-color: rgba(54, 71, 107, 0.89);*/
+    border-radius: 12px;
+}
+
+.btn-admin{
+    color:#fff;
+    background-color: rgb(0, 121, 60);
+    border: 12px #fff;
+    padding:10px 20px;
+    text-transform:uppercase;
+    border-radius:12px;
+}
+.textA {
+
+     color: #fff;
+     text-transform: uppercase;
+     font-size: 23px;
+     margin: 0.5% 0 0.5% 0;
+     display: block;
+     text-align: center;
+ }
