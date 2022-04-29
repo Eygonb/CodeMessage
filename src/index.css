@@ -10,25 +10,23 @@
 
 .messenger {
     background: #BCCDD0;
-    padding-right: 10px;
-    margin-top: 2px;
-    /*margin-left: 10px;*/
-    min-height: 97vh;
 }
 
 .app1 {
     display: grid;
+    width: 98%;
+    height: 100vh;
     padding-right: 10px;
     margin-left: 20px;
     padding-left: 80px;
-
     background: #bccdda;
-
-
+    position: static;
     grid-template-columns: 350px auto;
     grid-template-rows: 60px auto 60px;
     grid-column-gap: 1px;
     grid-row-gap: 1px;
+
+
 }
 
 .text-center {
@@ -56,22 +54,18 @@
 
 }
 
-
 .sidebar {
-    position: relative;
-
-    -webkit-overflow-scrolling: touch;
+    height: 100vh;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: initial;
     grid-row-start: 1;
-    grid-row-end: span 3;
+    grid-row-end: span 2;
 }
 
 .content {
-
-    /*position: fixed;*/
-    position: relative;
     background: #BCCDD0;
     grid-row-start: 1;
-    grid-row-end: span 3;
+    grid-row-end: span 2;
 }
 
 .footer {

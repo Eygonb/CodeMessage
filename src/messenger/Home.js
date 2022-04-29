@@ -5,7 +5,7 @@ import ChatMenu from "./ChatMenu";
 export default class Home extends Component {
     render() {
         return (
-            <div>
+            <div  className="messenger">
                 <NavBar/>
                 <ChatMenu/>
             </div>

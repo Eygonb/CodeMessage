@@ -8,8 +8,7 @@ import Admin from "./messenger/Admin/Admin";
 
 function App() {
     return (
-        <div className="messenger">
-
+        <div>
             <Routes>
                 <Route path="/" element={<Home/>}/>
                 <Route path="/settings" element={<Settings/>}/>
