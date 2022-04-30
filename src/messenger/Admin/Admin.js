@@ -8,8 +8,9 @@ import ConversationSearch from "../ConversationSearch";
 export default function Admin() {
 
     return (
-        <div>
-            <NavBar/>
+        <div className="bx">
+                <NavBar/>
+
                 <div className="admin-box">
                     <span className="textA">admin page</span>
                     <div className="search-box">
@@ -25,7 +26,6 @@ export default function Admin() {
                             reports list
                         </button>
                     </div>
-
                 </div>
 
         </div>

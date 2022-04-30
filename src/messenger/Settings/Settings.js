@@ -7,7 +7,7 @@ import {NavBar} from "../Navigation/NavBar";
 export default class Settings extends Component {
     render() {
         return (
-            <div>
+            <div className="messenger">
                 <NavBar/>
 
                 <div className="settings-box">

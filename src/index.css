@@ -63,6 +63,7 @@
 }
 
 .content {
+    overflow-y: auto;
     background: #BCCDD0;
     grid-row-start: 1;
     grid-row-end: span 2;

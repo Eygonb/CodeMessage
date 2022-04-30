@@ -8,7 +8,7 @@ import profileIMG from '../assets/profile.png';
 export default function UserProfile() {
 
     return (
-        <div >
+        <div className="messenger" >
             <NavBar/>
             <div className="profile-box">
                 {/*<span className="text-center">Profile</span>*/}

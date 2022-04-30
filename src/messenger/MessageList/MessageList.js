@@ -85,6 +85,41 @@ export default function MessageList(props) {
                 author: 'orange',
                 message: 'It looks like it wraps exactly as it is supposed to. Lets see what a reply looks like!',
                 timestamp: new Date().getTime()
+            },{
+                id: 11,
+                author: 'apple',
+                message: 'Hello world! This is a long message that will hopefully get wrapped by our message bubble component! We will see how well it works.',
+                timestamp: new Date().getTime()
+            },
+            {
+                id: 12,
+                author: 'apple',
+                message: 'It looks like it wraps exactly as it is supposed to. Lets see what a reply looks like!',
+                timestamp: new Date().getTime()
+            },
+            {
+                id: 13,
+                author: 'orange',
+                message: 'Hello world! This is a long message that will hopefully get wrapped by our message bubble component! We will see how well it works.',
+                timestamp: new Date().getTime()
+            },
+            {
+                id: 14,
+                author: 'orange',
+                message: 'It looks like it wraps exactly as it is supposed to. Lets see what a reply looks like!',
+                timestamp: new Date().getTime()
+            },
+            {
+                id: 15,
+                author: 'apple',
+                message: 'Hello world! This is a long message that will hopefully get wrapped by our message bubble component! We will see how well it works.',
+                timestamp: new Date().getTime()
+            },
+            {
+                id: 16,
+                author: 'orange',
+                message: 'It looks like it wraps exactly as it is supposed to. Lets see what a reply looks like!',
+                timestamp: new Date().getTime()
             },
         ]
         setMessages([...messages, ...tempMessages])
