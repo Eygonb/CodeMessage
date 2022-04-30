@@ -4,8 +4,8 @@ spring:
   datasource:
     driver-class-name: org.postgresql.Driver
     url: jdbc:postgresql://localhost:5432/code_message
-    username: "custom_user"
-    password: "wasd"
+    username: "postgres"
+    password: "123"
   jpa:
     properties:
       hibernate:
@@ -13,8 +13,8 @@ spring:
         show sql: true
         temp:
           use_jdbc_metadata_defaults: false
-flyway:
-  url: jdbc:postgres://localhost:5432/code_message
-  schemas: public
-  user: "custom_user"
-  password: "wasd"
+#flyway:
+#  url: jdbc:postgres://localhost:5432/code_message
+#  schemas: public
+#  user: "postgres"
+#  password: "123"
