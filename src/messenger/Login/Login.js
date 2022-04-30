@@ -2,6 +2,7 @@ import * as React from 'react';
 import {Component} from "react";
 
 import './Login.css';
+import '../../index.css';
 import {Link} from "react-router-dom";
 
 export default class Login extends Component {
@@ -12,7 +13,6 @@ export default class Login extends Component {
                     <div className="login-box">
                         <span className="text-center">login</span>
                         <div className="input-container">
-                            {/*<h1 className="login-name">name </h1>*/}
                             <input name="Username" id="Name" className="validate" required="required"/>
                             <label>Username</label>
                         </div>
@@ -28,11 +28,6 @@ export default class Login extends Component {
                         <Link to="/register">
                             <button type="button" className="btn-register">
                                 register
-                            </button>
-                        </Link>
-                        <Link to="/">
-                            <button type="button" className="btn-register">
-                                Home
                             </button>
                         </Link>
 
