@@ -1,43 +1,42 @@
 package ru.vsu.tp.CodeMessage.controller;
 
-import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-import ru.vsu.tp.CodeMessage.entity.UploadedFiles;
-import ru.vsu.tp.CodeMessage.service.UploadedFilesService;
+import ru.vsu.tp.CodeMessage.entity.Chats;
+import ru.vsu.tp.CodeMessage.entity.Chats;
+import ru.vsu.tp.CodeMessage.service.ChatsService;
 
 import java.util.List;
 import java.util.UUID;
 
 @RestController
-@RequestMapping("/uploaded_files")
-@Tag(name = "Загруженные файлы", description = "")
-public class UploadedFilesController implements Controller<UploadedFiles, UUID> {
+@RequestMapping("/chats")
+public class ChatsController implements Controller<Chats, UUID> {
 
     @Autowired
-    private UploadedFilesService service;
+    private ChatsService service;
 
     @Override
     @GetMapping
-    public List<UploadedFiles> getAll() {
+    public List<Chats> getAll() {
         return service.getAll();
     }
 
     @Override
     @GetMapping("/{id}")
-    public UploadedFiles get(@PathVariable UUID id) {
+    public Chats get(@PathVariable UUID id) {
         return service.getById(id);
     }
 
     @Override
     @PostMapping
-    public UploadedFiles add(UploadedFiles uploadedFiles) {
+    public Chats add(Chats uploadedFiles) {
         return service.add(uploadedFiles);
     }
 
     @Override
     @PutMapping("/{id}")
-    public UploadedFiles update(@RequestBody UploadedFiles uploadedFiles, @PathVariable UUID id) {
+    public Chats update(@RequestBody Chats uploadedFiles, @PathVariable UUID id) {
         return service.update(uploadedFiles, id);
     }
 
@@ -49,7 +48,7 @@ public class UploadedFilesController implements Controller<UploadedFiles, UUID> 
 
     @Override
     @DeleteMapping
-    public void delete(@RequestBody UploadedFiles uploadedFiles) {
+    public void delete(@RequestBody Chats uploadedFiles) {
         service.delete(uploadedFiles);
     }
 }

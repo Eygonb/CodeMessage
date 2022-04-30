@@ -7,6 +7,7 @@ public abstract class BaseException extends RuntimeException {
     private HttpStatus httpStatus;
 
     public BaseException(ApiError apiError, HttpStatus httpStatus) {
+        super(apiError.getDescription());
         this.apiError = apiError;
         this.httpStatus = httpStatus;
     }

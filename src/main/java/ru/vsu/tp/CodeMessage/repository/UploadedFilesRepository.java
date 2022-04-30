@@ -5,5 +5,5 @@ import ru.vsu.tp.CodeMessage.entity.UploadedFiles;
 
 import java.util.UUID;
 
-public interface UploadedFilesRepository extends CrudRepository<UploadedFiles, UUID>, Repository {
+public interface UploadedFilesRepository extends CrudRepository<UploadedFiles, UUID> {
 }

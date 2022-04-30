@@ -5,5 +5,5 @@ import ru.vsu.tp.CodeMessage.entity.Reports;
 
 import java.util.UUID;
 
-public interface ReportsRepository extends CrudRepository<Reports, UUID>, Repository {
+public interface ReportsRepository extends CrudRepository<Reports, UUID> {
 }

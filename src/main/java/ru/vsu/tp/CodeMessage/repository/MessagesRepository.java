@@ -5,6 +5,6 @@ import ru.vsu.tp.CodeMessage.entity.Messages;
 
 import java.util.UUID;
 
-public interface MessagesRepository extends CrudRepository<Messages, UUID>, Repository {
+public interface MessagesRepository extends CrudRepository<Messages, UUID> {
 
 }

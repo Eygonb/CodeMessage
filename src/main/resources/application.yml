@@ -4,8 +4,15 @@ spring:
   datasource:
     driver-class-name: org.postgresql.Driver
     url: jdbc:postgresql://localhost:5432/code_message
-    username: "postgres"
-    password: "123"
+    username: "custom_user"
+    password: "wasd"
+  security:
+    user:
+      name: "user"
+      password: "user"
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher
   jpa:
     properties:
       hibernate:

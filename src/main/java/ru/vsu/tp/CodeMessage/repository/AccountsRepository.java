@@ -5,5 +5,5 @@ import ru.vsu.tp.CodeMessage.entity.Accounts;
 
 import java.util.UUID;
 
-public interface AccountsRepository extends CrudRepository<Accounts, UUID>, Repository {
+public interface AccountsRepository extends CrudRepository<Accounts, UUID> {
 }

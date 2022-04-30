@@ -1,43 +1,43 @@
 package ru.vsu.tp.CodeMessage.controller;
 
-import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-import ru.vsu.tp.CodeMessage.entity.UploadedFiles;
-import ru.vsu.tp.CodeMessage.service.UploadedFilesService;
+import ru.vsu.tp.CodeMessage.entity.Messages;
+import ru.vsu.tp.CodeMessage.entity.Messages;
+import ru.vsu.tp.CodeMessage.service.MessagesService;
+
 
 import java.util.List;
 import java.util.UUID;
 
 @RestController
-@RequestMapping("/uploaded_files")
-@Tag(name = "Загруженные файлы", description = "")
-public class UploadedFilesController implements Controller<UploadedFiles, UUID> {
+@RequestMapping("/messages")
+public class MessagesController implements Controller<Messages, UUID> {
 
     @Autowired
-    private UploadedFilesService service;
+    private MessagesService service;
 
     @Override
     @GetMapping
-    public List<UploadedFiles> getAll() {
+    public List<Messages> getAll() {
         return service.getAll();
     }
 
     @Override
     @GetMapping("/{id}")
-    public UploadedFiles get(@PathVariable UUID id) {
+    public Messages get(@PathVariable UUID id) {
         return service.getById(id);
     }
 
     @Override
     @PostMapping
-    public UploadedFiles add(UploadedFiles uploadedFiles) {
+    public Messages add(Messages uploadedFiles) {
         return service.add(uploadedFiles);
     }
 
     @Override
     @PutMapping("/{id}")
-    public UploadedFiles update(@RequestBody UploadedFiles uploadedFiles, @PathVariable UUID id) {
+    public Messages update(@RequestBody Messages uploadedFiles, @PathVariable UUID id) {
         return service.update(uploadedFiles, id);
     }
 
@@ -49,7 +49,7 @@ public class UploadedFilesController implements Controller<UploadedFiles, UUID> 
 
     @Override
     @DeleteMapping
-    public void delete(@RequestBody UploadedFiles uploadedFiles) {
+    public void delete(@RequestBody Messages uploadedFiles) {
         service.delete(uploadedFiles);
     }
 }

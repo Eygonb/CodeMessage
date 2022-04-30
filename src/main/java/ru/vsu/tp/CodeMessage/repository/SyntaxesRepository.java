@@ -4,5 +4,5 @@ import org.springframework.data.repository.CrudRepository;
 import ru.vsu.tp.CodeMessage.entity.Syntaxes;
 import ru.vsu.tp.CodeMessage.entity.id.SyntaxesId;
 
-public interface SyntaxesRepository extends CrudRepository<Syntaxes, SyntaxesId>, Repository {
+public interface SyntaxesRepository extends CrudRepository<Syntaxes, SyntaxesId> {
 }
