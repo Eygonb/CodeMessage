@@ -1,5 +1,6 @@
 package ru.vsu.tp.CodeMessage.controller;
 
+import io.swagger.annotations.Api;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import ru.vsu.tp.CodeMessage.entity.UnreadMsgs;
@@ -12,6 +13,7 @@ import ru.vsu.tp.CodeMessage.entity.id.UnreadMsgsId;
 
 @RestController
 @RequestMapping("/unread_msgs")
+@Api(description = "Контроллер непрочитанных сообщений")
 public class UnreadMsgsController implements Controller<UnreadMsgs, UnreadMsgsId> {
 
     @Autowired
