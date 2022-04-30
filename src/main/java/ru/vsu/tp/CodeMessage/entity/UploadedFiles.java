@@ -3,9 +3,11 @@ package ru.vsu.tp.CodeMessage.entity;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.Table;
 import java.util.UUID;
 
 @Entity
+@Table(name = "uploaded_files")
 public class UploadedFiles implements EntityTemplate<UploadedFiles, UUID> {
     @Id
     private UUID id;
