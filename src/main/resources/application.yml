@@ -1,0 +1,20 @@
+spring:
+  application:
+    name: code_message
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5432/code_message
+    username: "custom_user"
+    password: "wasd"
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQL95Dialect
+        show sql: true
+        temp:
+          use_jdbc_metadata_defaults: false
+flyway:
+  url: jdbc:postgres://localhost:5432/code_message
+  schemas: public
+  user: "custom_user"
+  password: "wasd"
