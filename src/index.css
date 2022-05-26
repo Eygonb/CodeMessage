@@ -9,24 +9,25 @@
 }
 
 .messenger {
-    background: #BCCDD0;
+    background: #0f1113;
+    padding-left: 10vh;
+    padding-right: 10vh;
+    padding-top: 0.5%;
+    height: 100vh;
+    /*margin-left: 10vh;*/
+    /*margin-right: 10vh;*/
 }
 
 .app1 {
+    min-height: 98vh;
+    margin-left: 80px;
+    margin-right: 20px;
+    position: relative;
     display: grid;
-    width: 98%;
-    height: 100vh;
-    padding-right: 10px;
-    margin-left: 20px;
-    padding-left: 80px;
-    background: #bccdda;
-    position: static;
     grid-template-columns: 350px auto;
     grid-template-rows: 60px auto 60px;
     grid-column-gap: 1px;
     grid-row-gap: 1px;
-
-
 }
 
 .text-center {
@@ -36,52 +37,6 @@
     margin: -50px 0 80px 0;
     display: block;
     text-align: center;
-}
-
-
-.message-list {
-    grid-row-start: 1;
-    grid-row-end: span 3;
-    display: flex;
-    flex-direction: column;
-    padding-left: 80px;
-    /*padding: 10px;*/
-    border-radius: 10px;
-    align-items: center;
-    /*border-top: 1px solid #eeeef1;*/
-    position: static;
-    min-width: 100vh;
-
-}
-
-.sidebar {
-    height: 100vh;
-    overflow-y: auto;
-    -webkit-overflow-scrolling: initial;
-    grid-row-start: 1;
-    grid-row-end: span 2;
-}
-
-.content {
-    overflow-y: auto;
-    background: #BCCDD0;
-    grid-row-start: 1;
-    grid-row-end: span 2;
-}
-
-.footer {
-    grid-column-start: 2;
-    background: white;
-}
-
-.dialog-preview {
-    flex-basis: 250px;
-    flex-grow: 1;
-    display: grid;
-    padding: 10px;
-    border-bottom: 1px solid #0001;
-    position: relative;
-    float: left;
 }
 
 

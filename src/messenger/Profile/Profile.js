@@ -8,43 +8,41 @@ import profileIMG from '../assets/profile.png';
 export default function UserProfile() {
 
     return (
-        <div className="messenger" >
+        <div className="messenger">
             <NavBar/>
-            <div className="profile-box">
-                {/*<span className="text-center">Profile</span>*/}
+            <div className="app1">
+                <div className="container">
+                    <div className="profile-box">
+                        <div className="profile-header">
+                            <div className="profile-header-item">
+                                <img src={profileIMG} className="profile-header-item"/>
+                                <span className="profile-header-item text-center1">NAme</span>
+                            </div>
+                        </div>
 
-                <div className="profile-header">
-                    <div className="profile-header-item">
+                        <div className="profile-element">
+                            <span className="profile-header-item text1">Some User Description</span>
+                            <p className="text-description">
+                                About User
+                            </p>
+                            <span className="profile-header-item text1">@username</span>
+                            <p className="text-description">
+                                username
+                            </p>
+                        </div>
 
-                        <img src={profileIMG} className="profile-header-item"/>
-                        <span className="profile-header-item text-center1">NAme</span>
+                        <div className="profile-element profile-header-item profile-button">
+                            <button type="button" className="btn-send">
+                                <span className="text1">Send Message</span>
+                            </button>
+                            <button type="button" className="btn-edit">
+                                <span className="text1">Edit Profile</span>
+                            </button>
+                        </div>
+
+
                     </div>
                 </div>
-
-                <div className="profile-element">
-                    <span className="profile-header-item text1">Some User Description</span>
-                    <p className="text-description">
-                        About User
-                    </p>
-                    <span className="profile-header-item text1">@username</span>
-                    <p className="text-description">
-                        username
-                    </p>
-                </div>
-
-                <div className="profile-element profile-header-item">
-                    <button type="button" className="btn-send">
-                        <span className="text1">Send Message</span>
-                    </button>
-                </div>
-
-                <div className="profile-element profile-header-item">
-                    <button type="button"  className="btn-send" style={{backgroundColor: "#00793CFF"}} >
-                        <span className="text1">Edit Profile</span>
-                    </button>
-                </div>
-
-
             </div>
         </div>
     );

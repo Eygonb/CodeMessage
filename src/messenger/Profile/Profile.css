@@ -1,25 +1,22 @@
 .profile-box{
     position: static;
-    background-color: rgb(188, 205, 218);
-    border-radius:10px;
-    padding:70px 100px;
-    margin-top: 2px;
-    margin-left: 100px;
-    /*margin-bottom: 20px;*/
     display: flex;
     flex-direction: column;
-    align-items: center;
-    /*min-width: 100%;*/
     min-height: 97vh;
+    min-width: 120vh;
+    transition: .5s;
+    box-shadow: 0 1px 2px 0 rgb(0 0 0 / 10%);
+    /*min-width: 100%;*/
+
 }
 
 .profile-header{
-    margin-top: -3%;
     height: 30%;
-    width: 112%;
     border: 50px #BCCDD0;
-    background-color: rgba(54, 71, 107, 0.89);
-    border-radius: 12px;
+    background-color: rgb(73, 73, 75);
+
+    border-radius: .95rem;
+    min-height: 100%;
 }
 
 
@@ -37,11 +34,10 @@
 .profile-element {
     margin-top: 1%;
     height: 30%;
-    width: 112%;
+    width: 100%;
     border: 50px #BCCDD0;
-    background-color: rgba(54, 71, 107, 0.89);
-    border-radius: 12px;
-
+    background-color:rgb(73, 73, 75);
+    border-radius: .95rem;
 }
 
 .text-center1{
@@ -70,12 +66,28 @@
     margin-left:3%;
     font-size: 18px;
 }
+.profile-button{
+    margin-left: auto;
+    margin-right: auto;
+}
 
 .btn-send{
     color:#fff;
-    background-color: rgba(54, 71, 107, 0.89);
+    background-color: rgb(40, 130, 253);
     border: 12px #fff;
     padding:10px 20px;
     text-transform:uppercase;
-    border-radius:12px;
+    margin-right: 10px;
+    border-radius: .95rem;
+}
+
+.btn-edit{
+    color:#fff;
+    background-color:
+            rgb(232, 106, 71);
+    border: 12px #fff;
+    padding:10px 20px;
+    text-transform:uppercase;
+
+    border-radius: .95rem;
 }

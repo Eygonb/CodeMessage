@@ -1,6 +1,6 @@
 import React, {useState, useEffect, Component} from 'react';
 import {NavBar} from "./Navigation/NavBar";
-import ChatMenu from "./ChatMenu";
+import ChatMenu from "./chat/ChatMenu";
 
 export default class Home extends Component {
     render() {
