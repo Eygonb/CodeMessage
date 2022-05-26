@@ -1,7 +1,4 @@
 .navbar-cm {
-    margin-top: 0.5%;
-    margin-left: 12px;
-    margin-bottom: 20px;
     display: flex;
     flex-direction: column;
     position: fixed;
@@ -9,9 +6,7 @@
     padding-left: 0.5rem;
     padding-bottom: 2rem;
     width: 80px;
-    min-height: 97vh;
-    background: #2E4D7B;
-    /*background-color: #3c629f;*/
+    background: #323338;
     float: left;
     border-radius: 10px;
 }
