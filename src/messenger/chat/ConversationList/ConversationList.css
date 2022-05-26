@@ -1,0 +1,145 @@
+
+.conversation-list-card {
+    position: relative;
+    height: 97vh;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: initial;
+    grid-row-start: 1;
+    grid-row-end: span 2;
+    background: rgb(37, 39, 42);
+    transition: .5s;
+    margin-bottom: 30px;
+    border-radius: .95rem;
+    box-shadow: 0 1px 2px 0 rgb(0 0 0 / 10%);
+    width: 340px;
+    padding: 10px;
+    white-space: nowrap;
+    z-index: 7;
+    list-style: none;
+}
+.card-header{
+    border-radius: 15px 15px 0 0 !important;
+    border-bottom: 0 !important;
+}
+.chat{
+    margin-top: auto;
+    margin-bottom: auto;
+}
+.contacts_body{
+    padding:  0.75rem 0 !important;
+    overflow-y: auto;
+    white-space: nowrap;
+}
+
+.people-list {
+    -moz-transition: .5s;
+    -o-transition: .5s;
+    -webkit-transition: .5s;
+    transition: .5s
+}
+
+.people-list .chat-list li {
+    overflow-y: auto;
+    padding: 10px 15px;
+    list-style: none;
+    border-radius: 3px
+}
+
+.people-list .chat-list li:hover {
+    background: rgba(50, 51, 56, 0.82);
+    cursor: pointer;
+}
+
+
+.people-list .chat-list li.active {
+    background: #efefef
+}
+
+.people-list .chat-list li .name {
+    font-size: 15px
+}
+
+.people-list .chat-list img {
+    width: 45px;
+    border-radius: 50%
+}
+
+.people-list img {
+    float: left;
+    border-radius: 50%
+}
+
+.about h6{
+    color: #cac9cd;
+}
+
+.people-list .about {
+    margin-left: 45px;
+    padding-left: 10px;
+}
+
+.people-list .chat-list:hover h6 {
+    color: rgb(255, 255, 255);
+}
+
+.people-list .chat-list:hover .last-mes {
+    color: rgb(255, 255, 255);
+}
+
+.people-list .status {
+    color: #cac9cd;
+    font-size: 13px
+}
+
+.people-list .chat-list:hover .status {
+    color: #ffffff;
+    font-size: 13px
+}
+.online,
+.offline,
+.me {
+    margin-right: 2px;
+    font-size: 8px;
+    vertical-align: middle
+}
+
+.online {
+    border-radius: 50rem;
+    color: #86c541
+}
+
+.offline {
+
+    border-radius: 50rem;
+    color: #ff0000
+}
+
+.last-mes{
+    color: #dddee3;
+    margin-top: 6px;
+    margin-bottom: 6px;
+    display: flex;
+}
+.last-mes-text{
+    padding-left: 12px;
+    font-size: 12px;
+
+}
+.unread {
+    margin-left: auto;
+    margin-right: 0;
+    background-color: #ea6b47;
+    color: #fff;
+    border-radius: 50%;
+    width: 18px;
+    display: flex;
+    height: 18px;
+    float: right;
+    justify-content: center;
+    font-size: 12px;
+}
+@media(max-width: 576px){
+    .contacts_card{
+        margin-bottom: 15px !important;
+    }
+}
