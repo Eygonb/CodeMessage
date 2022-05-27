@@ -1,15 +1,23 @@
 import React, {useState, useEffect} from 'react';
 import './chat.css'
+import PopupConv from "./PopupConv";
+import * as PropTypes from "prop-types";
+
 
 export default function Conversation(props) {
+    const [isOpen, setIsOpen] = useState(false);
 
+    const togglePopup = () => {
+        setIsOpen(!isOpen);
+    }
     const {photo, name, mes_text, unread} = props.data;
     //todo добавить unread в пропсдату
 
+
     return (
         <div className="container">
-            <div className="col-md-8 col-xl-6 chat">
-                <div className="card">
+            <div className="col-md-8 col-xl-6">
+                <div className="card chat">
                     <div className="card-header msg_head">
                         <div className="d-flex bd-highlight">
                             <div className="img_cont">
@@ -21,16 +29,12 @@ export default function Conversation(props) {
                                 <div className='conv-status'>Last seen: 2 hours ago</div>
                             </div>
                         </div>
-                        <span id="action_menu_btn"><i className="fa fa-ellipsis-v"></i></span>
-                        <div className="action_menu">
-                            <ul>
-                                <li><i className="fa fa-user-circle"></i> View profile</li>
-                                <li><i className="fa fa-users"></i> Add to close friends</li>
-                                <li><i className="fa fa-plus"></i> Add to group</li>
-                                <li><i className="fa fa-ban"></i> Block</li>
-                            </ul>
-                        </div>
+                        <span id="action_menu_btn" onClick={togglePopup}>
+                            <i className="fa fa-ellipsis-v"></i>
+                        </span>
+
                     </div>
+                    {isOpen && <PopupConv data={props.data} handleClose={togglePopup}/>}
                     <div className="card-body msg_card_body">
                         <div className="d-flex justify-content-start mb-4">
                             <div className="img_cont_msg">
@@ -120,5 +124,6 @@ export default function Conversation(props) {
                 </div>
             </div>
         </div>
+
     );
 }

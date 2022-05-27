@@ -7,8 +7,8 @@ body{
     border-radius: .95rem!important;
     position: relative;
     width: 130vh;
-    height: 97vh;
-    box-shadow: 0 1px 2px 0 rgb(0 0 0 / 10%);
+    height: 97vh!important;
+    box-shadow: 0 1px 2px 0 rgba(255, 255, 255, 0.38);
     margin-bottom: 10px;
 }
 
@@ -156,15 +156,14 @@ h6{
     font-size: 20px;
 }
 .action_menu{
-    z-index: 1;
+    z-index: 11;
     position: absolute;
     padding: 15px 0;
-    background-color: rgba(0,0,0,0.5);
+    background-color: rgba(133, 134, 136, 0.83);
     color: white;
     border-radius: 15px;
     top: 30px;
     right: 15px;
-    display: none;
 }
 .action_menu ul{
     list-style: none;

@@ -28,10 +28,6 @@ export const NavBar = () => {
             </div>
 
             <div className="nav_element">
-                <img src={addIMG} className="nav_element"/>
-            </div>
-
-            <div className="nav_element">
                 <Link to="/settings">
                     <img src={settingsIMG} className="nav_element"/>
                 </Link>

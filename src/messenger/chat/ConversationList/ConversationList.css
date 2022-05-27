@@ -15,7 +15,6 @@
     padding: 10px;
     white-space: nowrap;
     z-index: 7;
-    list-style: none;
 }
 .card-header{
     border-radius: 15px 15px 0 0 !important;
