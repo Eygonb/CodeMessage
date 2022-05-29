@@ -7,7 +7,7 @@ export default function ConversationListItem(props) {
         shave('.conversation-snippet', 20);
     })
 
-    const {photo, name, mes_text, unread} = props.data;
+    const {id, imgId, chatName, mes_text, unread} = props.data;
     //todo добавить unread в пропсдату
 
     return (
@@ -15,9 +15,9 @@ export default function ConversationListItem(props) {
         <div className="conversation-list-item">
             <ul className="list-unstyled chat-list mt-2 mb-0">
                 <li className="clearfix">
-                    <img src={photo} alt="avatar"/>
+                    <img src={imgId} alt="avatar"/>
                     <div className="about">
-                        <h6>{name}</h6>
+                        <h6>{chatName}</h6>
                         <div className="last-mes">
                             <div className="last-mes-text">{mes_text}</div>
                             {(unread != 0) &&

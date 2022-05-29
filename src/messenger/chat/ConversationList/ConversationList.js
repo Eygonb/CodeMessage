@@ -4,6 +4,7 @@ import "./ConversationList.css"
 import axios from "axios";
 import ConversationListItem from "./ConversationListItem";
 import AddChat from "../AddChat";
+import jsonfile from "../../../testdata/messageList.json"
 
 export default function ConversationList(props) {
     const [conversations, setConversations] = useState([]);
@@ -16,13 +17,14 @@ export default function ConversationList(props) {
     const togglePopup = () => {
         setIsOpen(!isOpen);
     }
-
+    
     const getConversations = () => {
         axios.get('https://randomuser.me/api/?results=20').then(response => {
             let newConversations = response.data.results.map(result => {
                 return {
-                    photo: result.picture.large,
-                    name: `${result.name.first} ${result.name.last}`,
+                    id: result.login.uuid,
+                    imgId: result.picture.large,
+                    chatName: `${result.name.first} ${result.name.last}`,
                     mes_text: `${result.gender}`,
                     unread: `${Math.floor(Math.random() * 8)}`
                 };
@@ -49,7 +51,7 @@ export default function ConversationList(props) {
                             conversations.map(conversation =>
 
                                 <ConversationListItem
-                                    key={conversation.name}
+                                    key={conversation.id}
                                     data={conversation}
                                 />
                             )

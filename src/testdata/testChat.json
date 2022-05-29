@@ -1,0 +1,74 @@
+[
+  {
+    "mes_id": 1,
+    "user_id": 1,
+    "senderName": "Bob",
+    "text_msg": "What are you doing here?",
+    "time_msg": "2021-01-14",
+    "was_changed": "false"
+  },
+  {
+    "mes_id": 2,
+    "userId": 2,
+    "senderName": "Alice",
+    "text_msg": "Go back to work!",
+    "time_msg": "2021-02-15",
+    "was_changed": "false"
+  },
+  {
+    "mes_id": 3,
+    "user_id": 1,
+    "senderName": "Bob",
+    "text_msg": "Ok, but...",
+    "time_msg": "2021-01-14",
+    "was_changed": "false"
+  },
+  {
+    "mes_id": 4,
+    "userId": 2,
+    "senderName": "Alice",
+    "text_msg": "Go back to work, son of a pig!",
+    "time_msg": "2021-02-15",
+    "was_changed": "true"
+  },
+  {
+    "mes_id": 5,
+    "user_id": 1,
+    "senderName": "Bob",
+    "text_msg": "Ok, ok",
+    "time_msg": "2021-01-15",
+    "was_changed": "true"
+  },
+  {
+    "mes_id": 6,
+    "user_id": 1,
+    "senderName": "Bob",
+    "text_msg": "Ok, I would like you to know that I love you❤!",
+    "time_msg": "2021-01-15",
+    "was_changed": "true"
+  },
+  {
+    "mes_id": 7,
+    "userId": 2,
+    "senderName": "Alice",
+    "text_msg": "Idiot! I'm your fake account!",
+    "time_msg": "2021-02-15",
+    "was_changed": "false"
+  },
+  {
+    "mes_id": 8,
+    "user_id": 1,
+    "senderName": "Bob",
+    "text_msg": "Ok, ok",
+    "time_msg": "2021-01-15",
+    "was_changed": "false"
+  },
+  {
+    "mes_id": 9,
+    "user_id": 1,
+    "senderName": "Bob",
+    "text_msg": "Ok, I would like you to know that I love you❤!",
+    "time_msg": "2021-01-15",
+    "was_changed": "true"
+  }
+]

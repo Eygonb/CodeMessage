@@ -14,8 +14,9 @@ export default function ChatMenu() {
         axios.get('https://randomuser.me/api/?results=1').then(response => {
             let newConversations = response.data.results.map(result => {
                 return {
-                    photo: result.picture.large,
-                    name: `${result.name.first} ${result.name.last}`,
+                    id: result.login.uuid,
+                    imgId: result.picture.large,
+                    chatName: `${result.name.first} ${result.name.last}`,
                     mes_text: `${result.gender}`,
                     unread: `${Math.floor(Math.random() * 8)}`
                 };
@@ -32,7 +33,7 @@ export default function ChatMenu() {
                 user.map(conversation =>
 
                     <Conversation
-                        key={conversation.name}
+                        key={conversation.id}
                         data={conversation}
                     />
                 )

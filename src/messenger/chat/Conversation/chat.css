@@ -1,152 +1,185 @@
-body{
+body {
     background-color: rgba(255, 255, 255, 0.85);
 }
-.card {
-    background: rgb(37, 39, 41) !important;
-    transition: .5s;
-    border-radius: .95rem!important;
+
+.card-box {
     position: relative;
     width: 130vh;
-    height: 97vh!important;
-    box-shadow: 0 1px 2px 0 rgba(255, 255, 255, 0.38);
+    height: 97vh !important;
     margin-bottom: 10px;
 }
 
-.chat{
+.card {
+    background: rgb(37, 39, 41) !important;
+    transition: .5s;
+    border-radius: .95rem !important;
+    width: 130vh;
+    height: 97vh !important;
+    box-shadow: 0 1px 2px 0 rgba(255, 255, 255, 0.38);
+}
+
+.chat {
     margin-top: auto;
     margin-bottom: auto;
 }
-h6{
+
+h6 {
     color: #f2f2f5;
 }
-.conv-status{
+
+.conv-status {
     font-size: 12px;
     color: rgba(242, 242, 245, 0.75);
 }
 
-.msg_card_body{
+.msg_card_body {
     overflow-y: auto;
 }
-.card-header{
+
+.card-header {
     background: #4b4b4b !important;
     border-radius: .95rem .95rem 0 0 !important;
     border-bottom: 0 !important;
 }
-.card-footer{
+
+.card-footer {
     border-radius: 0 0 .95rem .95rem !important;
     border-top: 0 !important;
 }
-.container{
+
+.container {
     align-content: center;
 }
 
-.type_msg{
+.type_msg {
     background-color: rgb(74, 74, 75) !important;
-    color:white !important;
+    color: white !important;
     height: 60px !important;
     overflow-y: auto;
 }
-.type_msg:focus{
-    box-shadow:none !important;
-    outline:0px !important;
+
+.type_msg:focus {
+    box-shadow: none !important;
+    outline: 0px !important;
 }
-.attach_btn{
+
+.attach_btn {
     border-radius: 15px 0 0 15px !important;
     background-color: rgb(74, 74, 75) !important;
     color: white !important;
     cursor: pointer;
 }
-.send_btn{
+
+.send_btn {
     border-radius: 0 15px 15px 0 !important;
     background-color: rgb(74, 74, 75) !important;
     color: white !important;
     cursor: pointer;
 }
 
-.user_img{
+.user_img {
     height: 70px;
     width: 70px;
 
 }
 
-.user_img_msg{
+.user_img_msg {
     height: 40px;
     width: 40px;
 
 }
-.img_cont{
+
+.img_cont {
     position: relative;
     height: 70px;
     width: 70px;
 }
 
-.online_icon{
+.online_icon {
     position: absolute;
     height: 15px;
-    width:15px;
+    width: 15px;
     background-color: #4cd137;
     border-radius: 50%;
     bottom: 0.2em;
     right: 0.4em;
-    border:1.5px solid white;
+    border: 1.5px solid white;
 }
-.offline{
+
+.offline {
     background-color: #c23616 !important;
 }
 
-.user_info{
+.user_info {
     margin-top: auto;
     margin-bottom: auto;
     margin-left: 15px;
 }
-.user_info span{
+
+.user_info span {
     font-size: 20px;
     color: #cac9cd;
 }
-.user_info p{
+
+.user_info p {
     font-size: 10px;
     color: #cac9cd;
 }
 
-.msg_cotainer{
+.msg_cotainer {
     margin-top: auto;
-    margin-bottom: auto;
     margin-left: 10px;
     border-radius: 25px;
     color: #ffffff;
     background-color: #313233;
-    padding: 10px;
+    /*padding: 10px;*/
+
+    padding: 10px 20px;
     position: relative;
+
 }
-.msg_cotainer_send{
+
+.msg_cotainer_send {
     margin-top: auto;
-    margin-bottom: auto;
     margin-right: 10px;
     border-radius: 25px;
-
     color: #ffffff;
     background-color: #2883fe;
-    padding: 10px;
+    padding: 10px 20px;
     position: relative;
 }
-.msg_time{
-    position: absolute;
+
+.msg_time {
+    position: relative;
     left: 0;
-    bottom: -35px;
+    margin-top: 2px;
+    color: rgb(255, 255, 255);
+    font-size: 10px;
+
+}
+
+.msg_was_changed {
+    padding-left: 10px;
     color: rgb(255, 255, 255);
     font-size: 10px;
 }
-.msg_time_send{
-    position: absolute;
-    right:0;
-    bottom: -35px;
+.msg_time_send {
+    position: relative;
+    margin-top: 2px;
     color: rgb(255, 255, 255);
     font-size: 10px;
 }
-.msg_head{
+.msg_was_changed_send {
+    padding-left: 10px;
+    color: rgb(255, 255, 255);
+    font-size: 10px;
+}
+
+.msg_head {
     position: relative;
 }
-#action_menu_btn{
+
+#action_menu_btn {
     position: absolute;
     margin-right: 20px;
     right: 1px;
@@ -155,32 +188,5 @@ h6{
     cursor: pointer;
     font-size: 20px;
 }
-.action_menu{
-    z-index: 11;
-    position: absolute;
-    padding: 15px 0;
-    background-color: rgba(133, 134, 136, 0.83);
-    color: white;
-    border-radius: 15px;
-    top: 30px;
-    right: 15px;
-}
-.action_menu ul{
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-.action_menu ul li{
-    width: 100%;
-    padding: 10px 15px;
-    margin-bottom: 5px;
-}
-.action_menu ul li i{
-    padding-right: 10px;
 
-}
-.action_menu ul li:hover{
-    cursor: pointer;
-    background-color: rgba(0,0,0,0.2);
-}
 
