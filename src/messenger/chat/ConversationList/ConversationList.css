@@ -1,4 +1,3 @@
-
 .conversation-list-card {
     position: relative;
     height: 97vh;
@@ -16,19 +15,27 @@
     white-space: nowrap;
     z-index: 7;
 }
-.card-header{
+
+.card-header {
     border-radius: 15px 15px 0 0 !important;
     border-bottom: 0 !important;
 }
-.chat{
+
+.chat {
     margin-top: auto;
     margin-bottom: auto;
 }
-.contacts_body{
-    padding:  0.75rem 0 !important;
+
+.contacts_body {
+    padding: 0.75rem 0 !important;
     overflow-y: auto;
     white-space: nowrap;
 }
+
+.input-button {
+    cursor: pointer;
+}
+
 
 .people-list {
     -moz-transition: .5s;
@@ -68,7 +75,7 @@
     border-radius: 50%
 }
 
-.about h6{
+.about h6 {
     color: #cac9cd;
 }
 
@@ -94,6 +101,7 @@
     color: #ffffff;
     font-size: 13px
 }
+
 .online,
 .offline,
 .me {
@@ -113,17 +121,19 @@
     color: #ff0000
 }
 
-.last-mes{
+.last-mes {
     color: #dddee3;
     margin-top: 6px;
     margin-bottom: 6px;
     display: flex;
 }
-.last-mes-text{
+
+.last-mes-text {
     padding-left: 12px;
     font-size: 12px;
 
 }
+
 .unread {
     margin-left: auto;
     margin-right: 0;
@@ -137,8 +147,9 @@
     justify-content: center;
     font-size: 12px;
 }
-@media(max-width: 576px){
-    .contacts_card{
+
+@media (max-width: 576px) {
+    .contacts_card {
         margin-bottom: 15px !important;
     }
 }

@@ -23,9 +23,7 @@ body {
     margin-bottom: auto;
 }
 
-h6 {
-    color: #f2f2f5;
-}
+
 
 .conv-status {
     font-size: 12px;
@@ -115,6 +113,10 @@ h6 {
     margin-bottom: auto;
     margin-left: 15px;
 }
+.user_info h6{
+    color: #f2f2f5!important;
+    font-size: 20px;
+}
 
 .user_info span {
     font-size: 20px;
@@ -123,7 +125,6 @@ h6 {
 
 .user_info p {
     font-size: 10px;
-    color: #cac9cd;
 }
 
 .msg_cotainer {

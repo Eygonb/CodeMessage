@@ -10,7 +10,6 @@ export default function Conversation(props) {
         setIsOpen(!isOpen);
     }
     const {id, imgId, chatName, mes_text, unread} = props.data;
-    //todo добавить unread в пропсдату
     const {mes_id, text_msg, chat_id, user_id, time_msg, was_changed} = props.data;
 
 
@@ -26,7 +25,7 @@ export default function Conversation(props) {
                                     <span className="online_icon"></span>
                                 </div>
                                 <div className="user_info">
-                                    <h6 className="m-b-0">{chatName}</h6>
+                                    <h6>{chatName}</h6>
                                     <div className='conv-status'>Online</div>
                                 </div>
                             </div>

@@ -39,10 +39,10 @@ export default function ConversationList(props) {
                     <div id="plist" className="people-list">
                         <div className="input-group">
                             <input type="text" className="form-control search" placeholder="Search..."/>
-                            <div className="input-group-prepend">
+                            <div className="input-group-prepend input-button">
                                 <span className="input-group-text"><i className="fa fa-search"></i></span>
                             </div>
-                            <div className="input-group-prepend">
+                            <div className="input-group-prepend input-button">
                                 <span className="input-group-text action_menu_btn" onClick={togglePopup}><i className="fa fa-plus"></i></span>
                             </div>
 

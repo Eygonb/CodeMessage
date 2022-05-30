@@ -12,6 +12,7 @@
     z-index: 12;
     position: absolute;
     padding: 15px 0;
+    right:5vh;
     background-color: rgba(133, 134, 136, 0.83);
     color: white;
     border-radius: 15px;
@@ -19,7 +20,7 @@
 }
 
 .add{
-    left: 30vh
+    left: 30vh;
 }
 
 .action_menu ul{
