@@ -3,7 +3,10 @@ import * as React from 'react';
 import "./Profile.css"
 import "../../index.css"
 
-import profileIMG from '../assets/profile.png';
+// import profileIMG from '../assets/profile.png';
+
+
+import JsonData from "../../testdata/account.json"
 
 export default function UserProfile() {
 
@@ -11,38 +14,59 @@ export default function UserProfile() {
         <div className="messenger">
             <NavBar/>
             <div className="app1">
-                <div className="container">
-                    <div className="profile-box">
-                        <div className="profile-header">
-                            <div className="profile-header-item">
-                                <img src={profileIMG} className="profile-header-item"/>
-                                <span className="profile-header-item text-center1">NAme</span>
+
+                {JsonData.map((user) => {
+                        return (
+                            <div className="container">
+                                <div className="profile-box">
+
+                                    <div className="profile-header">
+                                        <div className="profile-header-item">
+                                            <img src={user.img_id} className="profile-header-image"/>
+                                            <h2 className="profile-header-item text-center1">{user.username}</h2>
+                                        </div>
+                                    </div>
+                                    <div className="profile-element">
+                                        <h3 className="">{user.title}</h3>
+                                        <p className="text-description">
+                                            About User
+                                        </p>
+                                        <h3 className=""> @{user.username}</h3>
+                                        <p className="text-description">
+                                            username
+                                        </p>
+                                    </div>
+                                    <div className="profile-element profile-header-item profile-button">
+                                        {user.id !== 1 &&
+                                            <button type="button" className="btn-send">
+                                                <span className="text1">Send Message</span>
+                                            </button>
+                                        }
+                                        {
+                                            user.id == 1 ?
+                                                <button type="button" className="btn-edit">
+                                                    <span className="text1">Edit Profile</span>
+                                                </button>
+                                                :
+                                                <div>
+                                                    <button type="button" className="btn-edit">
+                                                        <span className="text1">Block</span>
+                                                    </button>
+                                                    <button type="button" className="btn-edit">
+                                                        <span className="text1">Report</span>
+                                                    </button>
+                                                </div>
+                                        }
+
+
+                                    </div>
+
+
+                                </div>
                             </div>
-                        </div>
-
-                        <div className="profile-element">
-                            <span className="profile-header-item text1">Some User Description</span>
-                            <p className="text-description">
-                                About User
-                            </p>
-                            <span className="profile-header-item text1">@username</span>
-                            <p className="text-description">
-                                username
-                            </p>
-                        </div>
-
-                        <div className="profile-element profile-header-item profile-button">
-                            <button type="button" className="btn-send">
-                                <span className="text1">Send Message</span>
-                            </button>
-                            <button type="button" className="btn-edit">
-                                <span className="text1">Edit Profile</span>
-                            </button>
-                        </div>
-
-
-                    </div>
-                </div>
+                        )
+                    }
+                )}
             </div>
         </div>
     );
