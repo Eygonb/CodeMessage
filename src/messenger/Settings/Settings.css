@@ -13,6 +13,11 @@
     transition: .5s;
 }
 
+.settings-box h2{
+    margin-top: 25px;
+    margin-bottom: 25px;
+}
+
 .settings-item{
     grid-row-start: 1;
     grid-row-end: span 3;
@@ -27,6 +32,8 @@
     color:#fff;
     background-color: rgb(73, 73, 75);
 }
+
+
 
 .text-center1{
     margin-top: 30px;

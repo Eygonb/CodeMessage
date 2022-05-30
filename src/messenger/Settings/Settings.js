@@ -11,7 +11,7 @@ export default class Settings extends Component {
                 <NavBar/>
 
                 <div className="settings-box">
-                    <span className="text-center1">Settings</span>
+                    <h2 className="text-center1">Settings</h2>
                     <div className="settings-item">
                         <p className="text-center1">1</p>
                     </div>
