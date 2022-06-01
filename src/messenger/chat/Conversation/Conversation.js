@@ -2,6 +2,7 @@ import React, {useState, useEffect} from 'react';
 import './chat.css'
 import PopupConv from "./PopupConv";
 import JsonData from "../../../testdata/testChat.json"
+import ConversationItem from "./ConversationItem/ConversationItem";
 
 export default function Conversation(props) {
     const [isOpen, setIsOpen] = useState(false);
@@ -10,9 +11,8 @@ export default function Conversation(props) {
         setIsOpen(!isOpen);
     }
     const {id, imgId, chatName, mes_text, unread} = props.data;
-    const {mes_id, text_msg, chat_id, user_id, time_msg, was_changed} = props.data;
-
-
+    const messages = JsonData;
+    const imgConv = imgId;
     return (
         <div className="container">
             <div className="col-md-8 col-xl-6">
@@ -32,56 +32,15 @@ export default function Conversation(props) {
                             <span id="action_menu_btn" onClick={togglePopup}>
                             <i className="fa fa-ellipsis-v"></i>
                         </span>
-
                         </div>
                         {isOpen && <PopupConv data={props.data} handleClose={togglePopup}/>}
-
                         <div className="card-body msg_card_body">
-                            {JsonData.map((message) => {
+                            {messages.map((message) => {
                                     return (
-                                        <div>
-                                            {message.user_id == 1 ?
-                                                <div className="d-flex justify-content-start mb-4">
-                                                    <div className="img_cont_msg">
-                                                        <img src={imgId} className="rounded-circle user_img_msg"/>
-                                                    </div>
-                                                    <div className="msg_cotainer">
-                                                        <div>
-                                                            {message.text_msg}</div>
-                                                        {message.was_changed == "false" ?
-                                                            <span className="msg_time">{message.time_msg}</span>
-                                                            : <span className="msg_time">{message.time_msg}
-                                                                <span className="msg_was_changed"> изменено
-                                                            </span>
-                                                    </span>
-                                                        }
-
-                                                    </div>
-                                                </div>
-                                                :
-                                                <div className="d-flex justify-content-end mb-4">
-                                                    <div className="msg_cotainer_send">
-                                                        <div>
-                                                            {message.text_msg}</div>
-                                                        {message.was_changed == "false" ?
-                                                            <span className="msg_time_send">{message.time_msg}</span>
-                                                            : <span className="msg_time_send">{message.time_msg}
-                                                                <span className="msg_was_changed_send"> изменено
-                                                            </span>
-                                                        </span>}
-                                                    </div>
-                                                    <div className="img_cont_msg">
-                                                        <img src="https://randomuser.me/api/portraits/men/33.jpg"
-                                                             className="rounded-circle user_img_msg"/>
-                                                    </div>
-                                                </div>
-                                            }
-                                        </div>
-                                    )
+                                        <ConversationItem message={message} imgId={imgId} key={message.mes_id}/>)
                                 }
                             )}
                         </div>
-
 
                         <div className="card-footer">
                             <div className="input-group">
