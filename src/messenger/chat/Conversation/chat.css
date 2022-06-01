@@ -6,14 +6,15 @@ body {
     position: relative;
     width: 130vh;
     height: 97vh !important;
-    margin-bottom: 10px;
+    margin-bottom: 1vh;
 }
 
 .card {
-    background: rgb(37, 39, 41) !important;
+    background: linear-gradient(45deg, rgb(38, 38, 38), #252729FF);
+    /*background: #252729FF !important;*/
     transition: .5s;
     border-radius: .95rem !important;
-    width: 130vh;
+    width: 67vw;
     height: 97vh !important;
     box-shadow: 0 1px 2px 0 rgba(255, 255, 255, 0.38);
 }
@@ -23,10 +24,8 @@ body {
     margin-bottom: auto;
 }
 
-
-
 .conv-status {
-    font-size: 12px;
+    font-size: 1.5vh;
     color: rgba(242, 242, 245, 0.75);
 }
 
@@ -35,7 +34,7 @@ body {
 }
 
 .card-header {
-    background: #4b4b4b !important;
+    background: linear-gradient(to right,#4b4b4b, rgba(75, 75, 75, 0.56))!important;
     border-radius: .95rem .95rem 0 0 !important;
     border-bottom: 0 !important;
 }
@@ -50,9 +49,9 @@ body {
 }
 
 .type_msg {
-    background-color: rgb(74, 74, 75) !important;
+    background: linear-gradient(45deg, rgb(74, 74, 75), #323338)!important;
     color: white !important;
-    height: 60px !important;
+    height: 6vh !important;
     overflow-y: auto;
 }
 
@@ -62,46 +61,44 @@ body {
 }
 
 .attach_btn {
-    border-radius: 15px 0 0 15px !important;
+    border-radius: 1.5vh 0 0 1.5vh !important;
     background-color: rgb(74, 74, 75) !important;
     color: white !important;
     cursor: pointer;
 }
 
 .send_btn {
-    border-radius: 0 15px 15px 0 !important;
-    background-color: rgb(74, 74, 75) !important;
+    border-radius: 0 1.5vh 1.5vh 0 !important;
+    background-color: #323338 !important;
     color: white !important;
     cursor: pointer;
 }
 
 .user_img {
-    height: 70px;
-    width: 70px;
-
+    height: 7vmin;
+    width: 7vmin;
 }
 
 .user_img_msg {
-    height: 40px;
-    width: 40px;
-
+    height: 4vmin;
+    width: 4vmin;
 }
 
 .img_cont {
     position: relative;
-    height: 70px;
-    width: 70px;
+    height: 7vmin;
+    width: 7vmin;
 }
 
 .online_icon {
     position: absolute;
-    height: 15px;
-    width: 15px;
+    height: 1.5vmin;
+    width: 1.5vmin;
     background-color: #4cd137;
     border-radius: 50%;
     bottom: 0.2em;
     right: 0.4em;
-    border: 1.5px solid white;
+    border: 0.1vh solid white;
 }
 
 .offline {
@@ -111,56 +108,56 @@ body {
 .user_info {
     margin-top: auto;
     margin-bottom: auto;
-    margin-left: 15px;
+    margin-left: 1.5vh;
 }
 .user_info h6{
     color: #f2f2f5!important;
-    font-size: 20px;
+    font-size: 2vh;
 }
 
 .user_info span {
-    font-size: 20px;
+    font-size: 2vh;
     color: #cac9cd;
 }
 
 .user_info p {
-    font-size: 10px;
+    font-size: 1vh;
 }
 
-.msg_cotainer {
+.msg_container {
     margin-top: auto;
-    margin-left: 10px;
-    border-radius: 25px;
+    margin-left: 1vh;
+    border-radius: 2.5vh;
     color: #ffffff;
-    background-color: #313233;
+    background: linear-gradient(to left, rgba(60, 60, 61, 0.91), #313233);
+    font-size: 1.8vh;
     /*padding: 10px;*/
-
-    padding: 10px 20px;
+    padding: 1vh 1vw;
     position: relative;
 
 }
 
-.msg_cotainer_send {
+.msg_container_send {
     margin-top: auto;
-    margin-right: 10px;
-    border-radius: 25px;
+    margin-right: 1vh;
+    border-radius:  1.8vh;
+    font-size: 2vh;
     color: #ffffff;
-    background-color: #2883fe;
-    padding: 10px 20px;
+    background: linear-gradient(to right, rgba(40, 131, 254, 0.88), rgba(40, 131, 254, 0.55));
+    padding: 1vh 1vw;
     position: relative;
 }
 
 .msg_time {
     position: relative;
     left: 0;
-    margin-top: 2px;
+    margin-top: 0.2vh;
     color: rgb(255, 255, 255);
-    font-size: 10px;
-
+    font-size: 1vh;
 }
 
 .msg_was_changed {
-    padding-left: 10px;
+    padding-left: 1vw;
     color: rgb(255, 255, 255);
     font-size: 10px;
 }
@@ -168,12 +165,12 @@ body {
     position: relative;
     margin-top: 2px;
     color: rgb(255, 255, 255);
-    font-size: 10px;
+    font-size: 1vh;
 }
 .msg_was_changed_send {
-    padding-left: 10px;
+    padding-left: 1vh;
     color: rgb(255, 255, 255);
-    font-size: 10px;
+    font-size: 1vh;
 }
 
 .msg_head {
@@ -182,12 +179,12 @@ body {
 
 #action_menu_btn {
     position: absolute;
-    margin-right: 20px;
-    right: 1px;
-    top: 10px;
+    margin-right: 1vw;
+    right: 0.1vh;
+    top: 1vh;
     color: white;
     cursor: pointer;
-    font-size: 20px;
+    font-size: 2vh;
 }
 
 

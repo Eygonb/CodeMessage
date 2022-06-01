@@ -1,43 +1,35 @@
 .conversation-list-card {
     position: relative;
     height: 97vh;
+    width: 36vh;
     overflow-y: auto;
     -webkit-overflow-scrolling: initial;
-    grid-row-start: 1;
-    grid-row-end: span 2;
-    background: rgb(37, 39, 42);
     transition: .5s;
-    margin-bottom: 30px;
     border-radius: .95rem;
-    box-shadow: 0 1px 2px 0 rgb(0 0 0 / 10%);
-    width: 340px;
-    padding: 10px;
+    padding: 1vh;
+
     white-space: nowrap;
+    box-shadow: 0 1px 2px 0 rgb(0 0 0 / 10%);
+    background: linear-gradient(to top, rgb(37, 39, 42), rgba(50, 51, 56, 0.94));
     z-index: 7;
 }
 
-.card-header {
+.card-header{
     border-radius: 15px 15px 0 0 !important;
     border-bottom: 0 !important;
 }
-
-.chat {
+.chat{
     margin-top: auto;
     margin-bottom: auto;
 }
-
-.contacts_body {
-    padding: 0.75rem 0 !important;
+.contacts_body{
+    padding:  0.75rem 0 !important;
     overflow-y: auto;
     white-space: nowrap;
 }
 
-.input-button {
-    cursor: pointer;
-}
-
-
 .people-list {
+    overflow-x: hidden;
     -moz-transition: .5s;
     -o-transition: .5s;
     -webkit-transition: .5s;
@@ -45,6 +37,7 @@
 }
 
 .people-list .chat-list li {
+    overflow-x: hidden;
     overflow-y: auto;
     padding: 10px 15px;
     list-style: none;
@@ -62,11 +55,15 @@
 }
 
 .people-list .chat-list li .name {
-    font-size: 15px
+    white-space: nowrap;
+    overflow: hidden;
+    padding-left: 1.3vh;
+    text-overflow: ellipsis;
+    font-size: 2vh;
 }
 
 .people-list .chat-list img {
-    width: 45px;
+    width: 5vh;
     border-radius: 50%
 }
 
@@ -75,13 +72,12 @@
     border-radius: 50%
 }
 
-.about h6 {
+.about h6{
     color: #cac9cd;
 }
 
 .people-list .about {
-    margin-left: 45px;
-    padding-left: 10px;
+    margin-left: 6vh;
 }
 
 .people-list .chat-list:hover h6 {
@@ -92,64 +88,30 @@
     color: rgb(255, 255, 255);
 }
 
-.people-list .status {
-    color: #cac9cd;
-    font-size: 13px
-}
-
-.people-list .chat-list:hover .status {
-    color: #ffffff;
-    font-size: 13px
-}
-
-.online,
-.offline,
-.me {
-    margin-right: 2px;
-    font-size: 8px;
-    vertical-align: middle
-}
-
-.online {
-    border-radius: 50rem;
-    color: #86c541
-}
-
-.offline {
-
-    border-radius: 50rem;
-    color: #ff0000
-}
-
-.last-mes {
+.last-mes{
     color: #dddee3;
     margin-top: 6px;
     margin-bottom: 6px;
     display: flex;
 }
 
-.last-mes-text {
-    padding-left: 12px;
-    font-size: 12px;
-
+.last-mes-text{
+    width: 88%;
+    white-space: nowrap;
+    overflow: hidden;
+    padding-left: 1.3vh;
+    font-size: 1.3vh;
+    text-overflow: ellipsis;
 }
-
 .unread {
     margin-left: auto;
-    margin-right: 0;
     background-color: #ea6b47;
     color: #fff;
     border-radius: 50%;
-    width: 18px;
-    display: flex;
-    height: 18px;
+    width: 2vh!important;
+    height: 2vh!important;
     float: right;
+    display: flex;
     justify-content: center;
-    font-size: 12px;
-}
-
-@media (max-width: 576px) {
-    .contacts_card {
-        margin-bottom: 15px !important;
-    }
+    font-size: 1.2vh;
 }

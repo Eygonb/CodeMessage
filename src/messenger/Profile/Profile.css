@@ -1,91 +1,111 @@
-.profile-box{
+.profile-box {
     position: static;
     display: flex;
     flex-direction: column;
     min-height: 97vh;
-    min-width: 120vh;
+    min-width: 67vw;
     transition: .5s;
     box-shadow: 0 1px 2px 0 rgb(0 0 0 / 10%);
-    /*min-width: 100%;*/
 }
 
-.profile-header{
+.profile-header {
     height: 30%;
-    border: 50px #BCCDD0;
-    background-color: rgb(73, 73, 75);
+    background: linear-gradient(45deg, rgba(44, 45, 45, 0.95), rgb(73, 73, 75));
     border-radius: .95rem;
     min-height: 100%;
-    padding: 10px;
+    padding: 2vmin;
+    position: relative;
 }
 
 
-.profile-header-item{
+.profile-header-item {
     position: static;
     display: flex;
     flex-direction: row;
     /*justify-content: center;*/
-    width: 125px;
-    height: 125px;
+    width: 12.5vh;
+    height: 12.5vh;
 }
-.profile-header-image{
-    border-radius: 50%;
-    margin-right: 20px;
+
+.profile-image {
     box-shadow: 0 2px 8px 1px rgba(129, 129, 129, 0.49);
 }
 
+.profile-info {
+    margin-top: auto;
+    margin-bottom: auto;
+    margin-left: 2.5vw;
+}
+
+.profile-info h2 {
+    font-size: 3vh;
+    color: #f2f2f5 !important;
+    margin-bottom: 0 !important;
+}
+
+.profile-info p {
+    font-size: 1.8vh;
+    color: rgba(242, 242, 245, 0.7);
+    padding-left: 1vw;
+    text-transform: lowercase;
+    white-space: nowrap;
+    /*margin-bottom: 0!important;*/
+}
+
 .profile-element {
-    padding: 20px;
+    padding: 2vmin;
     margin-top: 1%;
     height: 30%;
     width: 100%;
     border: 50px #BCCDD0;
-    background-color:rgb(73, 73, 75);
+    background: linear-gradient(45deg, rgba(44, 45, 45, 0.95), rgb(73, 73, 75));
+    /*background-color:rgb(73, 73, 75);*/
     border-radius: .95rem;
 }
 
-.text-center1{
-    color:#fff;
-    text-transform:uppercase;
-    font-size: 23px;
-    display: block;
-    text-align: center;
+
+.profile-element h3 {
+    white-space: nowrap;
+    color: #fff;
+    text-transform: uppercase;
+    font-size: 2.2vh;
+    margin-bottom: 0px;
 }
 
-.profile-element h3{
+.text-description {
+    padding-left: 2vw;
     white-space: nowrap;
-    color:#fff;
-    text-transform:uppercase;
-    font-size: 23px;
-}
-
-.text-description{
-    white-space: nowrap;
-    color:#fff;
+    color: rgba(242, 242, 245, 0.7);
     text-transform: lowercase;
-    font-size: 18px;
+    font-size: 1.8vh;
+    margin-bottom: 0 !important;
 }
-.profile-button{
+
+.profile-button {
     margin-left: auto;
     margin-right: auto;
 }
 
-.btn-send{
-    color:#fff;
+.delimiting {
+    margin-bottom: 1vh;
+}
+
+.btn-send {
+    color: #fff;
     background-color: rgb(40, 130, 253);
-    border: 12px #fff;
-    padding:10px 20px;
-    text-transform:uppercase;
-    margin-right: 10px;
+    border: 1vmin #fff;
+    padding: 1vh 2vw;
+    text-transform: uppercase;
+    margin-right: 1vw;
     border-radius: .95rem;
 }
 
-.btn-edit{
-    color:#fff;
-    background-color:
-            rgb(232, 106, 71);
-    border: 12px #fff;
-    padding:10px 20px;
-    text-transform:uppercase;
+.btn-edit {
+    color: #fff;
+    background-color: rgb(232, 106, 71);
+    border: 1vmin #fff;
+    padding: 1vh 2vw;
+    text-transform: uppercase;
     border-radius: .95rem;
-    margin-right: 10px;
+    margin-right: 1vw;
 }

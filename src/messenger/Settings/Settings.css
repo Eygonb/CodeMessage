@@ -1,21 +1,19 @@
 .settings-box{
-    position: relative;
-    background-color: rgb(37, 39, 42);
-    margin-left: 90px;
-    margin-bottom: 20px;
-
-    margin-right: 20px;
+    background: linear-gradient(45deg, rgba(37, 39, 42), rgba(37, 39, 42, 0.64));
+    position: static;
     display: flex;
     flex-direction: column;
     align-items: center;
     min-height: 97vh;
-    border-radius: .95rem;
+    min-width: 67vw;
     transition: .5s;
+    border-radius: .95rem;
+    box-shadow: 0 1px 2px 0 rgb(0 0 0 / 10%);
 }
 
 .settings-box h2{
-    margin-top: 25px;
-    margin-bottom: 25px;
+    margin-top: 2vh;
+    margin-bottom: 2vh;
 }
 
 .settings-item{
@@ -23,25 +21,23 @@
     grid-row-end: span 3;
     display: flex;
     flex-direction: column;
-    padding: 10px;
-    border-radius: 10px;
+    padding: 1vmin;
+    border-radius: .95rem;
     align-items: center;
     position: static;
-    min-width: 100vh;
-    margin-top: 10px;
+    width: 30vw;
+    margin-top: 1vh;
     color:#fff;
-    background-color: rgb(73, 73, 75);
+    background: linear-gradient(45deg, rgba(73, 73, 75, 0.67), rgba(73, 73, 75));
 }
 
 
 
 .text-center1{
-    margin-top: 30px;
-    margin-left: auto;
-    margin-right: auto;
+    margin-top: 1vh;
     color:#fff;
     text-transform:uppercase;
-    font-size: 23px;
+    font-size: 2vh;
     display: block;
     text-align: center;
 }

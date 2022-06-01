@@ -4,28 +4,27 @@
     sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    background-color: #BCCDD0;
+    /*background-color: #BCCDD0;*/
     height: auto;
+
+    background: linear-gradient(45deg, #0f1113, #2c2d2d);
 }
 
+h1, h2, h3, h4, h5, h6{
+    font-family: "Raleway", sans-serif;
+}
 .messenger {
-    background: #0f1113;
-    padding-left: 10vh;
-    padding-right: 10vh;
+    /*background: #0f1113;*/
+    padding-left: 4vw;
+    padding-right: 4vw;
     padding-top: 0.5%;
     height: 100vh;
-    /*margin-left: 10vh;*/
-    /*margin-right: 10vh;*/
 }
 
 .app1 {
     min-height: 98vh;
-    margin-left: 80px;
-    margin-right: 20px;
-    position: relative;
     display: grid;
-    grid-template-columns: 350px auto;
-    grid-template-rows: 60px auto 60px;
+    grid-template-columns: 38vh auto;
     grid-column-gap: 1px;
     grid-row-gap: 1px;
 }
@@ -33,8 +32,8 @@
 .text-center {
     color: #fff;
     text-transform: uppercase;
-    font-size: 23px;
-    margin: -50px 0 80px 0;
+    font-size: 2vh;
+    margin: -5vh 0 8vh 0;
     display: block;
     text-align: center;
 }
