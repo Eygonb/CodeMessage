@@ -2,7 +2,6 @@ import {NavBar} from "../Navigation/NavBar";
 import * as React from 'react';
 import "./Admin.css"
 import "../../index.css"
-import ConversationSearch from "../ConversationSearch";
 
 
 export default function Admin() {
@@ -14,7 +13,7 @@ export default function Admin() {
                 <div className="admin-box">
                     <span className="textA">admin page</span>
                     <div className="search-box">
-                        <ConversationSearch/>
+                        {/*<ConversationSearch/>*/}
                     </div>
                     <div className="admin-page-element">
                         <button type="button" className="btn-admin">

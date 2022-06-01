@@ -62,13 +62,5 @@
     "text_msg": "Ok, ok",
     "time_msg": "2021-01-15",
     "was_changed": "false"
-  },
-  {
-    "mes_id": 9,
-    "user_id": 1,
-    "senderName": "Bob",
-    "text_msg": "Ok, I would like you to know that I love you❤!",
-    "time_msg": "2021-01-15",
-    "was_changed": "true"
   }
 ]

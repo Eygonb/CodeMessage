@@ -9,23 +9,25 @@ export default class Settings extends Component {
         return (
             <div className="messenger">
                 <NavBar/>
-
-                <div className="settings-box">
-                    <h2 className="text-center1">Settings</h2>
-                    <div className="settings-item">
-                        <p className="text-center1">1</p>
-                    </div>
-                    <div className="settings-item">
-                        <p className="text-center1">2</p>
-                    </div>
-                    <div className="settings-item">
-                        <p className="text-center1">3</p>
-                    </div>
-                    <div className="settings-item">
-                        <p className="text-center1">4</p>
+                <div className="app1">
+                    <div className="container">
+                        <div className="settings-box">
+                            <h2 className="text-center1">Settings</h2>
+                            <div className="settings-item">
+                                <p className="text-center1">1</p>
+                            </div>
+                            <div className="settings-item">
+                                <p className="text-center1">2</p>
+                            </div>
+                            <div className="settings-item">
+                                <p className="text-center1">3</p>
+                            </div>
+                            <div className="settings-item">
+                                <p className="text-center1">4</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
-
             </div>
         );
     }

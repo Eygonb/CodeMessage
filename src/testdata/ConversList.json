@@ -1,0 +1,198 @@
+[
+  {
+    "id": "6af7f85d-27d9-437-b020-f07697b6ca0e",
+    "type": "PERSONAL",
+    "imgId": "https://sun9-8.userapi.com/impg/4T6ycotaVLz3k2lpQVlzld2rm9yjgYWOmv-1BQ/bQh0p9zG47I.jpg?size=994x1080&quality=96&sign=8766744849b8240e3794b08f4ff846d9&c_uniq_tag=PeAoqMOggmt3h4r89YJ4adwKTFYgUshq-0hxqS-Pi0A&type=album",
+    "chatName": "Van Darkholme",
+    "mes_text": "Fisting is three hundred bucks",
+    "unread": 0,
+    "accounts": [
+      {
+        "id": "7a82b060-287c-4c0e-99ac-6629ea81d71e",
+        "username": "Тестовый юзер",
+        "email": "prom@gmail.com",
+        "type": "?",
+        "title": "Запись пользователя",
+        "imgId": "https://randomuser.me/api/portraits/women/81.jpg"
+      }
+    ]
+  },
+  {
+    "id": "6af7f822-27d9-4a77-b020-f07697b6ca0e",
+    "type": "PERSONAL",
+    "imgId": "https://sun9-70.userapi.com/impg/J5ewuM0maWFRBJ7PyZpwqG4gTIY6yfsCwGM-Yw/RO--z5tbGi8.jpg?size=604x604&quality=95&sign=d0199bedf1dcb92844b42c0e17789d43&c_uniq_tag=B0442BypTIPZt9CTy6PTgRpyFkWfc_QA6LpOpbZ_FGE&type=album",
+    "chatName": "Billy Herrington",
+    "mes_text": "How do you like that?",
+    "unread": 3,
+    "accounts": [
+      {
+        "id": "7a82b060-287c-4c0e-99ac-6629ea81d71e",
+        "username": "Тестовый юзер",
+        "email": "prom@gmail.com",
+        "type": "?",
+        "title": "Запись пользователя",
+        "imgId": "https://randomuser.me/api/portraits/women/81.jpg"
+      }
+    ]
+  },
+  {
+    "id": "6af1f8dd-27d9-437-b020-f07697b6ca0e",
+    "type": "PERSONAL",
+    "imgId": "https://cdn.cloudflare.steamstatic.com/steamcommunity/public/images/avatars/ed/ed4a5fbf115b66eda7167ce9459ceffaceda16a0_full.jpg",
+    "chatName": "Steve Rambo",
+    "mes_text": "Without further interruption let's celebrate and",
+    "unread": 0,
+    "accounts": [
+      {
+        "id": "7a82b060-287c-4c0e-99ac-6629ea81d71e",
+        "username": "Тестовый юзер",
+        "email": "prom@gmail.com",
+        "type": "?",
+        "title": "Запись пользователя",
+        "imgId": "https://randomuser.me/api/portraits/women/81.jpg"
+      }
+    ]},
+  {
+    "id": "50277892-f860-4cb6-a126-46b99435d83b",
+    "type": "OPEN GROUP",
+    "imgId": "https://randomuser.me/api/portraits/men/75.jpg",
+    "chatName": "Открытая беседа",
+    "mes_text": "Ghbdtn? rfr e dct[ ltkf",
+    "unread": 2,
+    "accounts": [
+      {
+        "id": "7a82b060-287c-4c0e-99ac-6629ea81d71e",
+        "username": "Тестовый юзер",
+        "imgId": "https://randomuser.me/api/portraits/men/75.jpg",
+        "email": "test@gmail.com",
+        "type": "?",
+        "title": "Запись пользователя"
+      },
+      {
+        "id": "e6827207-176f-46c1-b6e3-ef2cb0bce43f",
+        "username": "Тестовый юзер",
+        "imgId": "https://randomuser.me/api/portraits/men/72.jpg",
+        "email": "test@gmail.com",
+        "type": "?",
+        "title": "Запись пользователя"
+      }
+    ]
+  },
+  {
+    "id": "6af7f8dd-27d9-4a77-b020-f07697b6ca0e",
+    "type": "PERSONAL",
+    "imgId": "https://randomuser.me/api/portraits/women/81.jpg",
+    "chatName": "Персональный чат",
+    "mes_text": "Ты где?",
+    "unread": 0,
+    "accounts": [
+      {
+        "id": "7a82b060-287c-4c0e-99ac-6629ea81d71e",
+        "username": "Тестовый юзер",
+        "email": "prom@gmail.com",
+        "type": "?",
+        "title": "Запись пользователя",
+        "imgId": "https://randomuser.me/api/portraits/women/81.jpg"
+      }
+    ]
+  },
+  {
+    "id": "6af7f8dd-27d9-437-b020-f07697b6ca0e",
+    "type": "PERSONAL",
+    "imgId": "https://randomuser.me/api/portraits/women/83.jpg",
+    "chatName": "Персональный чат",
+    "mes_text": "Когда ты напишешь код?",
+    "unread": 0,
+    "accounts": [
+      {
+        "id": "7a82b060-287c-4c0e-99ac-6629ea81d71e",
+        "username": "Тестовый юзер",
+        "email": "prom@gmail.com",
+        "type": "?",
+        "title": "Запись пользователя",
+        "imgId": "https://randomuser.me/api/portraits/women/81.jpg"
+      }
+    ]
+  },
+  {
+    "id": "6af7f8dd-2729-4a77-b020-f07697b6ca0e",
+    "type": "OPEN GROUP",
+    "imgId": "https://randomuser.me/api/portraits/men/81.jpg",
+    "chatName": "Открытая беседа",
+    "mes_text": "@BAlexD, напишите пожалуйста код!",
+    "unread": 55,
+    "accounts": [
+      {
+        "id": "7a82b060-287c-4c0e-99ac-6629ea81d71e",
+        "username": "Тестовый юзер",
+        "email": "prom@gmail.com",
+        "type": "?",
+        "title": "Запись пользователя",
+        "imgId": "https://randomuser.me/api/portraits/women/81.jpg"
+      }
+    ]
+  },
+  {
+    "id": "6af7f8dd-27d9-4a77-b020-f07697b6ca0e",
+    "type": "PERSONAL",
+    "imgId": "https://randomuser.me/api/portraits/women/8.jpg",
+    "chatName": "Виктория ХрензнаетКакая",
+    "mes_text": "Ok?",
+    "unread": 0,
+    "accounts": [
+      {
+        "id": "7a82b060-287c-4c0e-99ac-6629ea81d71e",
+        "username": "Тестовый юзер",
+        "email": "prom@gmail.com",
+        "type": "?",
+        "title": "Запись пользователя",
+        "imgId": "https://randomuser.me/api/portraits/women/81.jpg"
+      }
+    ]
+  },
+  {
+    "id": "50277892-f860-4cb6-a126-46b99435d83b",
+    "type": "OPEN GROUP",
+    "imgId": "https://sun9-68.userapi.com/s/v1/if1/mQ79mmWRjk5_T3HAXrE-JPjXD86GaKs6sYSpu5pEG6SWu1Pu7VmJT1xQChWjULCJwNg-qg.jpg?size=200x200&quality=96&type=album",
+    "chatName": "Кучка умдаков",
+    "mes_text": "уууууу",
+    "unread": 2,
+    "accounts": [
+      {
+        "id": "7a82b060-287c-4c0e-99ac-6629ea81d71e",
+        "username": "Тестовый юзер",
+        "imgId": "https://randomuser.me/api/portraits/men/75.jpg",
+        "email": "test@gmail.com",
+        "type": "?",
+        "title": "Запись пользователя"
+      },
+      {
+        "id": "e6827207-176f-46c1-b6e3-ef2cb0bce43f",
+        "username": "Тестовый юзер",
+        "imgId": "https://randomuser.me/api/portraits/men/72.jpg",
+        "email": "test@gmail.com",
+        "type": "?",
+        "title": "Запись пользователя"
+      }
+    ]
+  },
+  {
+    "id": "6af7f8dd-27d9-4a77-b020-f07697b6ca0e",
+    "type": "PERSONAL",
+    "imgId": "https://randomuser.me/api/portraits/women/8.jpg",
+    "chatName": "Виктория ХрензнаетКакая",
+    "mes_text": "Ok?",
+    "unread": 0,
+    "accounts": [
+      {
+        "id": "7a82b060-287c-4c0e-99ac-6629ea81d71e",
+        "username": "Тестовый юзер",
+        "email": "prom@gmail.com",
+        "type": "?",
+        "title": "Запись пользователя",
+        "imgId": "https://randomuser.me/api/portraits/women/81.jpg"
+      }
+    ]
+  }
+
+]

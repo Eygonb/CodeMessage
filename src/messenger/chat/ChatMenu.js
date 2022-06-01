@@ -25,12 +25,10 @@ export default function ChatMenu() {
         });
     }
 
-
     return (
         <div className='app1'>
             <ConversationList/>
-            {
-                user.map(conversation =>
+            {user.map(conversation =>
 
                     <Conversation
                         key={conversation.id}

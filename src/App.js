@@ -8,7 +8,7 @@ import Admin from "./messenger/Admin/Admin";
 
 function App() {
     return (
-        <div>
+        <div className="body">
             <Routes>
                 <Route path="/" element={<Home/>}/>
                 <Route path="/settings" element={<Settings/>}/>
@@ -17,9 +17,7 @@ function App() {
                 <Route path="/register" element={<Register/>}/>
                 <Route path="/admin" element={<Admin/>}/>
             </Routes>
-
             {/*<Home/>*/}
-
         </div>
     )
 }
