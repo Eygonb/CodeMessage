@@ -4,7 +4,6 @@ import "./ConversationList.css"
 import axios from "axios";
 import ConversationListItem from "./ConversationListItem";
 import AddChat from "../AddChat";
-import jsonfile from "../../../testdata/messageList.json"
 
 export default function ConversationList(props) {
     const [conversations, setConversations] = useState([]);
@@ -17,7 +16,7 @@ export default function ConversationList(props) {
     const togglePopup = () => {
         setIsOpen(!isOpen);
     }
-    
+
     const getConversations = () => {
         axios.get('https://randomuser.me/api/?results=20').then(response => {
             let newConversations = response.data.results.map(result => {
@@ -32,33 +31,26 @@ export default function ConversationList(props) {
             setConversations([...conversations, ...newConversations])
         });
     }
+
     return (
-
         <div className="container">
-                <div className="conversation-list-card">
-                    <div id="plist" className="people-list">
-                        <div className="input-group">
-                            <input type="text" className="form-control search" placeholder="Search..."/>
-                            <div className="input-group-prepend input-button">
-                                <span className="input-group-text"><i className="fa fa-search"></i></span>
-                            </div>
-                            <div className="input-group-prepend input-button">
-                                <span className="input-group-text action_menu_btn" onClick={togglePopup}><i className="fa fa-plus"></i></span>
-                            </div>
-
+            <div className="conversation-list-card">
+                <div id="plist" className="people-list">
+                    <div className="input-group">
+                        <input type="text" className="form-control search" placeholder="Search..."/>
+                        <div className="input-group-prepend input-button">
+                            <span className="input-group-text"><i className="fa fa-search"></i></span>
                         </div>
-                        {
-                            conversations.map(conversation =>
-
-                                <ConversationListItem
-                                    key={conversation.id}
-                                    data={conversation}
-                                />
-                            )
-                        }
-
+                        <div className="input-group-prepend input-button">
+                            <span className="input-group-text action_menu_btn" onClick={togglePopup}><i
+                                className="fa fa-plus"></i></span>
+                        </div>
                     </div>
+
+                    <ConversationListItem/>
+
                 </div>
+            </div>
 
             {isOpen && <AddChat data={props.data} handleClose={togglePopup}/>}
         </div>
