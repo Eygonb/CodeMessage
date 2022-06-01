@@ -1,12 +1,4 @@
 import * as React from 'react';
-
-import homeIMG from '../assets/home.png';
-import profileIMG from '../assets/profile.png';
-import addIMG from '../assets/add.png';
-import settingsIMG from '../assets/settings.png';
-
-import adminIMG from '../assets/admin.png';
-import loginIMG from '../assets/login.png';
 import {Link} from "react-router-dom";
 
 import './Nav-styles.css';
@@ -14,35 +6,45 @@ import './Nav-styles.css';
 export const NavBar = () => {
     return (
         <div className="navbar-cm">
-
-            <div className="nav_element">
-                <Link to="/">
-                    <img src={homeIMG} className="nav_element"/>
-                </Link>
+            <div className="nav_element-box">
+                <div className="nav_element">
+                    <Link to="/">
+                        <i className="nav_element fa fa-home  fa-fw"></i>
+                    </Link>
+                </div>
+            </div>
+            <div className="nav_element-box">
+                <div className="nav_element">
+                    <Link to="/profile">
+                        <i className="nav_element fa fa-user  fa-fw"></i>
+                        {/*<img src={profileIMG} className="nav_element"/>*/}
+                    </Link>
+                </div>
+            </div>
+            <div className="nav_element-box">
+                <div className="nav_element">
+                    <Link to="/settings">
+                        <i className="nav_element fa fa-cog  fa-fw"></i>
+                    </Link>
+                </div>
             </div>
 
-            <div className="nav_element">
-                <Link to="/profile">
-                    <img src={profileIMG} className="nav_element"/>
-                </Link>
+            <div className="nav_element-box">
+                <div className="nav_element">
+                    <Link to="/login">
+                        <i className="nav_element fa fa-id-badge  fa-fw"></i>
+                        {/*<img src={loginIMG} className="nav_element"/>*/}
+                    </Link>
+                </div>
+            </div>
+            <div className="nav_element-box">
+                <div className="nav_element">
+                    <Link to="/admin">
+                        <i className="nav_element fa fa-eye  fa-fw"></i>
+                    </Link>
+                </div>
             </div>
 
-            <div className="nav_element">
-                <Link to="/settings">
-                    <img src={settingsIMG} className="nav_element"/>
-                </Link>
-            </div>
-
-            <div className="nav_element">
-                <Link to="/login">
-                    <img src={loginIMG} className="nav_element"/>
-                </Link>
-            </div>
-            <div className="nav_element">
-                <Link to="/admin">
-                    <img src={adminIMG} className="nav_element"/>
-                </Link>
-            </div>
-
-        </div>);
+        </div>
+    );
 };
