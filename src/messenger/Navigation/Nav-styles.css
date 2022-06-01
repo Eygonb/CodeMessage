@@ -1,20 +1,23 @@
 .navbar-cm {
     display: flex;
     flex-direction: column;
-    position: fixed;
-    padding-top: 1rem;
-    padding-left: 0.5rem;
-    padding-bottom: 2rem;
-    width: 80px;
-    background: #323338;
+    position: static;
+    padding-top: 1vh;
+    padding-bottom: 1vh;
+    min-height: 10vh;
+    background: linear-gradient(45deg, rgba(50, 51, 56, 0.56), #323338);
     float: left;
-    border-radius: 10px;
+    border-radius: .95rem;
 }
-
-.nav_element {
+.nav_element-box{
     cursor: pointer;
     justify-content: center;
-    padding: 5px;
-    width: 50px;
-    height: 50px;
+}
+
+
+.nav_element {
+    margin-right: 1vh;
+    margin-left: 1vh;
+    font-size: 5vh;
+    color: #dddee3;
 }
