@@ -10,24 +10,24 @@ public class Chats implements EntityTemplate<Chats, UUID> {
 
     @Id
     private UUID id;
-    private String text;
+    private String type;
     @Column(name = "img_id")
     private UUID imgId;
     @Column(name = "chat_name")
     private String chatName;
 
-    public Chats(UUID id, String text, UUID imgId, String chatName) {
+    public Chats(UUID id, String type, UUID imgId, String chatName) {
         this.chatName = chatName;
         this.id = id;
         this.imgId = imgId;
-        this.text = text;
+        this.type = type;
     }
 
     public Chats() {  }
 
     @Override
     public Chats updateTo(Chats chats) {
-        text = chats.getText();
+        type = chats.getType();
         imgId = chats.getImgId();
         chatName = chats.getChatName();
         return this;
@@ -42,12 +42,12 @@ public class Chats implements EntityTemplate<Chats, UUID> {
         this.id = id;
     }
 
-    public String getText() {
-        return text;
+    public String getType() {
+        return type;
     }
 
-    public void setText(String text) {
-        this.text = text;
+    public void setType(String text) {
+        this.type = text;
     }
 
     public UUID getImgId() {

@@ -3,11 +3,9 @@ package ru.vsu.tp.CodeMessage.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import ru.vsu.tp.CodeMessage.entity.Accounts;
-import ru.vsu.tp.CodeMessage.entity.Accounts;
 import ru.vsu.tp.CodeMessage.exception.exceptions.ObjectNotFoundException;
 import ru.vsu.tp.CodeMessage.repository.AccountsRepository;
 
-import javax.persistence.Entity;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;

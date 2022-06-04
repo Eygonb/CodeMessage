@@ -3,6 +3,7 @@ package ru.vsu.tp.CodeMessage.entity;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import java.time.ZonedDateTime;
 import java.util.Date;
 import java.util.UUID;
 
@@ -19,9 +20,8 @@ public class Messages implements EntityTemplate<Messages, UUID> {
     private UUID chatId;
     @Column(name = "user_id")
     private UUID userId;
-//    TODO(Определить тип данных для timestamp with time zone)
     @Column(name = "time_msg")
-    private Date timeMsg;
+    private ZonedDateTime timeMsg;
     @Column(name = "was_changed")
     private boolean wasChanged;
     @Column(name = "was_read")
@@ -30,7 +30,7 @@ public class Messages implements EntityTemplate<Messages, UUID> {
     @Column(name = "attachment_id")
     private UUID attachmentId;
 
-    public Messages(UUID id, String textMsg, String type, UUID chatId, UUID userId, Date timeMsg,
+    public Messages(UUID id, String textMsg, String type, UUID chatId, UUID userId, ZonedDateTime timeMsg,
                     boolean wasChanged, boolean wasRead, UUID reply, UUID attachmentId) {
         this.attachmentId = attachmentId;
         this.id = id;
@@ -101,11 +101,11 @@ public class Messages implements EntityTemplate<Messages, UUID> {
         this.userId = userId;
     }
 
-    public Date getTimeMsg() {
+    public ZonedDateTime getTimeMsg() {
         return timeMsg;
     }
 
-    public void setTimeMsg(Date timeMsg) {
+    public void setTimeMsg(ZonedDateTime timeMsg) {
         this.timeMsg = timeMsg;
     }
 
