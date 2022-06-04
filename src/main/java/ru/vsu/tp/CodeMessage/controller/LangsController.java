@@ -1,5 +1,6 @@
 package ru.vsu.tp.CodeMessage.controller;
 
+import io.swagger.annotations.Api;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import ru.vsu.tp.CodeMessage.entity.Langs;
@@ -11,6 +12,7 @@ import java.util.UUID;
 
 @RestController
 @RequestMapping("/langs")
+@Api(description = "Контроллер языков программирования (ЯП)")
 public class LangsController implements Controller<Langs, UUID> {
 
     @Autowired

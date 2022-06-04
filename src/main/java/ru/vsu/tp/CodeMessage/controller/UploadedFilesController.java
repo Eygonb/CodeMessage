@@ -1,5 +1,6 @@
 package ru.vsu.tp.CodeMessage.controller;
 
+import io.swagger.annotations.Api;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -11,7 +12,7 @@ import java.util.UUID;
 
 @RestController
 @RequestMapping("/uploaded_files")
-@Tag(name = "Загруженные файлы", description = "")
+@Api(description = "Контроллер загруженных файлов")
 public class UploadedFilesController implements Controller<UploadedFiles, UUID> {
 
     @Autowired

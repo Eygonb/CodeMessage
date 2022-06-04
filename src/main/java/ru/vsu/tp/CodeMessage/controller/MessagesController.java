@@ -1,5 +1,6 @@
 package ru.vsu.tp.CodeMessage.controller;
 
+import io.swagger.annotations.Api;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import ru.vsu.tp.CodeMessage.entity.Messages;
@@ -12,6 +13,7 @@ import java.util.UUID;
 
 @RestController
 @RequestMapping("/messages")
+@Api(description = "Контроллер сообщений")
 public class MessagesController implements Controller<Messages, UUID> {
 
     @Autowired
