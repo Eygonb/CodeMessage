@@ -1,19 +1,16 @@
-.admin-box{
-    padding-top: 0.5%;
+.admin-box {
     position: static;
-    background-color: rgba(11, 31, 75, 0.89);
-    border-radius:10px;
-    margin-left: 100px;
     display: flex;
     flex-direction: column;
-    min-height: 98vh;
-}
-.bx{
-    background: #bccdda;
-    height: 100vh;
+    min-height: 97vh;
+    min-width: 67vw;
+    transition: .5s;
+    box-shadow: 0 1px 2px 0 rgb(0 0 0 / 10%);
+    background: linear-gradient(45deg, rgba(44, 45, 45, 0.95), rgb(73, 73, 75));
+    border-radius: .95rem;
 }
 
-.search-box{
+.search-box {
     margin: -5px 3px 10px 3px;
 }
 
@@ -25,24 +22,41 @@
     height: 30%;
     width: 30%;
     border: 50px #BCCDD0;
-    /*background-color: rgba(54, 71, 107, 0.89);*/
     border-radius: 12px;
 }
 
-.btn-admin{
-    color:#fff;
-    background-color: rgb(0, 121, 60);
+.btn-admin {
+    color: #fff;
+    background-color: #787A7A;
     border: 12px #fff;
-    padding:10px 20px;
-    text-transform:uppercase;
-    border-radius:12px;
+    padding: 10px 20px;
+    text-transform: uppercase;
+    border-radius: 12px;
 }
-.textA {
 
-     color: #fff;
-     text-transform: uppercase;
-     font-size: 23px;
-     margin: 0.5% 0 0.5% 0;
-     display: block;
-     text-align: center;
- }
+.btn-userList {
+    color: #f2f2f5;
+    background-color: #787A7A;
+    border: 12px #fff;
+    padding: 10px 20px;
+    text-transform: uppercase;
+    border-radius: 12px;
+}
+
+.btn-reportList {
+    color: #f2f2f5;
+    background-color: #5F6161;
+    border: 12px #fff;
+    padding: 10px 20px;
+    text-transform: uppercase;
+    border-radius: 12px;
+}
+
+.textA {
+    color: #fff;
+    text-transform: uppercase;
+    font-size: 23px;
+    margin: 0.5% 0 0.5% 0;
+    display: block;
+    text-align: center;
+}

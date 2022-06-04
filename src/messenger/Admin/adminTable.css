@@ -1,0 +1,27 @@
+.userList-box {
+    margin-top: 1vh;
+    display: flex;
+
+    justify-content: center;
+}
+
+
+table {
+    border: 2px solid rgba(188, 205, 218, 0.34);
+    width: 800px;
+    height: 200px;
+}
+
+th {
+    padding: 5px;
+    border: 2px solid rgba(188, 205, 218, 0.34);
+    color: #f2f2f5;
+    border-bottom: 1px solid #ffffff;
+}
+
+td {
+    text-align: center;
+}
+.closeButton{
+    top: 0;
+}
