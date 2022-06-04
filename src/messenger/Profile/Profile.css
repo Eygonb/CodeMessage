@@ -65,9 +65,8 @@
 
 
 .profile-element h3 {
-    white-space: nowrap;
     color: #fff;
-    text-transform: uppercase;
+    /*text-transform: uppercase;*/
     font-size: 2.2vh;
     margin-bottom: 0px;
 }

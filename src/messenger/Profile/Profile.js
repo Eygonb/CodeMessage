@@ -1,14 +1,13 @@
 import {NavBar} from "../Navigation/NavBar";
-import * as React from 'react';
+import React, {useState} from 'react';
 import "./Profile.css"
 import "../../index.css"
 
-// import profileIMG from '../assets/profile.png';
-
 import JsonData from "../../testdata/account.json"
+import PopupReport from "./PopupReport";
 
 export default function UserProfile() {
-
+    const [showReport, setShowReport] = useState(false)
     return (
         <div className="messenger">
             <NavBar/>
@@ -55,15 +54,15 @@ export default function UserProfile() {
                                             :
                                             <div>
                                                 <button type="button" className="btn-edit">
-                                                    <span className="text1">Block</span>
+                                                   Block
                                                 </button>
-                                                <button type="button" className="btn-edit">
-                                                    <span className="text1">Report</span>
+                                                <button type="button" className="btn-edit" onClick={() => setShowReport(true)}>
+                                                    Report
                                                 </button>
                                             </div>
                                     }
                                 </div>
-
+                                <PopupReport onClose={() =>setShowReport(false)} show={showReport}/>
                             </div>
                         </div>
                     )
