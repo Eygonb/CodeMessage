@@ -22,22 +22,43 @@
 .add{
     left: 30vh;
 }
+.report{
+    left: 40vh;
+    z-index: 12;
+    position: absolute;
+    padding: 15px 0;
+    background-color: rgba(133, 134, 136, 0.83);
+    color: white;
+    border-radius: 15px;
+    top: 5vh;
+    width: 50vw;
+    flex-direction: row;
+}
+.report-button{
+    color: #fff;
+    background-color: rgb(232, 106, 71);
+    border: 1vmin #fff;
+    padding: 1vh 2vw;
+    text-transform: uppercase;
+    border-radius: .95rem;
+    margin-right: 1vw;
+}
 
-.action_menu ul{
+.action_menu-box ul{
     list-style: none;
     padding: 0;
     margin: 0;
 }
-.action_menu ul li{
+.action_menu-box ul li{
     width: 100%;
     padding: 10px 15px;
     margin-bottom: 5px;
 }
-.action_menu ul li i{
+.action_menu-box ul li i{
     padding-right: 10px;
 
 }
-.action_menu ul li:hover{
+.action_menu-box ul li:hover{
     cursor: pointer;
     background-color: rgba(0,0,0,0.2);
 }
