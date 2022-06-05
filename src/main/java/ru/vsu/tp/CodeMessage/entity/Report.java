@@ -3,10 +3,12 @@ package ru.vsu.tp.CodeMessage.entity;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.Table;
 import java.util.UUID;
 
 @Entity
-public class Reports implements EntityTemplate<Reports, UUID> {
+@Table(name = "reports")
+public class Report implements EntityTemplate<Report, UUID> {
 
     @Id
     private UUID id;
@@ -14,18 +16,18 @@ public class Reports implements EntityTemplate<Reports, UUID> {
     private UUID userId;
     private String reason;
 
-    public Reports(UUID id, UUID userId, String reason) {
+    public Report(UUID id, UUID userId, String reason) {
         this.id = id;
         this.userId = userId;
         this.reason = reason;
     }
 
-    public Reports() {  }
+    public Report() {  }
 
     @Override
-    public Reports updateTo(Reports reports) {
-        userId = reports.getUserId();
-        reason = reports.getReason();
+    public Report updateTo(Report report) {
+        userId = report.getUserId();
+        reason = report.getReason();
         return this;
     }
 

@@ -2,10 +2,8 @@ package ru.vsu.tp.CodeMessage.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import ru.vsu.tp.CodeMessage.entity.Langs;
-import ru.vsu.tp.CodeMessage.entity.Langs;
+import ru.vsu.tp.CodeMessage.entity.Lang;
 import ru.vsu.tp.CodeMessage.exception.exceptions.ObjectNotFoundException;
-import ru.vsu.tp.CodeMessage.repository.ChatsRepository;
 import ru.vsu.tp.CodeMessage.repository.LangsRepository;
 
 import java.util.ArrayList;
@@ -13,7 +11,7 @@ import java.util.List;
 import java.util.UUID;
 
 @Service
-public class LangsService implements ServiceTemplate<Langs, UUID> {
+public class LangsService implements ServiceTemplate<Lang, UUID> {
 
     private static LangsService INSTANCE;
     @Autowired
@@ -28,15 +26,15 @@ public class LangsService implements ServiceTemplate<Langs, UUID> {
     private LangsService() { }
 
     @Override
-    public List<Langs> getAll() {
-        List<Langs> target = new ArrayList<>();
+    public List<Lang> getAll() {
+        List<Lang> target = new ArrayList<>();
         repository.findAll().forEach(target::add);
         System.out.println(target);
         return target;
     }
 
     @Override
-    public Langs getById(UUID id) {
+    public Lang getById(UUID id) {
         if (repository.findById(id).isPresent())
             return repository.findById(id).get();
         else
@@ -44,12 +42,12 @@ public class LangsService implements ServiceTemplate<Langs, UUID> {
     }
 
     @Override
-    public Langs add(Langs entity) {
+    public Lang add(Lang entity) {
         return repository.save(entity);
     }
 
     @Override
-    public Langs update(Langs newEntity, UUID id) {
+    public Lang update(Lang newEntity, UUID id) {
         return repository.findById(id)
                 .map(entity -> {
                     try {
@@ -77,7 +75,7 @@ public class LangsService implements ServiceTemplate<Langs, UUID> {
     }
 
     @Override
-    public void delete(Langs entity) {
+    public void delete(Lang entity) {
         repository.delete(entity);
     }
 

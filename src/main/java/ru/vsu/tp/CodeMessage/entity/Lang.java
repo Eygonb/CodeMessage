@@ -3,10 +3,12 @@ package ru.vsu.tp.CodeMessage.entity;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.Table;
 import java.util.UUID;
 
 @Entity
-public class Langs implements EntityTemplate<Langs, UUID> {
+@Table(name = "langs")
+public class Lang implements EntityTemplate<Lang, UUID> {
 
     @Id
     private UUID id;
@@ -15,18 +17,18 @@ public class Langs implements EntityTemplate<Langs, UUID> {
     @Column(name = "file_type")
     private String fileType;
 
-    public Langs(UUID id, String langName, String fileType) {
+    public Lang(UUID id, String langName, String fileType) {
         this.id = id;
         this.langName = langName;
         this.fileType = fileType;
     }
 
-    public Langs() {  }
+    public Lang() {  }
 
     @Override
-    public Langs updateTo(Langs langs) {
-        langName = langs.getLangName();
-        fileType = langs.getFileType();
+    public Lang updateTo(Lang lang) {
+        langName = lang.getLangName();
+        fileType = lang.getFileType();
         return this;
     }
 

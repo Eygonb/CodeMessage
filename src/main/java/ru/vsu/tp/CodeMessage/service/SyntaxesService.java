@@ -2,19 +2,16 @@ package ru.vsu.tp.CodeMessage.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import ru.vsu.tp.CodeMessage.entity.Syntaxes;
-import ru.vsu.tp.CodeMessage.entity.Syntaxes;
+import ru.vsu.tp.CodeMessage.entity.Syntax;
 import ru.vsu.tp.CodeMessage.entity.id.SyntaxesId;
 import ru.vsu.tp.CodeMessage.exception.exceptions.ObjectNotFoundException;
-import ru.vsu.tp.CodeMessage.repository.ChatsRepository;
 import ru.vsu.tp.CodeMessage.repository.SyntaxesRepository;
 
 import java.util.ArrayList;
 import java.util.List;
-import ru.vsu.tp.CodeMessage.entity.id.SyntaxesId;
 
 @Service
-public class SyntaxesService implements ServiceTemplate<Syntaxes, SyntaxesId> {
+public class SyntaxesService implements ServiceTemplate<Syntax, SyntaxesId> {
 
     private static SyntaxesService INSTANCE;
     @Autowired
@@ -29,15 +26,15 @@ public class SyntaxesService implements ServiceTemplate<Syntaxes, SyntaxesId> {
     private SyntaxesService() {  }
 
     @Override
-    public List<Syntaxes> getAll() {
-        List<Syntaxes> target = new ArrayList<>();
+    public List<Syntax> getAll() {
+        List<Syntax> target = new ArrayList<>();
         repository.findAll().forEach(target::add);
         System.out.println(target);
         return target;
     }
 
     @Override
-    public Syntaxes getById(SyntaxesId id) {
+    public Syntax getById(SyntaxesId id) {
         if (repository.findById(id).isPresent())
             return repository.findById(id).get();
         else
@@ -45,12 +42,12 @@ public class SyntaxesService implements ServiceTemplate<Syntaxes, SyntaxesId> {
     }
 
     @Override
-    public Syntaxes add(Syntaxes entity) {
+    public Syntax add(Syntax entity) {
         return repository.save(entity);
     }
 
     @Override
-    public Syntaxes update(Syntaxes newEntity, SyntaxesId id) {
+    public Syntax update(Syntax newEntity, SyntaxesId id) {
         return repository.findById(id)
                 .map(entity -> {
                     try {
@@ -78,7 +75,7 @@ public class SyntaxesService implements ServiceTemplate<Syntaxes, SyntaxesId> {
     }
 
     @Override
-    public void delete(Syntaxes entity) {
+    public void delete(Syntax entity) {
         repository.delete(entity);
     }
 

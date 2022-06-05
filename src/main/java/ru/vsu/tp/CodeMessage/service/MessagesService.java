@@ -2,8 +2,7 @@ package ru.vsu.tp.CodeMessage.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import ru.vsu.tp.CodeMessage.entity.Messages;
-import ru.vsu.tp.CodeMessage.entity.Messages;
+import ru.vsu.tp.CodeMessage.entity.Message;
 import ru.vsu.tp.CodeMessage.exception.exceptions.ObjectNotFoundException;
 import ru.vsu.tp.CodeMessage.repository.MessagesRepository;
 
@@ -12,7 +11,7 @@ import java.util.List;
 import java.util.UUID;
 
 @Service
-public class MessagesService implements ServiceTemplate<Messages, UUID> {
+public class MessagesService implements ServiceTemplate<Message, UUID> {
 
     private static MessagesService INSTANCE;
     @Autowired
@@ -27,15 +26,15 @@ public class MessagesService implements ServiceTemplate<Messages, UUID> {
     private MessagesService() {  }
 
     @Override
-    public List<Messages> getAll() {
-        List<Messages> target = new ArrayList<>();
+    public List<Message> getAll() {
+        List<Message> target = new ArrayList<>();
         repository.findAll().forEach(target::add);
         System.out.println(target);
         return target;
     }
 
     @Override
-    public Messages getById(UUID id) {
+    public Message getById(UUID id) {
         if (repository.findById(id).isPresent())
             return repository.findById(id).get();
         else
@@ -43,12 +42,12 @@ public class MessagesService implements ServiceTemplate<Messages, UUID> {
     }
 
     @Override
-    public Messages add(Messages entity) {
+    public Message add(Message entity) {
         return repository.save(entity);
     }
 
     @Override
-    public Messages update(Messages newEntity, UUID id) {
+    public Message update(Message newEntity, UUID id) {
         return repository.findById(id)
                 .map(entity -> {
                     try {
@@ -76,7 +75,7 @@ public class MessagesService implements ServiceTemplate<Messages, UUID> {
     }
 
     @Override
-    public void delete(Messages entity) {
+    public void delete(Message entity) {
         repository.delete(entity);
     }
 

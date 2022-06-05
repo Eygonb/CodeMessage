@@ -2,18 +2,16 @@ package ru.vsu.tp.CodeMessage.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import ru.vsu.tp.CodeMessage.entity.UnreadMsgs;
-import ru.vsu.tp.CodeMessage.entity.UnreadMsgs;
+import ru.vsu.tp.CodeMessage.entity.UnreadMsg;
 import ru.vsu.tp.CodeMessage.entity.id.UnreadMsgsId;
 import ru.vsu.tp.CodeMessage.exception.exceptions.ObjectNotFoundException;
 import ru.vsu.tp.CodeMessage.repository.UnreadMsgsRepository;
-import ru.vsu.tp.CodeMessage.repository.UserChatsRepository;
 
 import java.util.ArrayList;
 import java.util.List;
 
 @Service
-public class UnreadMsgsService implements ServiceTemplate<UnreadMsgs, UnreadMsgsId> {
+public class UnreadMsgsService implements ServiceTemplate<UnreadMsg, UnreadMsgsId> {
 
     private static UnreadMsgsService INSTANCE;
     @Autowired
@@ -28,15 +26,15 @@ public class UnreadMsgsService implements ServiceTemplate<UnreadMsgs, UnreadMsgs
     private UnreadMsgsService() {  }
 
     @Override
-    public List<UnreadMsgs> getAll() {
-        List<UnreadMsgs> target = new ArrayList<>();
+    public List<UnreadMsg> getAll() {
+        List<UnreadMsg> target = new ArrayList<>();
         repository.findAll().forEach(target::add);
         System.out.println(target);
         return target;
     }
 
     @Override
-    public UnreadMsgs getById(UnreadMsgsId id) {
+    public UnreadMsg getById(UnreadMsgsId id) {
         if (repository.findById(id).isPresent())
             return repository.findById(id).get();
         else
@@ -44,12 +42,12 @@ public class UnreadMsgsService implements ServiceTemplate<UnreadMsgs, UnreadMsgs
     }
 
     @Override
-    public UnreadMsgs add(UnreadMsgs entity) {
+    public UnreadMsg add(UnreadMsg entity) {
         return repository.save(entity);
     }
 
     @Override
-    public UnreadMsgs update(UnreadMsgs newEntity, UnreadMsgsId id) {
+    public UnreadMsg update(UnreadMsg newEntity, UnreadMsgsId id) {
         return repository.findById(id)
                 .map(entity -> {
                     try {
@@ -77,7 +75,7 @@ public class UnreadMsgsService implements ServiceTemplate<UnreadMsgs, UnreadMsgs
     }
 
     @Override
-    public void delete(UnreadMsgs entity) {
+    public void delete(UnreadMsg entity) {
         repository.delete(entity);
     }
 

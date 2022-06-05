@@ -8,7 +8,7 @@ import java.util.UUID;
 
 @Entity
 @Table(name = "uploaded_files")
-public class UploadedFiles implements EntityTemplate<UploadedFiles, UUID> {
+public class UploadedFile implements EntityTemplate<UploadedFile, UUID> {
     @Id
     private UUID id;
     @Column(name = "file_name")
@@ -17,16 +17,16 @@ public class UploadedFiles implements EntityTemplate<UploadedFiles, UUID> {
     private String filePath;
 
 
-    public UploadedFiles(UUID id, String fileName, String filePath) {
+    public UploadedFile(UUID id, String fileName, String filePath) {
         this.id = id;
         this.fileName = fileName;
         this.filePath = filePath;
     }
 
-    public UploadedFiles() {  }
+    public UploadedFile() {  }
 
     @Override
-    public UploadedFiles updateTo(UploadedFiles entity) {
+    public UploadedFile updateTo(UploadedFile entity) {
         filePath = entity.getFilePath();
         fileName = entity.getFileName();
         return this;

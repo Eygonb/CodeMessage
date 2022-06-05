@@ -2,8 +2,7 @@ package ru.vsu.tp.CodeMessage.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import ru.vsu.tp.CodeMessage.entity.Chats;
-import ru.vsu.tp.CodeMessage.entity.Chats;
+import ru.vsu.tp.CodeMessage.entity.Chat;
 import ru.vsu.tp.CodeMessage.exception.exceptions.ObjectNotFoundException;
 import ru.vsu.tp.CodeMessage.repository.ChatsRepository;
 
@@ -12,7 +11,7 @@ import java.util.List;
 import java.util.UUID;
 
 @Service
-public class ChatsService implements ServiceTemplate<Chats, UUID> {
+public class ChatsService implements ServiceTemplate<Chat, UUID> {
 
     private static ChatsService INSTANCE;
     @Autowired
@@ -27,15 +26,15 @@ public class ChatsService implements ServiceTemplate<Chats, UUID> {
     private ChatsService() {  }
 
     @Override
-    public List<Chats> getAll() {
-        List<Chats> target = new ArrayList<>();
+    public List<Chat> getAll() {
+        List<Chat> target = new ArrayList<>();
         repository.findAll().forEach(target::add);
         System.out.println(target);
         return target;
     }
 
     @Override
-    public Chats getById(UUID id) {
+    public Chat getById(UUID id) {
         if (repository.findById(id).isPresent())
             return repository.findById(id).get();
         else
@@ -43,12 +42,12 @@ public class ChatsService implements ServiceTemplate<Chats, UUID> {
     }
 
     @Override
-    public Chats add(Chats entity) {
+    public Chat add(Chat entity) {
         return repository.save(entity);
     }
 
     @Override
-    public Chats update(Chats newEntity, UUID id) {
+    public Chat update(Chat newEntity, UUID id) {
         return repository.findById(id)
                 .map(entity -> {
                     try {
@@ -76,7 +75,7 @@ public class ChatsService implements ServiceTemplate<Chats, UUID> {
     }
 
     @Override
-    public void delete(Chats entity) {
+    public void delete(Chat entity) {
         repository.delete(entity);
     }
 

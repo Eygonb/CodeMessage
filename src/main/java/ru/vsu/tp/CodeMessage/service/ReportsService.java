@@ -2,10 +2,8 @@ package ru.vsu.tp.CodeMessage.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import ru.vsu.tp.CodeMessage.entity.Reports;
-import ru.vsu.tp.CodeMessage.entity.Reports;
+import ru.vsu.tp.CodeMessage.entity.Report;
 import ru.vsu.tp.CodeMessage.exception.exceptions.ObjectNotFoundException;
-import ru.vsu.tp.CodeMessage.repository.MessagesRepository;
 import ru.vsu.tp.CodeMessage.repository.ReportsRepository;
 
 import java.util.ArrayList;
@@ -13,7 +11,7 @@ import java.util.List;
 import java.util.UUID;
 
 @Service
-public class ReportsService implements ServiceTemplate<Reports, UUID> {
+public class ReportsService implements ServiceTemplate<Report, UUID> {
 
     private static ReportsService INSTANCE;
     @Autowired
@@ -28,15 +26,15 @@ public class ReportsService implements ServiceTemplate<Reports, UUID> {
     private ReportsService() { }
 
     @Override
-    public List<Reports> getAll() {
-        List<Reports> target = new ArrayList<>();
+    public List<Report> getAll() {
+        List<Report> target = new ArrayList<>();
         repository.findAll().forEach(target::add);
         System.out.println(target);
         return target;
     }
 
     @Override
-    public Reports getById(UUID id) {
+    public Report getById(UUID id) {
         if (repository.findById(id).isPresent())
             return repository.findById(id).get();
         else
@@ -44,12 +42,12 @@ public class ReportsService implements ServiceTemplate<Reports, UUID> {
     }
 
     @Override
-    public Reports add(Reports entity) {
+    public Report add(Report entity) {
         return repository.save(entity);
     }
 
     @Override
-    public Reports update(Reports newEntity, UUID id) {
+    public Report update(Report newEntity, UUID id) {
         return repository.findById(id)
                 .map(entity -> {
                     try {
@@ -77,7 +75,7 @@ public class ReportsService implements ServiceTemplate<Reports, UUID> {
     }
 
     @Override
-    public void delete(Reports entity) {
+    public void delete(Report entity) {
         repository.delete(entity);
     }
 

@@ -8,7 +8,7 @@ import java.util.UUID;
 @Entity
 @Table(name = "unread_msgs")
 @IdClass(UnreadMsgsId.class)
-public class UnreadMsgs implements EntityTemplate<UnreadMsgs, UnreadMsgsId> {
+public class UnreadMsg implements EntityTemplate<UnreadMsg, UnreadMsgsId> {
 
     @Id
     @Column(name = "user_id")
@@ -17,17 +17,17 @@ public class UnreadMsgs implements EntityTemplate<UnreadMsgs, UnreadMsgsId> {
     @Column(name = "msg_id")
     private UUID msgId;
 
-    public UnreadMsgs(UUID userId, UUID msgId) {
+    public UnreadMsg(UUID userId, UUID msgId) {
         this.userId = userId;
         this.msgId = msgId;
     }
 
-    public UnreadMsgs() {  }
+    public UnreadMsg() {  }
 
     @Override
-    public UnreadMsgs updateTo(UnreadMsgs unreadMsgs) {
-        userId = unreadMsgs.getUserId();
-        msgId = unreadMsgs.getMsgId();
+    public UnreadMsg updateTo(UnreadMsg unreadMsg) {
+        userId = unreadMsg.getUserId();
+        msgId = unreadMsg.getMsgId();
         return this;
     }
 

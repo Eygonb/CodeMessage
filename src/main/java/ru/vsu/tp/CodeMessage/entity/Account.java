@@ -3,10 +3,12 @@ package ru.vsu.tp.CodeMessage.entity;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.Table;
 import java.util.UUID;
 
 @Entity
-public class Accounts implements EntityTemplate<Accounts, UUID> {
+@Table(name = "accounts")
+public class Account implements EntityTemplate<Account, UUID> {
 
     @Id
     private UUID id;
@@ -19,8 +21,8 @@ public class Accounts implements EntityTemplate<Accounts, UUID> {
     @Column(name = "img_id")
     private UUID imgId;
 
-    public Accounts(UUID id, String username, String email,
-                    String password, String type, String title, UUID imgId) {
+    public Account(UUID id, String username, String email,
+                   String password, String type, String title, UUID imgId) {
         this.id = id;
         this.email = email;
         this.imgId = imgId;
@@ -30,16 +32,16 @@ public class Accounts implements EntityTemplate<Accounts, UUID> {
         this.username = username;
     }
 
-    public Accounts() {  }
+    public Account() {  }
 
     @Override
-    public Accounts updateTo(Accounts accounts) {
-        email = accounts.getEmail();
-        imgId = accounts.getImgId();
-        password = accounts.getPassword();
-        title = accounts.getTitle();
-        type = accounts.getType();
-        username = accounts.getUsername();
+    public Account updateTo(Account account) {
+        email = account.getEmail();
+        imgId = account.getImgId();
+        password = account.getPassword();
+        title = account.getTitle();
+        type = account.getType();
+        username = account.getUsername();
         return this;
     }
 

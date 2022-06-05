@@ -3,12 +3,13 @@ package ru.vsu.tp.CodeMessage.entity;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.Table;
 import java.time.ZonedDateTime;
-import java.util.Date;
 import java.util.UUID;
 
 @Entity
-public class Messages implements EntityTemplate<Messages, UUID> {
+@Table(name = "messages")
+public class Message implements EntityTemplate<Message, UUID> {
 
     @Id
     private UUID id;
@@ -30,8 +31,8 @@ public class Messages implements EntityTemplate<Messages, UUID> {
     @Column(name = "attachment_id")
     private UUID attachmentId;
 
-    public Messages(UUID id, String textMsg, String type, UUID chatId, UUID userId, ZonedDateTime timeMsg,
-                    boolean wasChanged, boolean wasRead, UUID reply, UUID attachmentId) {
+    public Message(UUID id, String textMsg, String type, UUID chatId, UUID userId, ZonedDateTime timeMsg,
+                   boolean wasChanged, boolean wasRead, UUID reply, UUID attachmentId) {
         this.attachmentId = attachmentId;
         this.id = id;
         this.chatId = chatId;
@@ -44,19 +45,19 @@ public class Messages implements EntityTemplate<Messages, UUID> {
         this.reply = reply;
     }
 
-    public Messages() {  }
+    public Message() {  }
 
     @Override
-    public Messages updateTo(Messages messages) {
-        attachmentId = messages.getAttachmentId();
-        chatId = messages.getChatId();
-        textMsg = messages.getTextMsg();
-        userId = messages.getUserId();
-        type = messages.getType();
-        timeMsg = messages.getTimeMsg();
-        wasRead = messages.isWasRead();
-        wasChanged = messages.isWasChanged();
-        reply = messages.getReply();
+    public Message updateTo(Message message) {
+        attachmentId = message.getAttachmentId();
+        chatId = message.getChatId();
+        textMsg = message.getTextMsg();
+        userId = message.getUserId();
+        type = message.getType();
+        timeMsg = message.getTimeMsg();
+        wasRead = message.isWasRead();
+        wasChanged = message.isWasChanged();
+        reply = message.getReply();
         return this;
     }
 

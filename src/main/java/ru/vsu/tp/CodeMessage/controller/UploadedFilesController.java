@@ -1,10 +1,9 @@
 package ru.vsu.tp.CodeMessage.controller;
 
 import io.swagger.annotations.Api;
-import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-import ru.vsu.tp.CodeMessage.entity.UploadedFiles;
+import ru.vsu.tp.CodeMessage.entity.UploadedFile;
 import ru.vsu.tp.CodeMessage.service.UploadedFilesService;
 
 import java.util.List;
@@ -13,33 +12,33 @@ import java.util.UUID;
 @RestController
 @RequestMapping("/uploaded_files")
 @Api(description = "Контроллер загруженных файлов")
-public class UploadedFilesController implements Controller<UploadedFiles, UUID> {
+public class UploadedFilesController implements Controller<UploadedFile, UUID> {
 
     @Autowired
     private UploadedFilesService service;
 
     @Override
     @GetMapping
-    public List<UploadedFiles> getAll() {
+    public List<UploadedFile> getAll() {
         return service.getAll();
     }
 
     @Override
     @GetMapping("/{id}")
-    public UploadedFiles get(@PathVariable UUID id) {
+    public UploadedFile get(@PathVariable UUID id) {
         return service.getById(id);
     }
 
     @Override
     @PostMapping
-    public UploadedFiles add(UploadedFiles uploadedFiles) {
-        return service.add(uploadedFiles);
+    public UploadedFile add(UploadedFile uploadedFile) {
+        return service.add(uploadedFile);
     }
 
     @Override
     @PutMapping("/{id}")
-    public UploadedFiles update(@RequestBody UploadedFiles uploadedFiles, @PathVariable UUID id) {
-        return service.update(uploadedFiles, id);
+    public UploadedFile update(@RequestBody UploadedFile uploadedFile, @PathVariable UUID id) {
+        return service.update(uploadedFile, id);
     }
 
     @Override
@@ -50,7 +49,7 @@ public class UploadedFilesController implements Controller<UploadedFiles, UUID> 
 
     @Override
     @DeleteMapping
-    public void delete(@RequestBody UploadedFiles uploadedFiles) {
-        service.delete(uploadedFiles);
+    public void delete(@RequestBody UploadedFile uploadedFile) {
+        service.delete(uploadedFile);
     }
 }

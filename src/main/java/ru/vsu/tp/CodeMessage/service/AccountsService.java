@@ -2,7 +2,7 @@ package ru.vsu.tp.CodeMessage.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import ru.vsu.tp.CodeMessage.entity.Accounts;
+import ru.vsu.tp.CodeMessage.entity.Account;
 import ru.vsu.tp.CodeMessage.exception.exceptions.ObjectNotFoundException;
 import ru.vsu.tp.CodeMessage.repository.AccountsRepository;
 
@@ -11,7 +11,7 @@ import java.util.List;
 import java.util.UUID;
 
 @Service
-public class AccountsService implements ServiceTemplate<Accounts, UUID> {
+public class AccountsService implements ServiceTemplate<Account, UUID> {
 
     private static AccountsService INSTANCE;
     @Autowired
@@ -26,15 +26,15 @@ public class AccountsService implements ServiceTemplate<Accounts, UUID> {
     private AccountsService() {  }
 
     @Override
-    public List<Accounts> getAll() {
-        List<Accounts> target = new ArrayList<>();
+    public List<Account> getAll() {
+        List<Account> target = new ArrayList<>();
         repository.findAll().forEach(target::add);
         System.out.println(target);
         return target;
     }
 
     @Override
-    public Accounts getById(UUID id) {
+    public Account getById(UUID id) {
         if (repository.findById(id).isPresent())
             return repository.findById(id).get();
         else
@@ -42,12 +42,12 @@ public class AccountsService implements ServiceTemplate<Accounts, UUID> {
     }
 
     @Override
-    public Accounts add(Accounts entity) {
+    public Account add(Account entity) {
         return repository.save(entity);
     }
 
     @Override
-    public Accounts update(Accounts newEntity, UUID id) {
+    public Account update(Account newEntity, UUID id) {
         return repository.findById(id)
                 .map(entity -> {
                     try {
@@ -75,7 +75,7 @@ public class AccountsService implements ServiceTemplate<Accounts, UUID> {
     }
 
     @Override
-    public void delete(Accounts entity) {
+    public void delete(Account entity) {
         repository.delete(entity);
     }
 

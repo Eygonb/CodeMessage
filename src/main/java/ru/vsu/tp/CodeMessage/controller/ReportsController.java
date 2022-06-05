@@ -3,8 +3,7 @@ package ru.vsu.tp.CodeMessage.controller;
 import io.swagger.annotations.Api;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-import ru.vsu.tp.CodeMessage.entity.Reports;
-import ru.vsu.tp.CodeMessage.entity.Reports;
+import ru.vsu.tp.CodeMessage.entity.Report;
 import ru.vsu.tp.CodeMessage.service.ReportsService;
 
 import java.util.List;
@@ -13,32 +12,32 @@ import java.util.UUID;
 @RestController
 @RequestMapping("/reports")
 @Api(description = "Контроллер жалоб")
-public class ReportsController implements Controller<Reports, UUID> {
+public class ReportsController implements Controller<Report, UUID> {
 
     @Autowired
     private ReportsService service;
 
     @Override
     @GetMapping
-    public List<Reports> getAll() {
+    public List<Report> getAll() {
         return service.getAll();
     }
 
     @Override
     @GetMapping("/{id}")
-    public Reports get(@PathVariable UUID id) {
+    public Report get(@PathVariable UUID id) {
         return service.getById(id);
     }
 
     @Override
     @PostMapping
-    public Reports add(Reports uploadedFiles) {
+    public Report add(Report uploadedFiles) {
         return service.add(uploadedFiles);
     }
 
     @Override
     @PutMapping("/{id}")
-    public Reports update(@RequestBody Reports uploadedFiles, @PathVariable UUID id) {
+    public Report update(@RequestBody Report uploadedFiles, @PathVariable UUID id) {
         return service.update(uploadedFiles, id);
     }
 
@@ -50,7 +49,7 @@ public class ReportsController implements Controller<Reports, UUID> {
 
     @Override
     @DeleteMapping
-    public void delete(@RequestBody Reports uploadedFiles) {
+    public void delete(@RequestBody Report uploadedFiles) {
         service.delete(uploadedFiles);
     }
 }

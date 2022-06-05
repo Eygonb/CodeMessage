@@ -3,10 +3,12 @@ package ru.vsu.tp.CodeMessage.entity;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.Table;
 import java.util.UUID;
 
 @Entity
-public class Chats implements EntityTemplate<Chats, UUID> {
+@Table(name = "chats")
+public class Chat implements EntityTemplate<Chat, UUID> {
 
     @Id
     private UUID id;
@@ -16,20 +18,20 @@ public class Chats implements EntityTemplate<Chats, UUID> {
     @Column(name = "chat_name")
     private String chatName;
 
-    public Chats(UUID id, String type, UUID imgId, String chatName) {
+    public Chat(UUID id, String type, UUID imgId, String chatName) {
         this.chatName = chatName;
         this.id = id;
         this.imgId = imgId;
         this.type = type;
     }
 
-    public Chats() {  }
+    public Chat() {  }
 
     @Override
-    public Chats updateTo(Chats chats) {
-        type = chats.getType();
-        imgId = chats.getImgId();
-        chatName = chats.getChatName();
+    public Chat updateTo(Chat chat) {
+        type = chat.getType();
+        imgId = chat.getImgId();
+        chatName = chat.getChatName();
         return this;
     }
 

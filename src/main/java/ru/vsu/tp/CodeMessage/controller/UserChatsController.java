@@ -3,8 +3,7 @@ package ru.vsu.tp.CodeMessage.controller;
 import io.swagger.annotations.Api;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-import ru.vsu.tp.CodeMessage.entity.UserChats;
-import ru.vsu.tp.CodeMessage.entity.UserChats;
+import ru.vsu.tp.CodeMessage.entity.UserChat;
 import ru.vsu.tp.CodeMessage.entity.id.UserChatsId;
 import ru.vsu.tp.CodeMessage.service.UserChatsService;
 
@@ -13,32 +12,32 @@ import java.util.List;
 @RestController
 @RequestMapping("/user_chats")
 @Api(description = "Контроллер связи чат-пользователь")
-public class UserChatsController implements Controller<UserChats, UserChatsId> {
+public class UserChatsController implements Controller<UserChat, UserChatsId> {
 
     @Autowired
     private UserChatsService service;
 
     @Override
     @GetMapping
-    public List<UserChats> getAll() {
+    public List<UserChat> getAll() {
         return service.getAll();
     }
 
     @Override
     @GetMapping("/{id}")
-    public UserChats get(@PathVariable UserChatsId id) {
+    public UserChat get(@PathVariable UserChatsId id) {
         return service.getById(id);
     }
 
     @Override
     @PostMapping
-    public UserChats add(UserChats uploadedFiles) {
+    public UserChat add(UserChat uploadedFiles) {
         return service.add(uploadedFiles);
     }
 
     @Override
     @PutMapping("/{id}")
-    public UserChats update(@RequestBody UserChats uploadedFiles, @PathVariable UserChatsId id) {
+    public UserChat update(@RequestBody UserChat uploadedFiles, @PathVariable UserChatsId id) {
         return service.update(uploadedFiles, id);
     }
 
@@ -50,7 +49,7 @@ public class UserChatsController implements Controller<UserChats, UserChatsId> {
 
     @Override
     @DeleteMapping
-    public void delete(@RequestBody UserChats uploadedFiles) {
+    public void delete(@RequestBody UserChat uploadedFiles) {
         service.delete(uploadedFiles);
     }
 }

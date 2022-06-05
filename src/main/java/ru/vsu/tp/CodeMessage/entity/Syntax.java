@@ -2,15 +2,13 @@ package ru.vsu.tp.CodeMessage.entity;
 
 import ru.vsu.tp.CodeMessage.entity.id.SyntaxesId;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.IdClass;
+import javax.persistence.*;
 import java.util.UUID;
 
 @Entity
 @IdClass(SyntaxesId.class)
-public class Syntaxes implements EntityTemplate<Syntaxes, SyntaxesId> {
+@Table(name = "syntaxes")
+public class Syntax implements EntityTemplate<Syntax, SyntaxesId> {
 
     @Id
     @Column(name = "lang_id")
@@ -19,17 +17,17 @@ public class Syntaxes implements EntityTemplate<Syntaxes, SyntaxesId> {
     private String keyword;
     private String color;
 
-    public Syntaxes(UUID langId, String keyword, String color) {
+    public Syntax(UUID langId, String keyword, String color) {
         this.langId = langId;
         this.color = color;
         this.keyword = keyword;
     }
 
-    public Syntaxes() {  }
+    public Syntax() {  }
 
     @Override
-    public Syntaxes updateTo(Syntaxes syntaxes) {
-        color = syntaxes.getColor();
+    public Syntax updateTo(Syntax syntax) {
+        color = syntax.getColor();
         return this;
     }
 

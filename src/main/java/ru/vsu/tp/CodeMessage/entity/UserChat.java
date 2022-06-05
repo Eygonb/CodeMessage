@@ -8,7 +8,7 @@ import java.util.UUID;
 @Entity
 @Table(name = "user_chats")
 @IdClass(UserChatsId.class)
-public class UserChats implements EntityTemplate<UserChats, UserChatsId> {
+public class UserChat implements EntityTemplate<UserChat, UserChatsId> {
 
     @Id
     @Column(name = "user_id")
@@ -19,19 +19,19 @@ public class UserChats implements EntityTemplate<UserChats, UserChatsId> {
 //    TODO(Определить и обработать тип)
     private String type;
 
-    public UserChats(UUID userId, UUID chatId, String type) {
+    public UserChat(UUID userId, UUID chatId, String type) {
         this.userId = userId;
         this.type = type;
         this.chatId = chatId;
     }
 
-    public UserChats() {  }
+    public UserChat() {  }
 
     @Override
-    public UserChats updateTo(UserChats userChats) {
-        type = userChats.getType();
-        chatId = userChats.getChatId();
-        userId = userChats.getUserId();
+    public UserChat updateTo(UserChat userChat) {
+        type = userChat.getType();
+        chatId = userChat.getChatId();
+        userId = userChat.getUserId();
         return null;
     }
 
