@@ -14,7 +14,6 @@ import java.util.UUID;
 @Api(description = "Контроллер загруженных файлов")
 public class UploadedFilesController implements Controller<UploadedFile, UUID> {
 
-    @Autowired
     private UploadedFilesService service;
 
 //    @Override

@@ -14,7 +14,6 @@ import java.util.List;
 @Api(description = "Контроллер непрочитанных сообщений")
 public class UnreadMsgsController implements Controller<UnreadMsg, UnreadMsgsId> {
 
-    @Autowired
     private UnreadMsgsService service;
 
 //    @Override

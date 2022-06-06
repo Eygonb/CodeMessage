@@ -14,33 +14,29 @@ import java.util.UUID;
 @Api(description = "Контроллер чатов")
 public class ChatsController implements Controller<Chat, UUID> {
 
-    @Autowired
     private ChatsService service;
 
 
     @GetMapping
-    public List<Chat> getAll(@RequestParam int page, @RequestParam int size) {
-        return service.getAll(page, size);
+    public List<Chat> getAll(@RequestParam int page, @RequestParam int size, @RequestParam String search) {
+        //TODO(Разобраться с получением id пользователя)
+        UUID userId = UUID.randomUUID();
+        if (search != null)
+            return service.getSome(userId, page, size);
+        else return service.getSomeByName(userId, page, size, search);
     }
 
-    @GetMapping("/{id}")
+    @GetMapping("/open/{id}")
     public List<Chat> getOpenChats(@PathVariable("id") UUID id, @RequestParam int page, @RequestParam int size) {
         return service.getOpenChats(id, page, size);
     }
 
-    @GetMapping
-    public List<Chat> getSome(@RequestParam int page, @RequestParam int size) {
-        //TODO(Разобраться с получением id пользователя)
-        UUID userId = UUID.randomUUID();
-        return service.getSome(userId, page, size);
-    }
-
-    @GetMapping
-    public List<Chat> getSomeByName(@RequestParam int page, @RequestParam int size, @RequestParam String search) {
-        //TODO(Разобраться с получением id пользователя)
-        UUID userId = UUID.randomUUID();
-        return service.getSomeByName(userId, page, size, search);
-    }
+//    @GetMapping
+//    public List<Chat> getSomeByName(@RequestParam int page, @RequestParam int size, @RequestParam String search) {
+//        //TODO(Разобраться с получением id пользователя)
+//        UUID userId = UUID.randomUUID();
+//
+//    }
 
     @Override
     @GetMapping("/{id}")

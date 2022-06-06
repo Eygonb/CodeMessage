@@ -13,7 +13,7 @@ import java.util.UUID;
 @RequestMapping("/accounts")
 @Api(description = "Контроллер аккаунтов пользователей")
 public class AccountsController implements Controller<Account, UUID> {
-    @Autowired
+
     private AccountsService service;
 
     @GetMapping

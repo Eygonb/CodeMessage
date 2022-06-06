@@ -14,7 +14,7 @@ import java.util.List;
 @Api(description = "Контроллер синтаксиса ЯП")
 public class SyntaxesController implements Controller<Syntax, SyntaxesId> {
 
-    @Autowired
+
     private SyntaxesService service;
 
 //    @Override

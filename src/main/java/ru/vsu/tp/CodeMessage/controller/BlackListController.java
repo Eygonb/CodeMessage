@@ -16,7 +16,7 @@ import ru.vsu.tp.CodeMessage.entity.id.BlackListId;
 @Api(description = "Контроллер черных списков")
 public class BlackListController implements Controller<BlackList, BlackListId> {
 
-    @Autowired
+
     private BlackListService service;
 
 //    @Override

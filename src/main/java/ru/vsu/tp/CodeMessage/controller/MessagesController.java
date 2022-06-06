@@ -15,7 +15,7 @@ import java.util.UUID;
 @Api(description = "Контроллер сообщений")
 public class MessagesController implements Controller<Message, UUID> {
 
-    @Autowired
+
     private MessagesService service;
 
 //    @Override
@@ -27,6 +27,12 @@ public class MessagesController implements Controller<Message, UUID> {
 //    TODO(Добавить проверку на пользователя в чате)
     @GetMapping("/chats/{id}")
     public List<Message> getMessagesInChat(@PathVariable("id") UUID id, @RequestParam int page, @RequestParam int size) {
+        return service.getMessagesInChat(id, page, size);
+    }
+
+//  TODO(И тут тоже)
+    @GetMapping("/chats/open/{id}")
+    public List<Message> getMessagesInOpenChat(@PathVariable("id") UUID id, @RequestParam int page, @RequestParam int size) {
         return service.getMessagesInChat(id, page, size);
     }
 

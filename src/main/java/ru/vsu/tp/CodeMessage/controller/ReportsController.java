@@ -14,7 +14,7 @@ import java.util.UUID;
 @Api(description = "Контроллер жалоб")
 public class ReportsController implements Controller<Report, UUID> {
 
-    @Autowired
+
     private ReportsService service;
 
 //    @Override

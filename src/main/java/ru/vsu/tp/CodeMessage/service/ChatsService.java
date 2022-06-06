@@ -25,15 +25,13 @@ public class ChatsService implements ServiceTemplate<Chat, UUID> {
     }
 
     public List<Chat> getSomeByName(UUID userId, int page, int size, String search) {
-        return repository.findChatByChatNameOrderByLastMessage(userId, PageRequest.of(page, size), search);
+//        return repository.findChatByChatNameOrderByLastMessage(userId, PageRequest.of(page, size), search);
+        return null;
     }
-
+//      TODO(Доделать и отладить)
     public List<Chat> getSome(UUID userId, int page, int size) {
-        return repository.findChatOrderByLastMessage(userId, PageRequest.of(page, size));
-    }
-
-    public List<Chat> getAll(int page, int size) {
-
+//        return repository.findChatOrderByLastMessage(userId, PageRequest.of(page, size));
+        return null;
     }
 
     @Override

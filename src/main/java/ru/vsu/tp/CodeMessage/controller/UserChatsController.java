@@ -14,7 +14,7 @@ import java.util.List;
 @Api(description = "Контроллер связи чат-пользователь")
 public class UserChatsController implements Controller<UserChat, UserChatsId> {
 
-    @Autowired
+
     private UserChatsService service;
 
 //    @Override

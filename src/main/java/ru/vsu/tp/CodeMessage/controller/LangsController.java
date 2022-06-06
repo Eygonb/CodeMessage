@@ -14,7 +14,7 @@ import java.util.UUID;
 @Api(description = "Контроллер языков программирования (ЯП)")
 public class LangsController implements Controller<Lang, UUID> {
 
-    @Autowired
+
     private LangsService service;
 
 //    @Override
