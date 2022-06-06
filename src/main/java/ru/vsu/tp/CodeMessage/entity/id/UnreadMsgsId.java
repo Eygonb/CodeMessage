@@ -2,6 +2,7 @@ package ru.vsu.tp.CodeMessage.entity.id;
 
 import javax.persistence.Column;
 import java.io.Serializable;
+import java.util.Objects;
 import java.util.UUID;
 
 public class UnreadMsgsId implements Serializable {
@@ -32,5 +33,18 @@ public class UnreadMsgsId implements Serializable {
 
     public void setMsgId(UUID msgId) {
         this.msgId = msgId;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        UnreadMsgsId that = (UnreadMsgsId) o;
+        return userId.equals(that.userId) && msgId.equals(that.msgId);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(userId, msgId);
     }
 }

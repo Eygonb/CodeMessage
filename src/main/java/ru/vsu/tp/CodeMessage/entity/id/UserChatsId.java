@@ -2,6 +2,7 @@ package ru.vsu.tp.CodeMessage.entity.id;
 
 import javax.persistence.Column;
 import java.io.Serializable;
+import java.util.Objects;
 import java.util.UUID;
 
 public class UserChatsId implements Serializable {
@@ -32,5 +33,18 @@ public class UserChatsId implements Serializable {
 
     public void setChatId(UUID chatId) {
         this.chatId = chatId;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        UserChatsId that = (UserChatsId) o;
+        return userId.equals(that.userId) && chatId.equals(that.chatId);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(userId, chatId);
     }
 }

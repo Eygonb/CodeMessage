@@ -2,6 +2,7 @@ package ru.vsu.tp.CodeMessage.entity.id;
 
 import javax.persistence.Column;
 import java.io.Serializable;
+import java.util.Objects;
 import java.util.UUID;
 
 public class BlackListId implements Serializable {
@@ -34,5 +35,18 @@ public class BlackListId implements Serializable {
 
     public void setUserId(UUID userId) {
         this.userId = userId;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        BlackListId that = (BlackListId) o;
+        return ownerId.equals(that.ownerId) && userId.equals(that.userId);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(ownerId, userId);
     }
 }

@@ -2,6 +2,7 @@ package ru.vsu.tp.CodeMessage.entity.id;
 
 import javax.persistence.Column;
 import java.io.Serializable;
+import java.util.Objects;
 import java.util.UUID;
 
 public class SyntaxesId implements Serializable {
@@ -31,5 +32,18 @@ public class SyntaxesId implements Serializable {
 
     public void setKeyword(String keyword) {
         this.keyword = keyword;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        SyntaxesId that = (SyntaxesId) o;
+        return langId.equals(that.langId) && keyword.equals(that.keyword);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(langId, keyword);
     }
 }
