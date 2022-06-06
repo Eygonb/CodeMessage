@@ -13,18 +13,11 @@ import java.util.UUID;
 
 @Service
 public class MessagesService implements ServiceTemplate<Message, UUID> {
-
-    private static MessagesService INSTANCE;
-    @Autowired
     private MessagesRepository repository;
 
-    public static MessagesService getInstance() {
-        if (INSTANCE == null)
-            INSTANCE = new MessagesService();
-        return INSTANCE;
+    public MessagesService(MessagesRepository repository) {
+        this.repository = repository;
     }
-
-    private MessagesService() {  }
 
     public List<Message> getMessagesInChat(UUID chatId, int page, int size) {
         return repository.findByChatIdOrderByTimeMsgDesc(PageRequest.of(page, size), chatId);

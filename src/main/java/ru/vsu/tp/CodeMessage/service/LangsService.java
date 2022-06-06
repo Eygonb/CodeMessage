@@ -12,15 +12,10 @@ import java.util.UUID;
 
 @Service
 public class LangsService implements ServiceTemplate<Lang, UUID> {
-
-    private static LangsService INSTANCE;
-    @Autowired
     private LangsRepository repository;
 
-    public static LangsService getInstance() {
-        if (INSTANCE == null)
-            INSTANCE = new LangsService();
-        return INSTANCE;
+    public LangsService(LangsRepository repository) {
+        this.repository = repository;
     }
 
     private LangsService() { }

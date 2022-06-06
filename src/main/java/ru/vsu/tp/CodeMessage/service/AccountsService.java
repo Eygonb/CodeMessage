@@ -2,6 +2,7 @@ package ru.vsu.tp.CodeMessage.service;
 
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
+import ru.vsu.tp.CodeMessage.dto.AccountDto;
 import ru.vsu.tp.CodeMessage.entity.Account;
 import ru.vsu.tp.CodeMessage.entity.Chat;
 import ru.vsu.tp.CodeMessage.exception.exceptions.ObjectNotFoundException;
@@ -9,6 +10,7 @@ import ru.vsu.tp.CodeMessage.repository.AccountsRepository;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 import java.util.UUID;
 
 @Service
@@ -39,8 +41,8 @@ public class AccountsService implements ServiceTemplate<Account, UUID> {
             throw ObjectNotFoundException.getInstance();
     }
 
-    public Account getByUsername(String username) {
-        return repository.findByUsername(username).orElse(null);
+    public AccountDto getByUsername(String username) {
+        return repository.findByUsername(username).map(AccountDto::new).orElse(null);
     }
 
     @Override

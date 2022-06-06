@@ -12,18 +12,11 @@ import java.util.UUID;
 
 @Service
 public class ReportsService implements ServiceTemplate<Report, UUID> {
-
-    private static ReportsService INSTANCE;
-    @Autowired
     private ReportsRepository repository;
 
-    public static ReportsService getInstance() {
-        if (INSTANCE == null)
-            INSTANCE = new ReportsService();
-        return INSTANCE;
+    public ReportsService(ReportsRepository repository) {
+        this.repository = repository;
     }
-
-    private ReportsService() { }
 
     @Override
     public List<Report> getAll() {

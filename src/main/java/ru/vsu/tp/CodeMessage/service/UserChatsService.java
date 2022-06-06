@@ -12,18 +12,11 @@ import java.util.List;
 
 @Service
 public class UserChatsService implements ServiceTemplate<UserChat, UserChatsId> {
-
-    private static UserChatsService INSTANCE;
-    @Autowired
     private UserChatsRepository repository;
 
-    public static UserChatsService getInstance() {
-        if (INSTANCE == null)
-            INSTANCE = new UserChatsService();
-        return INSTANCE;
+    public UserChatsService(UserChatsRepository repository) {
+        this.repository = repository;
     }
-
-    private UserChatsService() {  }
 
     @Override
     public List<UserChat> getAll() {

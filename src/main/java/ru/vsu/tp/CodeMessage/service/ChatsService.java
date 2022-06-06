@@ -14,18 +14,11 @@ import java.util.UUID;
 
 @Service
 public class ChatsService implements ServiceTemplate<Chat, UUID> {
-
-    private static ChatsService INSTANCE;
-    @Autowired
     private ChatsRepository repository;
 
-    public static ChatsService getInstance() {
-        if (INSTANCE == null)
-            INSTANCE = new ChatsService();
-        return INSTANCE;
+    public ChatsService(ChatsRepository repository) {
+        this.repository = repository;
     }
-
-    private ChatsService() {  }
 
     public List<Chat> getOpenChats(UUID chatId, int page, int size) {
         return repository.findByIdAndType(PageRequest.of(page, size), chatId, ChatType.OPEN_GROUP);

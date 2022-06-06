@@ -15,18 +15,11 @@ import ru.vsu.tp.CodeMessage.entity.id.BlackListId;
 
 @Service
 public class BlackListService implements ServiceTemplate<BlackList, BlackListId> {
-
-    private static BlackListService INSTANCE;
-    @Autowired
     private BlackListRepository repository;
 
-    public static BlackListService getInstance() {
-        if (INSTANCE == null)
-            INSTANCE = new BlackListService();
-        return INSTANCE;
+    public BlackListService(BlackListRepository repository) {
+        this.repository = repository;
     }
-
-    private BlackListService() {  }
 
     @Override
     public List<BlackList> getAll() {

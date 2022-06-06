@@ -12,18 +12,11 @@ import java.util.UUID;
 
 @Service
 public class UploadedFilesService implements ServiceTemplate<UploadedFile, UUID> {
-
-    private static UploadedFilesService INSTANCE;
-    @Autowired
     private UploadedFilesRepository repository;
 
-    public static UploadedFilesService getInstance() {
-        if (INSTANCE == null)
-            INSTANCE = new UploadedFilesService();
-        return INSTANCE;
+    public UploadedFilesService(UploadedFilesRepository repository) {
+        this.repository = repository;
     }
-
-    private UploadedFilesService() {  }
 
     @Override
     public List<UploadedFile> getAll() {

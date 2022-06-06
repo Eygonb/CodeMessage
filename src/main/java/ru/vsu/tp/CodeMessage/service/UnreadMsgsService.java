@@ -12,18 +12,11 @@ import java.util.List;
 
 @Service
 public class UnreadMsgsService implements ServiceTemplate<UnreadMsg, UnreadMsgsId> {
-
-    private static UnreadMsgsService INSTANCE;
-    @Autowired
     private UnreadMsgsRepository repository;
 
-    public static UnreadMsgsService getInstance() {
-        if (INSTANCE == null)
-            INSTANCE = new UnreadMsgsService();
-        return INSTANCE;
+    public UnreadMsgsService(UnreadMsgsRepository repository) {
+        this.repository = repository;
     }
-
-    private UnreadMsgsService() {  }
 
     @Override
     public List<UnreadMsg> getAll() {

@@ -12,18 +12,11 @@ import java.util.List;
 
 @Service
 public class SyntaxesService implements ServiceTemplate<Syntax, SyntaxesId> {
-
-    private static SyntaxesService INSTANCE;
-    @Autowired
     private SyntaxesRepository repository;
 
-    public static SyntaxesService getInstance() {
-        if (INSTANCE == null)
-            INSTANCE = new SyntaxesService();
-        return INSTANCE;
+    public SyntaxesService(SyntaxesRepository repository) {
+        this.repository = repository;
     }
-
-    private SyntaxesService() {  }
 
     @Override
     public List<Syntax> getAll() {
