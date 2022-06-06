@@ -25,25 +25,25 @@ public class UnreadMsgsController implements Controller<UnreadMsg, UnreadMsgsId>
 
     @Override
     @GetMapping("/{id}")
-    public UnreadMsg get(@PathVariable UnreadMsgsId id) {
+    public UnreadMsg get(@PathVariable("id") UnreadMsgsId id) {
         return service.getById(id);
     }
 
     @Override
     @PostMapping
-    public UnreadMsg add(UnreadMsg uploadedFiles) {
+    public UnreadMsg add(@RequestBody UnreadMsg uploadedFiles) {
         return service.add(uploadedFiles);
     }
 
     @Override
     @PutMapping("/{id}")
-    public UnreadMsg update(@RequestBody UnreadMsg uploadedFiles, @PathVariable UnreadMsgsId id) {
+    public UnreadMsg update(@RequestBody UnreadMsg uploadedFiles, @PathVariable("id") UnreadMsgsId id) {
         return service.update(uploadedFiles, id);
     }
 
     @Override
     @DeleteMapping("/{id}")
-    public void delete(@PathVariable UnreadMsgsId id) {
+    public void delete(@PathVariable("id") UnreadMsgsId id) {
         service.delete(id);
     }
 

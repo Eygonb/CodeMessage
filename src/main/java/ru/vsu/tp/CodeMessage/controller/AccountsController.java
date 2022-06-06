@@ -22,27 +22,32 @@ public class AccountsController implements Controller<Account, UUID> {
         return service.getAll();
     }
 
+    @GetMapping()
+    public List<Account> getByName(@RequestBody int page, @RequestBody int size, @RequestBody String search) {
+        return service.getSomeByName(page, size, search);
+    }
+
     @Override
     @GetMapping("/{id}")
-    public Account get(@PathVariable UUID id) {
+    public Account get(@PathVariable("id") UUID id) {
         return service.getById(id);
     }
 
     @Override
     @PostMapping
-    public Account add(Account account) {
+    public Account add(@RequestBody Account account) {
         return service.add(account);
     }
 
     @Override
     @PutMapping("/{id}")
-    public Account update(@RequestBody Account account, @PathVariable UUID id) {
+    public Account update(@RequestBody Account account, @PathVariable("id") UUID id) {
         return service.update(account, id);
     }
 
     @Override
     @DeleteMapping("/{id}")
-    public void delete(@PathVariable UUID id) {
+    public void delete(@PathVariable("id") UUID id) {
         service.delete(id);
     }
 

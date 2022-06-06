@@ -23,27 +23,46 @@ public class ChatsController implements Controller<Chat, UUID> {
         return service.getAll();
     }
 
+    @GetMapping("/{id}")
+    public List<Chat> getOpenChats(@PathVariable("id") UUID id, @RequestBody int page, @RequestBody int size) {
+        return service.getOpenChats(id, page, size);
+    }
+
+    @GetMapping
+    public List<Chat> getSome(@RequestBody int page, @RequestBody int size) {
+        //TODO(Разобраться с получением id пользователя)
+        UUID userId = UUID.randomUUID();
+        return service.getSome(userId, page, size);
+    }
+
+    @GetMapping
+    public List<Chat> getSomeByName(@RequestBody int page, @RequestBody int size, @RequestBody String search) {
+        //TODO(Разобраться с получением id пользователя)
+        UUID userId = UUID.randomUUID();
+        return service.getSomeByName(userId, page, size, search);
+    }
+
     @Override
     @GetMapping("/{id}")
-    public Chat get(@PathVariable UUID id) {
+    public Chat get(@PathVariable("id") UUID id) {
         return service.getById(id);
     }
 
     @Override
     @PostMapping
-    public Chat add(Chat uploadedFiles) {
+    public Chat add(@RequestBody Chat uploadedFiles) {
         return service.add(uploadedFiles);
     }
 
     @Override
     @PutMapping("/{id}")
-    public Chat update(@RequestBody Chat uploadedFiles, @PathVariable UUID id) {
+    public Chat update(@RequestBody Chat uploadedFiles, @PathVariable("id") UUID id) {
         return service.update(uploadedFiles, id);
     }
 
     @Override
     @DeleteMapping("/{id}")
-    public void delete(@PathVariable UUID id) {
+    public void delete(@PathVariable("id") UUID id) {
         service.delete(id);
     }
 

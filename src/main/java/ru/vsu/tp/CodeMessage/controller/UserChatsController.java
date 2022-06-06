@@ -25,25 +25,25 @@ public class UserChatsController implements Controller<UserChat, UserChatsId> {
 
     @Override
     @GetMapping("/{id}")
-    public UserChat get(@PathVariable UserChatsId id) {
+    public UserChat get(@PathVariable("id") UserChatsId id) {
         return service.getById(id);
     }
 
     @Override
     @PostMapping
-    public UserChat add(UserChat uploadedFiles) {
+    public UserChat add(@RequestBody UserChat uploadedFiles) {
         return service.add(uploadedFiles);
     }
 
     @Override
     @PutMapping("/{id}")
-    public UserChat update(@RequestBody UserChat uploadedFiles, @PathVariable UserChatsId id) {
+    public UserChat update(@RequestBody UserChat uploadedFiles, @PathVariable("id") UserChatsId id) {
         return service.update(uploadedFiles, id);
     }
 
     @Override
     @DeleteMapping("/{id}")
-    public void delete(@PathVariable UserChatsId id) {
+    public void delete(@PathVariable("id") UserChatsId id) {
         service.delete(id);
     }
 

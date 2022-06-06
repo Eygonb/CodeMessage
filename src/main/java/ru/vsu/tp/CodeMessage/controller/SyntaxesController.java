@@ -25,25 +25,25 @@ public class SyntaxesController implements Controller<Syntax, SyntaxesId> {
 
     @Override
     @GetMapping("/{id}")
-    public Syntax get(@PathVariable SyntaxesId id) {
+    public Syntax get(@PathVariable("id") SyntaxesId id) {
         return service.getById(id);
     }
 
     @Override
     @PostMapping
-    public Syntax add(Syntax uploadedFiles) {
+    public Syntax add(@RequestBody Syntax uploadedFiles) {
         return service.add(uploadedFiles);
     }
 
     @Override
     @PutMapping("/{id}")
-    public Syntax update(@RequestBody Syntax uploadedFiles, @PathVariable SyntaxesId id) {
+    public Syntax update(@RequestBody Syntax uploadedFiles, @PathVariable("id") SyntaxesId id) {
         return service.update(uploadedFiles, id);
     }
 
     @Override
     @DeleteMapping("/{id}")
-    public void delete(@PathVariable SyntaxesId id) {
+    public void delete(@PathVariable("id") SyntaxesId id) {
         service.delete(id);
     }
 

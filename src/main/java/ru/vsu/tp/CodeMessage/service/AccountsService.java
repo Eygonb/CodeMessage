@@ -1,7 +1,9 @@
 package ru.vsu.tp.CodeMessage.service;
 
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 import ru.vsu.tp.CodeMessage.entity.Account;
+import ru.vsu.tp.CodeMessage.entity.Chat;
 import ru.vsu.tp.CodeMessage.exception.exceptions.ObjectNotFoundException;
 import ru.vsu.tp.CodeMessage.repository.AccountsRepository;
 
@@ -23,6 +25,10 @@ public class AccountsService implements ServiceTemplate<Account, UUID> {
         repository.findAll().forEach(target::add);
         System.out.println(target);
         return target;
+    }
+
+    public List<Account> getSomeByName(int page, int size, String search) {
+        return repository.findByUsernameStartsWith(PageRequest.of(page, size), search);
     }
 
     @Override

@@ -27,25 +27,25 @@ public class BlackListController implements Controller<BlackList, BlackListId> {
 
     @Override
     @GetMapping("/{id}")
-    public BlackList get(@PathVariable BlackListId id) {
+    public BlackList get(@PathVariable("id") BlackListId id) {
         return service.getById(id);
     }
 
     @Override
     @PostMapping
-    public BlackList add(BlackList uploadedFiles) {
+    public BlackList add(@RequestBody BlackList uploadedFiles) {
         return service.add(uploadedFiles);
     }
 
     @Override
     @PutMapping("/{id}")
-    public BlackList update(@RequestBody BlackList uploadedFiles, @PathVariable BlackListId id) {
+    public BlackList update(@RequestBody BlackList uploadedFiles, @PathVariable("id") BlackListId id) {
         return service.update(uploadedFiles, id);
     }
 
     @Override
     @DeleteMapping("/{id}")
-    public void delete(@PathVariable BlackListId id) {
+    public void delete(@PathVariable("id") BlackListId id) {
         service.delete(id);
     }
 

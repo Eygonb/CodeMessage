@@ -1,8 +1,10 @@
 package ru.vsu.tp.CodeMessage.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 import ru.vsu.tp.CodeMessage.entity.Chat;
+import ru.vsu.tp.CodeMessage.entity.type.ChatType;
 import ru.vsu.tp.CodeMessage.exception.exceptions.ObjectNotFoundException;
 import ru.vsu.tp.CodeMessage.repository.ChatsRepository;
 
@@ -24,6 +26,18 @@ public class ChatsService implements ServiceTemplate<Chat, UUID> {
     }
 
     private ChatsService() {  }
+
+    public List<Chat> getOpenChats(UUID chatId, int page, int size) {
+        return repository.findByIdAndType(PageRequest.of(page, size), chatId, ChatType.OPEN_GROUP);
+    }
+
+    public List<Chat> getSomeByName(UUID userId, int page, int size, String search) {
+        return repository.findChatByChatNameOrderByLastMessage(userId, PageRequest.of(page, size), search);
+    }
+
+    public List<Chat> getSome(UUID userId, int page, int size) {
+        return repository.findChatOrderByLastMessage(userId, PageRequest.of(page, size));
+    }
 
     @Override
     public List<Chat> getAll() {

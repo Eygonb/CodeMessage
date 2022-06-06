@@ -1,6 +1,7 @@
 package ru.vsu.tp.CodeMessage.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 import ru.vsu.tp.CodeMessage.entity.Message;
 import ru.vsu.tp.CodeMessage.exception.exceptions.ObjectNotFoundException;
@@ -24,6 +25,10 @@ public class MessagesService implements ServiceTemplate<Message, UUID> {
     }
 
     private MessagesService() {  }
+
+    public List<Message> getMessagesInChat(UUID chatId, int page, int size) {
+        return repository.findByChatIdOrderByTimeMsgDesc(PageRequest.of(page, size), chatId);
+    }
 
     @Override
     public List<Message> getAll() {

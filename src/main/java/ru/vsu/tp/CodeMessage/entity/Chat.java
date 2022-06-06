@@ -4,6 +4,8 @@ import org.hibernate.annotations.GenericGenerator;
 import ru.vsu.tp.CodeMessage.entity.type.ChatType;
 
 import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
 import java.util.UUID;
 
 @Entity
@@ -23,6 +25,12 @@ public class Chat implements EntityTemplate<Chat, UUID> {
     private UUID imgId;
     @Column(name = "chat_name")
     private String chatName;
+
+    @ManyToMany(fetch = FetchType.LAZY)
+    @JoinTable(name = "user_chats",
+            joinColumns = {@JoinColumn(name = "chat_id")},
+            inverseJoinColumns = {@JoinColumn(name = "user_id")})
+    private Set<Account> accounts = new HashSet<>();
 
     public Chat(UUID id, ChatType type, UUID imgId, String chatName) {
         this.chatName = chatName;

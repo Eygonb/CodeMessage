@@ -25,25 +25,25 @@ public class UploadedFilesController implements Controller<UploadedFile, UUID> {
 
     @Override
     @GetMapping("/{id}")
-    public UploadedFile get(@PathVariable UUID id) {
+    public UploadedFile get(@PathVariable("id") UUID id) {
         return service.getById(id);
     }
 
     @Override
     @PostMapping
-    public UploadedFile add(UploadedFile uploadedFile) {
+    public UploadedFile add(@RequestBody UploadedFile uploadedFile) {
         return service.add(uploadedFile);
     }
 
     @Override
     @PutMapping("/{id}")
-    public UploadedFile update(@RequestBody UploadedFile uploadedFile, @PathVariable UUID id) {
+    public UploadedFile update(@RequestBody UploadedFile uploadedFile, @PathVariable("id") UUID id) {
         return service.update(uploadedFile, id);
     }
 
     @Override
     @DeleteMapping("/{id}")
-    public void delete(@PathVariable UUID id) {
+    public void delete(@PathVariable("id") UUID id) {
         service.delete(id);
     }
 
