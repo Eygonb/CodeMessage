@@ -34,7 +34,7 @@ public class AccountsController implements Controller<Account, UUID> {
     }
 
     @Override
-    @PostMapping
+    @PostMapping("/register")
     public Account add(@RequestBody Account account) {
         return service.add(account);
     }

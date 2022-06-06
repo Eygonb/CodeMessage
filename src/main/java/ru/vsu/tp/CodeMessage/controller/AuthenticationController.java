@@ -6,8 +6,8 @@ import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.web.bind.annotation.*;
 import ru.vsu.tp.CodeMessage.config.jwt.TokenUtil;
+import ru.vsu.tp.CodeMessage.dto.AccountDto;
 import ru.vsu.tp.CodeMessage.dto.UserAuthData;
-import ru.vsu.tp.CodeMessage.entity.Account;
 import ru.vsu.tp.CodeMessage.service.AccountsService;
 
 @RestController
@@ -30,7 +30,7 @@ public class AuthenticationController {
     public ResponseEntity<String> createAuthenticationToken(@RequestBody UserAuthData authenticationRequest) {
         try {
             authenticate(authenticationRequest.getUsername(), authenticationRequest.getPassword());
-            Account user = accountsService.getByUsername(authenticationRequest.getUsername());
+            AccountDto user = accountsService.getByUsername(authenticationRequest.getUsername());
             final String token = tokenUtil.generateToken(user);
             return ResponseEntity.ok(token);
         } catch (Exception e) {

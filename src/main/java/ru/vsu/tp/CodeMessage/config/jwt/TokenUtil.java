@@ -6,7 +6,7 @@ import io.jsonwebtoken.SignatureAlgorithm;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Service;
-import ru.vsu.tp.CodeMessage.entity.Account;
+import ru.vsu.tp.CodeMessage.dto.AccountDto;
 
 import java.io.Serializable;
 import java.util.Date;
@@ -45,7 +45,7 @@ public class TokenUtil implements Serializable {
         return expiration.before(new Date());
     }
 
-    public String generateToken(Account user) {
+    public String generateToken(AccountDto user) {
         Map<String, Object> claims = new HashMap<>();
         claims.put("user_id", user.getId());
         claims.put("email", user.getEmail());
