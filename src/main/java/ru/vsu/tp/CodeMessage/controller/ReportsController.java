@@ -14,14 +14,7 @@ import java.util.UUID;
 @Api(description = "Контроллер жалоб")
 public class ReportsController implements Controller<Report, UUID> {
 
-
     private ReportsService service;
-
-//    @Override
-//    @GetMapping
-//    public List<Report> getAll() {
-//        return service.getAll();
-//    }
 
     @Override
     @GetMapping("/{id}")

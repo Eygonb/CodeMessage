@@ -16,12 +16,6 @@ public class UnreadMsgsController implements Controller<UnreadMsg, UnreadMsgsId>
 
     private UnreadMsgsService service;
 
-//    @Override
-//    @GetMapping
-//    public List<UnreadMsg> getAll() {
-//        return service.getAll();
-//    }
-
     @Override
     @GetMapping("/{id}")
     public UnreadMsg get(@PathVariable("id") UnreadMsgsId id) {

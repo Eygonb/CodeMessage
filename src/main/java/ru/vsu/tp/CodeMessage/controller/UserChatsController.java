@@ -14,14 +14,7 @@ import java.util.List;
 @Api(description = "Контроллер связи чат-пользователь")
 public class UserChatsController implements Controller<UserChat, UserChatsId> {
 
-
     private UserChatsService service;
-
-//    @Override
-//    @GetMapping
-//    public List<UserChat> getAll() {
-//        return service.getAll();
-//    }
 
     @Override
     @GetMapping("/{id}")

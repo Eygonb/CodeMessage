@@ -81,4 +81,8 @@ public class Chat implements EntityTemplate<Chat, UUID> {
     public void setChatName(String chatName) {
         this.chatName = chatName;
     }
+
+    public Set<Account> getAccounts() {
+        return new HashSet<>(accounts);
+    }
 }

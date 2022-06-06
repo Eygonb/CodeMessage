@@ -3,24 +3,41 @@ package ru.vsu.tp.CodeMessage.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
+import ru.vsu.tp.CodeMessage.entity.Account;
+import ru.vsu.tp.CodeMessage.entity.Chat;
 import ru.vsu.tp.CodeMessage.entity.Message;
+import ru.vsu.tp.CodeMessage.entity.type.ChatType;
 import ru.vsu.tp.CodeMessage.exception.exceptions.ObjectNotFoundException;
 import ru.vsu.tp.CodeMessage.repository.MessagesRepository;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 import java.util.UUID;
 
 @Service
 public class MessagesService implements ServiceTemplate<Message, UUID> {
     private MessagesRepository repository;
+    private ChatsService chatsService;
 
-    public MessagesService(MessagesRepository repository) {
+    public MessagesService(MessagesRepository repository, ChatsService chatsService) {
         this.repository = repository;
+        this.chatsService = chatsService;
     }
 
-    public List<Message> getMessagesInChat(UUID chatId, int page, int size) {
-        return repository.findByChatIdOrderByTimeMsgDesc(PageRequest.of(page, size), chatId);
+    public List<Message> getMessagesInChat(UUID chatId, int page, int size, UUID userId) {
+        Chat chat = chatsService.getById(chatId);
+        if (chat.getType() == ChatType.OPEN_GROUP)
+            return repository.findByChatIdOrderByTimeMsgDesc(PageRequest.of(page, size), chatId);
+        boolean isIn = false;
+        for (Account user : chat.getAccounts())
+            if (user.getId() == userId) {
+                isIn = true;
+                break;
+            }
+        if (isIn)
+            return repository.findByChatIdOrderByTimeMsgDesc(PageRequest.of(page, size), chatId);
+        else return null;
     }
 
     @Override

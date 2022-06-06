@@ -14,14 +14,7 @@ import java.util.List;
 @Api(description = "Контроллер синтаксиса ЯП")
 public class SyntaxesController implements Controller<Syntax, SyntaxesId> {
 
-
     private SyntaxesService service;
-
-//    @Override
-//    @GetMapping
-//    public List<Syntax> getAll() {
-//        return service.getAll();
-//    }
 
     @Override
     @GetMapping("/{id}")

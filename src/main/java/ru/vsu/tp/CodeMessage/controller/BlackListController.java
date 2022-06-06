@@ -16,14 +16,7 @@ import ru.vsu.tp.CodeMessage.entity.id.BlackListId;
 @Api(description = "Контроллер черных списков")
 public class BlackListController implements Controller<BlackList, BlackListId> {
 
-
     private BlackListService service;
-
-//    @Override
-//    @GetMapping
-//    public List<BlackList> getAll() {
-//        return service.getAll();
-//    }
 
     @Override
     @GetMapping("/{id}")

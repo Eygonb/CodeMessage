@@ -16,12 +16,6 @@ public class UploadedFilesController implements Controller<UploadedFile, UUID> {
 
     private UploadedFilesService service;
 
-//    @Override
-//    @GetMapping
-//    public List<UploadedFile> getAll() {
-//        return service.getAll();
-//    }
-
     @Override
     @GetMapping("/{id}")
     public UploadedFile get(@PathVariable("id") UUID id) {

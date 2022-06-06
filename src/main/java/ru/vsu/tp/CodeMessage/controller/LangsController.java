@@ -14,14 +14,7 @@ import java.util.UUID;
 @Api(description = "Контроллер языков программирования (ЯП)")
 public class LangsController implements Controller<Lang, UUID> {
 
-
     private LangsService service;
-
-//    @Override
-//    @GetMapping
-//    public List<Lang> getAll() {
-//        return service.getAll();
-//    }
 
     @Override
     @GetMapping("/{id}")
