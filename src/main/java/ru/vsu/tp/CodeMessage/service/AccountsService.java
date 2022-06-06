@@ -28,7 +28,9 @@ public class AccountsService implements ServiceTemplate<Account, UUID> {
     }
 
     public List<Account> getSomeByName(int page, int size, String search) {
-        return repository.findByUsernameStartsWith(PageRequest.of(page, size), search);
+        if (search != null)
+            return repository.findByUsernameStartsWith(PageRequest.of(page, size), search);
+        else return repository.findByUsernameStartsWith(PageRequest.of(page, size), "");
     }
 
     @Override

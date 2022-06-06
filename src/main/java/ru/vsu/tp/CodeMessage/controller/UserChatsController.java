@@ -17,11 +17,11 @@ public class UserChatsController implements Controller<UserChat, UserChatsId> {
     @Autowired
     private UserChatsService service;
 
-    @Override
-    @GetMapping
-    public List<UserChat> getAll() {
-        return service.getAll();
-    }
+//    @Override
+//    @GetMapping
+//    public List<UserChat> getAll() {
+//        return service.getAll();
+//    }
 
     @Override
     @GetMapping("/{id}")

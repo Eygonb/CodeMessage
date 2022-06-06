@@ -17,11 +17,11 @@ public class LangsController implements Controller<Lang, UUID> {
     @Autowired
     private LangsService service;
 
-    @Override
-    @GetMapping
-    public List<Lang> getAll() {
-        return service.getAll();
-    }
+//    @Override
+//    @GetMapping
+//    public List<Lang> getAll() {
+//        return service.getAll();
+//    }
 
     @Override
     @GetMapping("/{id}")

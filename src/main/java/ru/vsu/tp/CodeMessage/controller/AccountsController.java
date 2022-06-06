@@ -16,14 +16,8 @@ public class AccountsController implements Controller<Account, UUID> {
     @Autowired
     private AccountsService service;
 
-    @Override
     @GetMapping
-    public List<Account> getAll() {
-        return service.getAll();
-    }
-
-    @GetMapping()
-    public List<Account> getByName(@RequestBody int page, @RequestBody int size, @RequestBody String search) {
+    public List<Account> getAll(@RequestParam int page, @RequestParam int size, @RequestParam String search) {
         return service.getSomeByName(page, size, search);
     }
 

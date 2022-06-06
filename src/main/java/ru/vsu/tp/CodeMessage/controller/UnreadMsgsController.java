@@ -17,11 +17,11 @@ public class UnreadMsgsController implements Controller<UnreadMsg, UnreadMsgsId>
     @Autowired
     private UnreadMsgsService service;
 
-    @Override
-    @GetMapping
-    public List<UnreadMsg> getAll() {
-        return service.getAll();
-    }
+//    @Override
+//    @GetMapping
+//    public List<UnreadMsg> getAll() {
+//        return service.getAll();
+//    }
 
     @Override
     @GetMapping("/{id}")

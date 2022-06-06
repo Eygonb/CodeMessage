@@ -19,11 +19,11 @@ public class BlackListController implements Controller<BlackList, BlackListId> {
     @Autowired
     private BlackListService service;
 
-    @Override
-    @GetMapping
-    public List<BlackList> getAll() {
-        return service.getAll();
-    }
+//    @Override
+//    @GetMapping
+//    public List<BlackList> getAll() {
+//        return service.getAll();
+//    }
 
     @Override
     @GetMapping("/{id}")

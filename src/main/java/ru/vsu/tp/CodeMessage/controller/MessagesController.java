@@ -18,14 +18,15 @@ public class MessagesController implements Controller<Message, UUID> {
     @Autowired
     private MessagesService service;
 
-    @Override
-    @GetMapping
-    public List<Message> getAll() {
-        return service.getAll();
-    }
+//    @Override
+//    @GetMapping
+//    public List<Message> getAll() {
+//        return service.getAll();
+//    }
 
+//    TODO(Добавить проверку на пользователя в чате)
     @GetMapping("/chats/{id}")
-    public List<Message> getMessagesInChat(@PathVariable("id") UUID id, @RequestBody int page, @RequestBody int size) {
+    public List<Message> getMessagesInChat(@PathVariable("id") UUID id, @RequestParam int page, @RequestParam int size) {
         return service.getMessagesInChat(id, page, size);
     }
 

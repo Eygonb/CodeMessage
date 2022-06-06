@@ -32,6 +32,10 @@ public class ChatsService implements ServiceTemplate<Chat, UUID> {
         return repository.findChatOrderByLastMessage(userId, PageRequest.of(page, size));
     }
 
+    public List<Chat> getAll(int page, int size) {
+
+    }
+
     @Override
     public List<Chat> getAll() {
         List<Chat> target = new ArrayList<>();

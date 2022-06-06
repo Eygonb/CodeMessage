@@ -7,8 +7,8 @@ import java.util.List;
 
 public interface Controller<Entity extends EntityTemplate, Id> {
 
-    @ApiOperation("Получение списка всех объектов")
-    List<Entity> getAll();
+//    @ApiOperation("Получение списка всех объектов")
+//    List<Entity> getAll();
     @ApiOperation("Получение объекта по идентификатору")
     Entity get(Id id);
     @ApiOperation("Добавление нового объекта")

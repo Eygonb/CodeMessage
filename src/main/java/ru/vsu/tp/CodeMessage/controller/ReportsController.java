@@ -17,11 +17,11 @@ public class ReportsController implements Controller<Report, UUID> {
     @Autowired
     private ReportsService service;
 
-    @Override
-    @GetMapping
-    public List<Report> getAll() {
-        return service.getAll();
-    }
+//    @Override
+//    @GetMapping
+//    public List<Report> getAll() {
+//        return service.getAll();
+//    }
 
     @Override
     @GetMapping("/{id}")

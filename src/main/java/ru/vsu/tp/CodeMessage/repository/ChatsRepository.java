@@ -13,7 +13,7 @@ public interface ChatsRepository extends CrudRepository<Chat, UUID> {
 
     //TODO(Написать запрос)
     //  Выборка чатов пользователя с пагинацией и сортировкой по времени сообщения
-    @Query("select id, type, img_id, chat_name from chats join messages on chats.id = messages.chat_id where ;")
+    @Query(/*"select id, type, img_id, chat_name from chats join messages on chats.id = messages.chat_id where ;"*/)
     List<Chat> findChatOrderByLastMessage(UUID userId, Pageable pageable);
 
     //TODO(И тут тоже)

@@ -17,11 +17,11 @@ public class UploadedFilesController implements Controller<UploadedFile, UUID> {
     @Autowired
     private UploadedFilesService service;
 
-    @Override
-    @GetMapping
-    public List<UploadedFile> getAll() {
-        return service.getAll();
-    }
+//    @Override
+//    @GetMapping
+//    public List<UploadedFile> getAll() {
+//        return service.getAll();
+//    }
 
     @Override
     @GetMapping("/{id}")

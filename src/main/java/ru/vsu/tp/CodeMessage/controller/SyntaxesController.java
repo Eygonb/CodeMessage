@@ -17,11 +17,11 @@ public class SyntaxesController implements Controller<Syntax, SyntaxesId> {
     @Autowired
     private SyntaxesService service;
 
-    @Override
-    @GetMapping
-    public List<Syntax> getAll() {
-        return service.getAll();
-    }
+//    @Override
+//    @GetMapping
+//    public List<Syntax> getAll() {
+//        return service.getAll();
+//    }
 
     @Override
     @GetMapping("/{id}")
