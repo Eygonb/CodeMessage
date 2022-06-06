@@ -1,7 +1,6 @@
 package ru.vsu.tp.CodeMessage.controller;
 
 import io.swagger.annotations.Api;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import ru.vsu.tp.CodeMessage.config.jwt.TokenUtil;
 import ru.vsu.tp.CodeMessage.entity.Chat;
@@ -27,7 +26,7 @@ public class ChatsController implements Controller<Chat, UUID> {
                              @RequestParam String search, @RequestHeader(name="Authorization") String header) {
         String token = jwtTokenUtil.getTokenFromHeader(header);
         UUID userId = jwtTokenUtil.getUserIdFromToken(token);
-        if (search != null)
+        if (search == null)
             return service.getSome(userId, page, size);
         else return service.getSomeByName(userId, page, size, search);
     }

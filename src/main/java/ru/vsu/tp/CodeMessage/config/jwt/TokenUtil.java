@@ -30,8 +30,7 @@ public class TokenUtil implements Serializable {
     }
 
     public UUID getUserIdFromToken(String token) {
-        final Claims claims = getAllClaimsFromToken(token);
-        return claims.get("user_id", UUID.class);
+        return UUID.fromString(getAllClaimsFromToken(token).get("user_id", String.class));
     }
 
     public <T> T getClaimFromToken(String token, Function<Claims, T> claimsResolver) {
