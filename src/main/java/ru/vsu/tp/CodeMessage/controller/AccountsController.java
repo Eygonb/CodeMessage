@@ -13,7 +13,6 @@ import java.util.UUID;
 @RequestMapping("/accounts")
 @Api(description = "Контроллер аккаунтов пользователей")
 public class AccountsController implements Controller<Account, UUID> {
-
     @Autowired
     private AccountsService service;
 
@@ -31,14 +30,14 @@ public class AccountsController implements Controller<Account, UUID> {
 
     @Override
     @PostMapping
-    public Account add(Account uploadedFiles) {
-        return service.add(uploadedFiles);
+    public Account add(Account account) {
+        return service.add(account);
     }
 
     @Override
     @PutMapping("/{id}")
-    public Account update(@RequestBody Account uploadedFiles, @PathVariable UUID id) {
-        return service.update(uploadedFiles, id);
+    public Account update(@RequestBody Account account, @PathVariable UUID id) {
+        return service.update(account, id);
     }
 
     @Override
@@ -49,7 +48,7 @@ public class AccountsController implements Controller<Account, UUID> {
 
     @Override
     @DeleteMapping
-    public void delete(@RequestBody Account uploadedFiles) {
-        service.delete(uploadedFiles);
+    public void delete(@RequestBody Account account) {
+        service.delete(account);
     }
 }

@@ -1,6 +1,5 @@
 package ru.vsu.tp.CodeMessage.service;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import ru.vsu.tp.CodeMessage.entity.Account;
 import ru.vsu.tp.CodeMessage.exception.exceptions.ObjectNotFoundException;
@@ -12,18 +11,11 @@ import java.util.UUID;
 
 @Service
 public class AccountsService implements ServiceTemplate<Account, UUID> {
-
-    private static AccountsService INSTANCE;
-    @Autowired
     private AccountsRepository repository;
 
-    public static AccountsService getInstance() {
-        if (INSTANCE == null)
-            INSTANCE = new AccountsService();
-        return INSTANCE;
+    public AccountsService(AccountsRepository repository) {
+        this.repository = repository;
     }
-
-    private AccountsService() {  }
 
     @Override
     public List<Account> getAll() {
@@ -39,6 +31,10 @@ public class AccountsService implements ServiceTemplate<Account, UUID> {
             return repository.findById(id).get();
         else
             throw ObjectNotFoundException.getInstance();
+    }
+
+    public Account getByUsername(String username) {
+        return repository.findByUsername(username).orElse(null);
     }
 
     @Override
