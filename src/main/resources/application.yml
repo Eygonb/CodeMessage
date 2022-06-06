@@ -3,9 +3,9 @@ spring:
     name: code_message
   datasource:
     driver-class-name: org.postgresql.Driver
-    url: jdbc:postgresql://localhost:5432/code_message
-    username: "postgres"
-    password: "123"
+    url: ${SPRING_DATASOURCE_URL:jdbc:postgresql://localhost:5432/code_message}
+    username: ${SPRING_DATASOURCE_USERNAME:postgres}
+    password: ${SPRING_DATASOURCE_PASSWORD:123}
   security:
     user:
       name: "user"
@@ -21,9 +21,9 @@ spring:
         temp:
           use_jdbc_metadata_defaults: false
 flyway:
-  url: jdbc:postgres://localhost:5432/code_message
+  url: ${SPRING_DATASOURCE_URL:jdbc:postgresql://localhost:5432/code_message}
+  user: ${SPRING_DATASOURCE_USERNAME:postgres}
+  password: ${SPRING_DATASOURCE_PASSWORD:123}
   schemas: public
-  user: "postgres"
-  password: "123"
 jwt:
-  secret: "jwt_secret_key"
+  secret: ${JWT_SECRET:"jwt_secret_key"}

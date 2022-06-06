@@ -17,7 +17,6 @@ public class UserChat implements EntityTemplate<UserChat, UserChatsId> {
     @Id
     @Column(name = "chat_id")
     private UUID chatId;
-    //    TODO(Определить и обработать тип)
     @Enumerated(EnumType.STRING)
     private UserChatType type;
 

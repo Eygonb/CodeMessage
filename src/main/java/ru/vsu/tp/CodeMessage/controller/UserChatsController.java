@@ -13,8 +13,11 @@ import java.util.List;
 @RequestMapping("/user_chats")
 @Api(description = "Контроллер связи чат-пользователь")
 public class UserChatsController implements Controller<UserChat, UserChatsId> {
+    private final UserChatsService service;
 
-    private UserChatsService service;
+    public UserChatsController(UserChatsService service) {
+        this.service = service;
+    }
 
     @Override
     @GetMapping("/{id}")

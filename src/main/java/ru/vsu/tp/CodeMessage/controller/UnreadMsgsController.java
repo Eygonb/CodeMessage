@@ -13,8 +13,11 @@ import java.util.List;
 @RequestMapping("/unread_msgs")
 @Api(description = "Контроллер непрочитанных сообщений")
 public class UnreadMsgsController implements Controller<UnreadMsg, UnreadMsgsId> {
+    private final UnreadMsgsService service;
 
-    private UnreadMsgsService service;
+    public UnreadMsgsController(UnreadMsgsService service) {
+        this.service = service;
+    }
 
     @Override
     @GetMapping("/{id}")

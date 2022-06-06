@@ -13,8 +13,11 @@ import java.util.UUID;
 @RequestMapping("/reports")
 @Api(description = "Контроллер жалоб")
 public class ReportsController implements Controller<Report, UUID> {
+    private final ReportsService service;
 
-    private ReportsService service;
+    public ReportsController(ReportsService service) {
+        this.service = service;
+    }
 
     @Override
     @GetMapping("/{id}")

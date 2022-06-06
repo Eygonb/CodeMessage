@@ -13,8 +13,11 @@ import java.util.UUID;
 @RequestMapping("/langs")
 @Api(description = "Контроллер языков программирования (ЯП)")
 public class LangsController implements Controller<Lang, UUID> {
+    private final LangsService service;
 
-    private LangsService service;
+    public LangsController(LangsService service) {
+        this.service = service;
+    }
 
     @Override
     @GetMapping("/{id}")

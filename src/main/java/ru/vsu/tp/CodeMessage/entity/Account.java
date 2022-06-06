@@ -22,7 +22,6 @@ public class Account implements EntityTemplate<Account, UUID> {
     private String username;
     private String email;
     private String password;
-    //    TODO(Что-то сделать с типом)
     @Enumerated(EnumType.STRING)
     private AccountType type;
     private String title;

@@ -13,8 +13,11 @@ import java.util.List;
 @RequestMapping("/syntaxes")
 @Api(description = "Контроллер синтаксиса ЯП")
 public class SyntaxesController implements Controller<Syntax, SyntaxesId> {
+    private final SyntaxesService service;
 
-    private SyntaxesService service;
+    public SyntaxesController(SyntaxesService service) {
+        this.service = service;
+    }
 
     @Override
     @GetMapping("/{id}")

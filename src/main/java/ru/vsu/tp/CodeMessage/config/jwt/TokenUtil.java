@@ -18,7 +18,6 @@ import java.util.function.Function;
 @Service
 public class TokenUtil implements Serializable {
     public static final long JWT_TOKEN_VALIDITY = 24 * 60 * 60;
-    // TODO replace by system properties in deploy
     @Value("${jwt.secret}")
     private String secret;
 

@@ -14,7 +14,6 @@ import java.util.UUID;
 @RequestMapping("/chats")
 @Api(description = "Контроллер чатов")
 public class ChatsController implements Controller<Chat, UUID> {
-
     private final ChatsService service;
     private final TokenUtil jwtTokenUtil;
 

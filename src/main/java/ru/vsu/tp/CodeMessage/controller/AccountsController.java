@@ -1,8 +1,11 @@
 package ru.vsu.tp.CodeMessage.controller;
 
 import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import ru.vsu.tp.CodeMessage.dto.AccountDto;
 import ru.vsu.tp.CodeMessage.entity.Account;
 import ru.vsu.tp.CodeMessage.service.AccountsService;
 
@@ -12,41 +15,50 @@ import java.util.UUID;
 @RestController
 @RequestMapping("/accounts")
 @Api(description = "Контроллер аккаунтов пользователей")
-public class AccountsController implements Controller<Account, UUID> {
+public class AccountsController {
+    private final AccountsService service;
 
-    private AccountsService service;
+    public AccountsController(AccountsService service) {
+        this.service = service;
+    }
 
     @GetMapping
-    public List<Account> getAll(@RequestParam int page, @RequestParam int size, @RequestParam String search) {
+    @ApiOperation("Получение списка всех объектов")
+    public List<AccountDto> getAll(@RequestParam int page, @RequestParam int size, @RequestParam String search) {
         return service.getSomeByName(page, size, search);
     }
 
-    @Override
     @GetMapping("/{id}")
-    public Account get(@PathVariable("id") UUID id) {
+    @ApiOperation("Получение объекта по идентификатору")
+    public AccountDto get(@PathVariable("id") UUID id) {
         return service.getById(id);
     }
 
-    @Override
     @PostMapping("/register")
-    public Account add(@RequestBody Account account) {
-        return service.add(account);
+    @ApiOperation("Добавление нового объекта")
+    public ResponseEntity add(@RequestBody Account account) {
+        try {
+            AccountDto accountDto = service.add(account);
+            return ResponseEntity.ok(accountDto);
+        } catch (IllegalArgumentException e) {
+            return ResponseEntity.status(400).body(e.getMessage());
+        }
     }
 
-    @Override
     @PutMapping("/{id}")
-    public Account update(@RequestBody Account account, @PathVariable("id") UUID id) {
+    @ApiOperation("Обновление данных существующего объекта")
+    public AccountDto update(@RequestBody Account account, @PathVariable("id") UUID id) {
         return service.update(account, id);
     }
 
-    @Override
     @DeleteMapping("/{id}")
+    @ApiOperation("Удаление объекта по его идентификатору")
     public void delete(@PathVariable("id") UUID id) {
         service.delete(id);
     }
 
-    @Override
     @DeleteMapping
+    @ApiOperation("Удаление выбранного объекта")
     public void delete(@RequestBody Account account) {
         service.delete(account);
     }

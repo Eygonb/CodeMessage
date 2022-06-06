@@ -1,42 +1,47 @@
 package ru.vsu.tp.CodeMessage.service;
 
 import org.springframework.data.domain.PageRequest;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import ru.vsu.tp.CodeMessage.dto.AccountDto;
 import ru.vsu.tp.CodeMessage.entity.Account;
 import ru.vsu.tp.CodeMessage.exception.exceptions.ObjectNotFoundException;
 import ru.vsu.tp.CodeMessage.repository.AccountsRepository;
 
+import javax.transaction.Transactional;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 import java.util.UUID;
+import java.util.stream.Collectors;
 
 @Service
-public class AccountsService implements ServiceTemplate<Account, UUID> {
-    private AccountsRepository repository;
+public class AccountsService {
+    private final AccountsRepository repository;
+    private final PasswordEncoder encoder;
 
-    public AccountsService(AccountsRepository repository) {
+    public AccountsService(AccountsRepository repository, PasswordEncoder encoder) {
         this.repository = repository;
+        this.encoder = encoder;
     }
 
-    @Override
-    public List<Account> getAll() {
-        List<Account> target = new ArrayList<>();
-        repository.findAll().forEach(target::add);
-        System.out.println(target);
+    public List<AccountDto> getAll() {
+        List<AccountDto> target = new ArrayList<>();
+        repository.findAll().stream().map(AccountDto::new).forEach(target::add);
         return target;
     }
 
-    public List<Account> getSomeByName(int page, int size, String search) {
+    public List<AccountDto> getSomeByName(int page, int size, String search) {
         if (search != null)
-            return repository.findByUsernameStartsWith(PageRequest.of(page, size), search);
-        else return repository.findByUsernameStartsWith(PageRequest.of(page, size), "");
+            return repository.findByUsernameStartsWith(PageRequest.of(page, size), search).stream().map(AccountDto::new).collect(Collectors.toList());
+        else
+            return repository.findByUsernameStartsWith(PageRequest.of(page, size), "").stream().map(AccountDto::new).collect(Collectors.toList());
     }
 
-    @Override
-    public Account getById(UUID id) {
-        if (repository.findById(id).isPresent())
-            return repository.findById(id).get();
+    public AccountDto getById(UUID id) {
+        Optional<Account> account = repository.findById(id);
+        if (account.isPresent())
+            return new AccountDto(account.get());
         else
             throw ObjectNotFoundException.getInstance();
     }
@@ -45,18 +50,29 @@ public class AccountsService implements ServiceTemplate<Account, UUID> {
         return repository.findByUsername(username).map(AccountDto::new).orElse(null);
     }
 
-    @Override
-    public Account add(Account entity) {
-        return repository.save(entity);
+    @Transactional
+    public AccountDto add(Account entity) throws IllegalArgumentException {
+        entity.setPassword(encoder.encode(entity.getPassword()));
+        final boolean existsByUsername = repository.existsByUsername(entity.getUsername());
+        final boolean existsByEmail = repository.existsByEmail(entity.getEmail());
+
+        if (existsByEmail || existsByUsername) {
+            String emailError = existsByEmail ? "Аккаунт с этим email уже существует " : "";
+            String usernameError = existsByUsername ? "Аккаунт с этим username уже существует" : "";
+            throw new IllegalArgumentException(emailError + usernameError);
+        }
+
+        return new AccountDto(repository.save(entity));
     }
 
-    @Override
-    public Account update(Account newEntity, UUID id) {
+    @Transactional
+    public AccountDto update(Account newEntity, UUID id) {
+        newEntity.setPassword(encoder.encode(newEntity.getPassword()));
         return repository.findById(id)
                 .map(entity -> {
                     try {
                         entity.updateTo(newEntity);
-                        return repository.save(entity);
+                        return new AccountDto(repository.save(entity));
                     } catch (Exception e) {
                         e.printStackTrace();
                         return null;
@@ -65,7 +81,7 @@ public class AccountsService implements ServiceTemplate<Account, UUID> {
                 .orElseGet(() -> {
                     try {
                         newEntity.setId(id);
-                        return repository.save(newEntity);
+                        return new AccountDto(repository.save(newEntity));
                     } catch (Exception e) {
                         e.printStackTrace();
                         return null;
@@ -73,12 +89,12 @@ public class AccountsService implements ServiceTemplate<Account, UUID> {
                 });
     }
 
-    @Override
+    @Transactional
     public void delete(UUID id) {
         repository.deleteById(id);
     }
 
-    @Override
+    @Transactional
     public void delete(Account entity) {
         repository.delete(entity);
     }

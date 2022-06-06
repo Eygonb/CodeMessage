@@ -19,12 +19,10 @@ import java.util.UUID;
 @RequestMapping("/messages")
 @Api(description = "Контроллер сообщений")
 public class MessagesController implements Controller<Message, UUID> {
-
     private final MessagesService service;
     private final TokenUtil jwtTokenUtil;
 
-    public MessagesController(MessagesService service, TokenUtil jwtTokenUtil,
-                              ChatsService chatService) {
+    public MessagesController(MessagesService service, TokenUtil jwtTokenUtil) {
         this.service = service;
         this.jwtTokenUtil = jwtTokenUtil;
     }

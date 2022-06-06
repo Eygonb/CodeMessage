@@ -1,6 +1,5 @@
 package ru.vsu.tp.CodeMessage.service;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 import ru.vsu.tp.CodeMessage.entity.Chat;
@@ -37,8 +36,7 @@ public class ChatsService implements ServiceTemplate<Chat, UUID> {
 
     @Override
     public List<Chat> getAll() {
-        List<Chat> target = new ArrayList<>();
-        repository.findAll().forEach(target::add);
+        List<Chat> target = repository.findAll();
         System.out.println(target);
         return target;
     }

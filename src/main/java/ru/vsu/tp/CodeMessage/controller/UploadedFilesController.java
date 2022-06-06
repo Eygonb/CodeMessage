@@ -13,8 +13,11 @@ import java.util.UUID;
 @RequestMapping("/uploaded_files")
 @Api(description = "Контроллер загруженных файлов")
 public class UploadedFilesController implements Controller<UploadedFile, UUID> {
+    private final UploadedFilesService service;
 
-    private UploadedFilesService service;
+    public UploadedFilesController(UploadedFilesService service) {
+        this.service = service;
+    }
 
     @Override
     @GetMapping("/{id}")
