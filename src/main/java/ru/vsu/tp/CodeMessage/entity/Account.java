@@ -1,9 +1,10 @@
 package ru.vsu.tp.CodeMessage.entity;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import ru.vsu.tp.CodeMessage.entity.type.AccountType;
+
+import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
 import java.util.UUID;
 
 @Entity
@@ -16,13 +17,20 @@ public class Account implements EntityTemplate<Account, UUID> {
     private String email;
     private String password;
 //    TODO(Что-то сделать с типом)
-    private String type;
+@Enumerated(EnumType.STRING)
+private AccountType type;
     private String title;
     @Column(name = "img_id")
     private UUID imgId;
 
+    @ManyToMany(fetch = FetchType.LAZY)
+    @JoinTable(name = "user_chats",
+            joinColumns = {@JoinColumn(name = "user_id")},
+            inverseJoinColumns = {@JoinColumn(name = "chat_id")})
+    private Set<Chat> chats = new HashSet<>();
+
     public Account(UUID id, String username, String email,
-                   String password, String type, String title, UUID imgId) {
+                   String password, AccountType type, String title, UUID imgId) {
         this.id = id;
         this.email = email;
         this.imgId = imgId;
@@ -78,11 +86,11 @@ public class Account implements EntityTemplate<Account, UUID> {
         this.password = password;
     }
 
-    public String getType() {
+    public AccountType getType() {
         return type;
     }
 
-    public void setType(String type) {
+    public void setType(AccountType type) {
         this.type = type;
     }
 
@@ -100,5 +108,9 @@ public class Account implements EntityTemplate<Account, UUID> {
 
     public void setImgId(UUID imgId) {
         this.imgId = imgId;
+    }
+
+    public Set<Chat> getChats() {
+        return new HashSet<>(chats);
     }
 }

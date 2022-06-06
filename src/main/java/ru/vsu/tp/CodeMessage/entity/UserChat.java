@@ -1,6 +1,7 @@
 package ru.vsu.tp.CodeMessage.entity;
 
 import ru.vsu.tp.CodeMessage.entity.id.UserChatsId;
+import ru.vsu.tp.CodeMessage.entity.type.UserChatType;
 
 import javax.persistence.*;
 import java.util.UUID;
@@ -16,16 +17,18 @@ public class UserChat implements EntityTemplate<UserChat, UserChatsId> {
     @Id
     @Column(name = "chat_id")
     private UUID chatId;
-//    TODO(Определить и обработать тип)
-    private String type;
+    //    TODO(Определить и обработать тип)
+    @Enumerated(EnumType.STRING)
+    private UserChatType type;
 
-    public UserChat(UUID userId, UUID chatId, String type) {
+    public UserChat(UUID userId, UUID chatId, UserChatType type) {
         this.userId = userId;
         this.type = type;
         this.chatId = chatId;
     }
 
-    public UserChat() {  }
+    public UserChat() {
+    }
 
     @Override
     public UserChat updateTo(UserChat userChat) {
@@ -57,11 +60,11 @@ public class UserChat implements EntityTemplate<UserChat, UserChatsId> {
         this.chatId = chatId;
     }
 
-    public String getType() {
+    public UserChatType getType() {
         return type;
     }
 
-    public void setType(String type) {
+    public void setType(UserChatType type) {
         this.type = type;
     }
 }

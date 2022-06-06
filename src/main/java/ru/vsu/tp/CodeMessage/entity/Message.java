@@ -1,9 +1,8 @@
 package ru.vsu.tp.CodeMessage.entity;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import ru.vsu.tp.CodeMessage.entity.type.MessageType;
+
+import javax.persistence.*;
 import java.time.ZonedDateTime;
 import java.util.UUID;
 
@@ -15,8 +14,8 @@ public class Message implements EntityTemplate<Message, UUID> {
     private UUID id;
     @Column(name = "text_msg")
     private String textMsg;
-//    TODO(Что-то сделать с типом)
-    private String type;
+    @Enumerated(EnumType.STRING)
+    private MessageType type;
     @Column(name = "chat_id")
     private UUID chatId;
     @Column(name = "user_id")
@@ -31,7 +30,7 @@ public class Message implements EntityTemplate<Message, UUID> {
     @Column(name = "attachment_id")
     private UUID attachmentId;
 
-    public Message(UUID id, String textMsg, String type, UUID chatId, UUID userId, ZonedDateTime timeMsg,
+    public Message(UUID id, String textMsg, MessageType type, UUID chatId, UUID userId, ZonedDateTime timeMsg,
                    boolean wasChanged, boolean wasRead, UUID reply, UUID attachmentId) {
         this.attachmentId = attachmentId;
         this.id = id;
@@ -45,7 +44,8 @@ public class Message implements EntityTemplate<Message, UUID> {
         this.reply = reply;
     }
 
-    public Message() {  }
+    public Message() {
+    }
 
     @Override
     public Message updateTo(Message message) {
@@ -78,11 +78,11 @@ public class Message implements EntityTemplate<Message, UUID> {
         this.textMsg = textMsg;
     }
 
-    public String getType() {
+    public MessageType getType() {
         return type;
     }
 
-    public void setType(String type) {
+    public void setType(MessageType type) {
         this.type = type;
     }
 

@@ -1,9 +1,8 @@
 package ru.vsu.tp.CodeMessage.entity;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import ru.vsu.tp.CodeMessage.entity.type.ChatType;
+
+import javax.persistence.*;
 import java.util.UUID;
 
 @Entity
@@ -12,13 +11,14 @@ public class Chat implements EntityTemplate<Chat, UUID> {
 
     @Id
     private UUID id;
-    private String type;
+    @Enumerated(EnumType.STRING)
+    private ChatType type;
     @Column(name = "img_id")
     private UUID imgId;
     @Column(name = "chat_name")
     private String chatName;
 
-    public Chat(UUID id, String type, UUID imgId, String chatName) {
+    public Chat(UUID id, ChatType type, UUID imgId, String chatName) {
         this.chatName = chatName;
         this.id = id;
         this.imgId = imgId;
@@ -44,12 +44,12 @@ public class Chat implements EntityTemplate<Chat, UUID> {
         this.id = id;
     }
 
-    public String getType() {
+    public ChatType getType() {
         return type;
     }
 
-    public void setType(String text) {
-        this.type = text;
+    public void setType(ChatType type) {
+        this.type = type;
     }
 
     public UUID getImgId() {

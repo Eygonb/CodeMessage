@@ -1,16 +1,21 @@
 package ru.vsu.tp.CodeMessage.dto;
 
 import ru.vsu.tp.CodeMessage.entity.Account;
+import ru.vsu.tp.CodeMessage.entity.Chat;
+import ru.vsu.tp.CodeMessage.entity.type.AccountType;
 
+import java.util.HashSet;
+import java.util.Set;
 import java.util.UUID;
 
 public class AccountDto {
     private UUID id;
     private String username;
     private String email;
-    private String type;
+    private AccountType type;
     private String title;
     private UUID imgId;
+    private Set<Chat> chats;
 
     public AccountDto(Account account) {
         this.id = account.getId();
@@ -19,6 +24,7 @@ public class AccountDto {
         this.type = account.getType();
         this.title = account.getTitle();
         this.imgId = account.getImgId();
+        this.chats = account.getChats();
     }
 
     public UUID getId() {
@@ -45,11 +51,11 @@ public class AccountDto {
         this.email = email;
     }
 
-    public String getType() {
+    public AccountType getType() {
         return type;
     }
 
-    public void setType(String type) {
+    public void setType(AccountType type) {
         this.type = type;
     }
 
