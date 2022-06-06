@@ -1,5 +1,6 @@
 package ru.vsu.tp.CodeMessage.entity;
 
+import org.hibernate.annotations.GenericGenerator;
 import ru.vsu.tp.CodeMessage.entity.type.AccountType;
 
 import javax.persistence.*;
@@ -12,6 +13,11 @@ import java.util.UUID;
 public class Account implements EntityTemplate<Account, UUID> {
 
     @Id
+    @GeneratedValue(generator = "UUID")
+    @GenericGenerator(
+            name = "UUID",
+            strategy = "org.hibernate.id.UUIDGenerator"
+    )
     private UUID id;
     private String username;
     private String email;

@@ -1,5 +1,6 @@
 package ru.vsu.tp.CodeMessage.entity;
 
+import org.hibernate.annotations.GenericGenerator;
 import ru.vsu.tp.CodeMessage.entity.type.ChatType;
 
 import javax.persistence.*;
@@ -10,6 +11,11 @@ import java.util.UUID;
 public class Chat implements EntityTemplate<Chat, UUID> {
 
     @Id
+    @GeneratedValue(generator = "UUID")
+    @GenericGenerator(
+            name = "UUID",
+            strategy = "org.hibernate.id.UUIDGenerator"
+    )
     private UUID id;
     @Enumerated(EnumType.STRING)
     private ChatType type;

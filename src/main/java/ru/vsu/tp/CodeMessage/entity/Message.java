@@ -1,5 +1,6 @@
 package ru.vsu.tp.CodeMessage.entity;
 
+import org.hibernate.annotations.GenericGenerator;
 import ru.vsu.tp.CodeMessage.entity.type.MessageType;
 
 import javax.persistence.*;
@@ -11,6 +12,11 @@ import java.util.UUID;
 public class Message implements EntityTemplate<Message, UUID> {
 
     @Id
+    @GeneratedValue(generator = "UUID")
+    @GenericGenerator(
+            name = "UUID",
+            strategy = "org.hibernate.id.UUIDGenerator"
+    )
     private UUID id;
     @Column(name = "text_msg")
     private String textMsg;

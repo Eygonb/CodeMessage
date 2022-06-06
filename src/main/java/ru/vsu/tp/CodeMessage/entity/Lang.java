@@ -1,9 +1,8 @@
 package ru.vsu.tp.CodeMessage.entity;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import org.hibernate.annotations.GenericGenerator;
+
+import javax.persistence.*;
 import java.util.UUID;
 
 @Entity
@@ -11,6 +10,11 @@ import java.util.UUID;
 public class Lang implements EntityTemplate<Lang, UUID> {
 
     @Id
+    @GeneratedValue(generator = "UUID")
+    @GenericGenerator(
+            name = "UUID",
+            strategy = "org.hibernate.id.UUIDGenerator"
+    )
     private UUID id;
     @Column(name = "lang_name")
     private String langName;
