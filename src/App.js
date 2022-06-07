@@ -5,21 +5,39 @@ import Login from "./messenger/Login/Login";
 import Register from "./messenger/Login/Register";
 import UserProfile from "./messenger/Profile/Profile";
 import Admin from "./messenger/Admin/Admin";
+import React, {Component, useEffect, useState} from "react";
+import PrivateRoute from "./messenger/privateRoute";
 
 function App() {
-    return (
+    const [username, setUsername] = useState('')
+    const [isLoggedIn, setIsLoggedIn] = useState(false)
+
+
+        return(
         <div className="body">
             <Routes>
-                <Route path="/" element={<Home/>}/>
-                <Route path="/settings" element={<Settings/>}/>
-                <Route path="/profile" element={<UserProfile/>}/>
-                <Route path="/login" element={<Login/>}/>
-                <Route path="/register" element={<Register/>}/>
-                <Route path="/admin" element={<Admin/>}/>
+                {/*неприватные*/}
+                <Route path="/login"
+                       element={<Login authenticated={isLoggedIn} isLoggedIn ={isLoggedIn => setIsLoggedIn(isLoggedIn)}/>}
+                />
+                <Route path="/register"
+                       element={<Register/>}
+                />
+
+                {/*приватные*/}
+                <Route path="/" element={<PrivateRoute authenticated={isLoggedIn}>
+                    <Home/></PrivateRoute>}/>
+                <Route path="/settings" element={<PrivateRoute authenticated={isLoggedIn}>
+                    <Settings/></PrivateRoute>}/>
+                <Route path="/profile" element={<PrivateRoute authenticated={isLoggedIn}>
+                    <UserProfile/></PrivateRoute>}/>
+                <Route path="/admin" element={<PrivateRoute authenticated={isLoggedIn}>
+                    <Admin/></PrivateRoute>}/>
             </Routes>
             {/*<Home/>*/}
         </div>
-    )
+        )
+
 }
 
 export default App;

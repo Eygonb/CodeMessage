@@ -1,6 +1,6 @@
 [
   {
-    "id": "6af7f85d-27d9-437-b020-f07697b6ca0e",
+    "id": "1",
     "type": "PERSONAL",
     "imgId": "https://sun9-8.userapi.com/impg/4T6ycotaVLz3k2lpQVlzld2rm9yjgYWOmv-1BQ/bQh0p9zG47I.jpg?size=994x1080&quality=96&sign=8766744849b8240e3794b08f4ff846d9&c_uniq_tag=PeAoqMOggmt3h4r89YJ4adwKTFYgUshq-0hxqS-Pi0A&type=album",
     "chatName": "Van Darkholme",
@@ -8,17 +8,17 @@
     "unread": 0,
     "accounts": [
       {
-        "id": "7a82b060-287c-4c0e-99ac-6629ea81d71e",
-        "username": "Тестовый юзер",
+        "id": "1",
+        "username": "Van Darkholme",
         "email": "prom@gmail.com",
         "type": "?",
-        "title": "Запись пользователя",
-        "imgId": "https://randomuser.me/api/portraits/women/81.jpg"
+        "title": "Fisting is three hundred bucks",
+        "imgId": "https://sun9-8.userapi.com/impg/4T6ycotaVLz3k2lpQVlzld2rm9yjgYWOmv-1BQ/bQh0p9zG47I.jpg?size=994x1080&quality=96&sign=8766744849b8240e3794b08f4ff846d9&c_uniq_tag=PeAoqMOggmt3h4r89YJ4adwKTFYgUshq-0hxqS-Pi0A&type=album"
       }
     ]
   },
   {
-    "id": "6af7f822-27d9-4a77-b020-f07697b6ca0e",
+    "id": "2",
     "type": "PERSONAL",
     "imgId": "https://sun9-70.userapi.com/impg/J5ewuM0maWFRBJ7PyZpwqG4gTIY6yfsCwGM-Yw/RO--z5tbGi8.jpg?size=604x604&quality=95&sign=d0199bedf1dcb92844b42c0e17789d43&c_uniq_tag=B0442BypTIPZt9CTy6PTgRpyFkWfc_QA6LpOpbZ_FGE&type=album",
     "chatName": "Billy Herrington",
@@ -36,7 +36,7 @@
     ]
   },
   {
-    "id": "6af1f8dd-27d9-437-b020-f07697b6ca0e",
+    "id": "3",
     "type": "PERSONAL",
     "imgId": "https://cdn.cloudflare.steamstatic.com/steamcommunity/public/images/avatars/ed/ed4a5fbf115b66eda7167ce9459ceffaceda16a0_full.jpg",
     "chatName": "Steve Rambo",
@@ -53,7 +53,7 @@
       }
     ]},
   {
-    "id": "50277892-f860-4cb6-a126-46b99435d83b",
+    "id": "4",
     "type": "OPEN GROUP",
     "imgId": "https://randomuser.me/api/portraits/men/75.jpg",
     "chatName": "Открытая беседа",
@@ -79,7 +79,7 @@
     ]
   },
   {
-    "id": "6af7f8dd-27d9-4a77-b020-f07697b6ca0e",
+    "id": "5",
     "type": "PERSONAL",
     "imgId": "https://randomuser.me/api/portraits/women/81.jpg",
     "chatName": "Персональный чат",
@@ -97,7 +97,7 @@
     ]
   },
   {
-    "id": "6af7f8dd-27d9-437-b020-f07697b6ca0e",
+    "id": "6",
     "type": "PERSONAL",
     "imgId": "https://randomuser.me/api/portraits/women/83.jpg",
     "chatName": "Персональный чат",
@@ -115,7 +115,7 @@
     ]
   },
   {
-    "id": "6af7f8dd-2729-4a77-b020-f07697b6ca0e",
+    "id": "7",
     "type": "OPEN GROUP",
     "imgId": "https://randomuser.me/api/portraits/men/81.jpg",
     "chatName": "Открытая беседа",
@@ -133,7 +133,7 @@
     ]
   },
   {
-    "id": "6af7f8dd-27d9-4a77-b020-f07697b6ca0e",
+    "id": "8",
     "type": "PERSONAL",
     "imgId": "https://randomuser.me/api/portraits/women/8.jpg",
     "chatName": "Виктория ХрензнаетКакая",
@@ -151,7 +151,7 @@
     ]
   },
   {
-    "id": "50277892-f860-4cb6-a126-46b99435d83b",
+    "id": "9",
     "type": "OPEN GROUP",
     "imgId": "https://sun9-68.userapi.com/s/v1/if1/mQ79mmWRjk5_T3HAXrE-JPjXD86GaKs6sYSpu5pEG6SWu1Pu7VmJT1xQChWjULCJwNg-qg.jpg?size=200x200&quality=96&type=album",
     "chatName": "Кучка умдаков",
@@ -177,22 +177,21 @@
     ]
   },
   {
-    "id": "6af7f8dd-27d9-4a77-b020-f07697b6ca0e",
+    "id": "10",
     "type": "PERSONAL",
-    "imgId": "https://randomuser.me/api/portraits/women/8.jpg",
-    "chatName": "Виктория ХрензнаетКакая",
-    "mes_text": "Ok?",
+    "imgId": "https://randomuser.me/api/portraits/men/8.jpg",
+    "chatName": "Michael",
+    "mes_text": "Hehe",
     "unread": 0,
     "accounts": [
       {
         "id": "7a82b060-287c-4c0e-99ac-6629ea81d71e",
-        "username": "Тестовый юзер",
+        "username": "Michael",
         "email": "prom@gmail.com",
         "type": "?",
         "title": "Запись пользователя",
-        "imgId": "https://randomuser.me/api/portraits/women/81.jpg"
+        "imgId": "https://randomuser.me/api/portraits/men/8.jpg"
       }
     ]
   }
-
 ]

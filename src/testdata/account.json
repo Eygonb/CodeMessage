@@ -1,11 +1,11 @@
 [{
 
-      "id": 1,
+      "id": 2,
       "username": "BRGD_Kazakh",
       "email": "test@gmail.com",
       "password": "testpass22",
       "type": "1",
-      "title": "я казах и мне не стыдно. я казах",
+      "title": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Qui dicta minus molestiae vel beatae natus eveniet ratione temporibus aperiam harum alias officiis assumenda officia quibusdam deleniti eos cupiditate dolore doloribus",
       "img_id": "https://randomuser.me/api/portraits/men/80.jpg"
 
 }

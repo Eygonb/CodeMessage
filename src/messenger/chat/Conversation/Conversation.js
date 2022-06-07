@@ -1,7 +1,9 @@
 import React, {useState, useEffect} from 'react';
 import './chat.css'
 import PopupConv from "./PopupConv";
-import JsonData from "../../../testdata/testChat.json"
+// import JsonData from "../../../testdata/chat/1.json"
+
+import JsonData from "../../../testdata/chat/2.json"
 import ConversationItem from "./ConversationItem/ConversationItem";
 
 export default function Conversation(props) {
@@ -10,9 +12,8 @@ export default function Conversation(props) {
     const togglePopup = () => {
         setIsOpen(!isOpen);
     }
-    const {id, imgId, chatName, mes_text, unread} = props.data;
-    const messages = JsonData;
-    const imgConv = imgId;
+    const {imgId, chatName} = props.data;
+    const messagesList = JsonData;
     return (
         <div className="container">
             <div className="col-md-8 col-xl-6">
@@ -21,7 +22,7 @@ export default function Conversation(props) {
                         <div className="card-header msg_head">
                             <div className="d-flex bd-highlight">
                                 <div className="img_cont">
-                                    <img src={imgId} className="rounded-circle user_img"/>
+                                    <img src={imgId} className="rounded-circle user_img" alt ='userLogo'/>
                                     <span className="online_icon"></span>
                                 </div>
                                 <div className="user_info">
@@ -35,9 +36,10 @@ export default function Conversation(props) {
                         </div>
                         {isOpen && <PopupConv data={props.data} handleClose={togglePopup}/>}
                         <div className="card-body msg_card_body">
-                            {messages.map((message) => {
+                            {messagesList.map((message) => {
+
                                     return (
-                                        <ConversationItem message={message} imgId={imgId} key={message.mes_id}/>)
+                                        <ConversationItem messages={message} imgId={imgId} key={message.mes_id}/>)
                                 }
                             )}
                         </div>

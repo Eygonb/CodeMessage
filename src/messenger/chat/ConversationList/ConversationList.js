@@ -4,15 +4,17 @@ import "./ConversationList.css"
 import axios from "axios";
 import ConversationListItem from "./ConversationListItem";
 import AddChat from "../AddChat";
+import JsonData from "../../../testdata/ConversList.json"
 
-export default function ConversationList(props) {
+
+export default function ConversationList(props, changeChatID) {
     const [conversations, setConversations] = useState([]);
     useEffect(() => {
         getConversations()
     }, [])
 
     const [isOpen, setIsOpen] = useState(false);
-
+    const ConversationList = JsonData;
     const togglePopup = () => {
         setIsOpen(!isOpen);
     }
@@ -32,8 +34,10 @@ export default function ConversationList(props) {
         });
     }
 
+    const [selectChatid, setSelectChatid] = useState(0)
+
     return (
-        <div className="container">
+        <div className="container" >
             <div className="conversation-list-card">
                 <div id="plist" className="people-list">
                     <div className="input-group">
@@ -46,9 +50,21 @@ export default function ConversationList(props) {
                                 className="fa fa-plus"></i></span>
                         </div>
                     </div>
+                    {/*{console.log(selectChatid)}*/}
+                    <div onChange={() => changeChatID(selectChatid) }>
+                    {ConversationList.map((conversation) => {
+                        return(
 
-                    <ConversationListItem/>
+                                <ConversationListItem
+                                    chat = {conversation}
+                                    key ={conversation.id}
+                                    change={selectChatid =>setSelectChatid(selectChatid)}
+                                />
 
+
+                        )
+                        }
+                    )}</div>
                 </div>
             </div>
 

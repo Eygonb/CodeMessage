@@ -1,19 +1,19 @@
 import React from 'react';
 
-const ConversationItem = ({message, imgId}) => {
+const ConversationItem = ({messages, imgId}) => {
     return (
         <div>
-            {message.user_id === 1 ?
+            {messages.user_id === 1 ?
                 <div className="d-flex justify-content-start mb-4">
                     <div className="img_cont_msg">
-                        <img src={imgId} className="rounded-circle user_img_msg"/>
+                        <img src={imgId} className="rounded-circle user_img_msg" alt ='userLogo'/>
                     </div>
                     <div className="msg_container">
                         <div>
-                            {message.text_msg}</div>
-                        {message.was_changed === "false" ?
-                            <span className="msg_time">{message.time_msg}</span>
-                            : <span className="msg_time">{message.time_msg}
+                            {messages.text_msg}</div>
+                        {messages.was_changed === "false" ?
+                            <span className="msg_time">{messages.time_msg}</span>
+                            : <span className="msg_time">{messages.time_msg}
                                 <span className="msg_was_changed"> изменено
                                                 </span>
                                             </span>
@@ -24,10 +24,10 @@ const ConversationItem = ({message, imgId}) => {
                 <div className="d-flex justify-content-end mb-4">
                     <div className="msg_container_send">
                         <div>
-                            {message.text_msg}</div>
-                        {message.was_changed === "false" ?
-                            <span className="msg_time_send">{message.time_msg}</span>
-                            : <span className="msg_time_send">{message.time_msg}
+                            {messages.text_msg}</div>
+                        {messages.was_changed === "false" ?
+                            <span className="msg_time_send">{messages.time_msg}</span>
+                            : <span className="msg_time_send">{messages.time_msg}
                                 <span className="msg_was_changed_send"> изменено
                                                 </span>
                                             </span>
@@ -35,7 +35,7 @@ const ConversationItem = ({message, imgId}) => {
                     </div>
                     <div className="img_cont_msg">
                         <img src="https://randomuser.me/api/portraits/men/33.jpg"
-                             className="rounded-circle user_img_msg"/>
+                             className="rounded-circle user_img_msg" alt ='/userlogo'/>
                     </div>
                 </div>
             }
