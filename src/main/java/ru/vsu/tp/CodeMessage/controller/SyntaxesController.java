@@ -19,11 +19,9 @@ import java.util.UUID;
 @Api(description = "Контроллер синтаксиса ЯП")
 public class SyntaxesController {
     private final SyntaxesService service;
-    private final LangsService langsService;
 
-    public SyntaxesController(SyntaxesService service, LangsService langsService) {
+    public SyntaxesController(SyntaxesService service) {
         this.service = service;
-        this.langsService = langsService;
     }
 
     @ApiOperation("Получение карты ключевого слова и его цвета")

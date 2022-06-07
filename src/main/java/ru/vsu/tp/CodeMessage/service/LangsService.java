@@ -18,8 +18,6 @@ public class LangsService implements ServiceTemplate<Lang, UUID> {
         this.repository = repository;
     }
 
-    private LangsService() { }
-
     public UUID getLangIdByName(String name) {
         return repository.findByLangName(name).getId();
     }

@@ -34,7 +34,8 @@ public class ChatsController implements Controller<Chat, UUID> {
     }
 
     @GetMapping("/open/{id}")
-    public List<Chat> getOpenChats(@PathVariable("id") UUID id, @RequestParam int page, @RequestParam int size) {
+    public List<Chat> getOpenChats(@PathVariable("id") UUID id, @RequestParam(defaultValue = "0") int page,
+                                   @RequestParam(defaultValue = "10") int size) {
         return service.getOpenChats(id, page, size);
     }
 

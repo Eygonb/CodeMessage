@@ -27,7 +27,9 @@ public class AccountsController {
 
     @GetMapping
     @ApiOperation("Получение списка всех объектов")
-    public List<AccountDto> getAll(@RequestParam int page, @RequestParam int size, @RequestParam String search) {
+    public List<AccountDto> getAll(@RequestParam(defaultValue = "0") int page,
+                                   @RequestParam(defaultValue = "10") int size,
+                                   @RequestParam(defaultValue = "") String search) {
         return service.getSomeByName(page, size, search);
     }
 

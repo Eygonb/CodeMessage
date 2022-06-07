@@ -22,15 +22,17 @@ public class MessagesController implements Controller<Message, UUID> {
     }
 
     @GetMapping("/chats/{id}")
-    public List<Message> getMessagesInChat(@PathVariable("id") UUID id, @RequestParam int page,
-                                           @RequestParam int size, @RequestHeader(name = "Authorization") String header) {
+    public List<Message> getMessagesInChat(@PathVariable("id") UUID id, @RequestParam(defaultValue = "0") int page,
+                                           @RequestParam(defaultValue = "10") int size,
+                                           @RequestHeader(name = "Authorization") String header) {
         String token = jwtTokenUtil.getTokenFromHeader(header);
         UUID userId = jwtTokenUtil.getUserIdFromToken(token);
         return service.getMessagesInChat(id, page, size, userId);
     }
 
     @GetMapping("/chats/open/{id}")
-    public List<Message> getMessagesInOpenChat(@PathVariable("id") UUID id, @RequestParam int page, @RequestParam int size) {
+    public List<Message> getMessagesInOpenChat(@PathVariable("id") UUID id, @RequestParam(defaultValue = "0") int page,
+                                               @RequestParam(defaultValue = "10") int size) {
         return service.getMessagesInChat(id, page, size, null);
     }
 
