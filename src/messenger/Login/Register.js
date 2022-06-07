@@ -1,126 +1,124 @@
 import {useState, useEffect} from 'react';
+import {useForm, Controller } from "react-hook-form";
 import React, {Component} from "react";
 import './Login.css';
 import {Link} from "react-router-dom";
+import useAuth from "./loginUtils/useAuth";
+import api from "./services";
+
+import {
+    TextField,
+} from "@mui/material/";
 
 function Register (props){
-    const [email, setEmail] = useState('')
-    const [username, setUsername] = useState('')
-    const [password, setPassword] = useState('')
     const [message, setMessage] = useState('')
-    const [error, setError] = useState('')
+    const [isLoading, setIsLoading] = useState(false);
+    const auth = useAuth();
 
-    const handleChange = (event) =>{
-        this.setState({
-            [event.target.name]: event.target.value
-        });
-    }
+    const {
+        control,
+        handleSubmit,
+        formState: {errors},
+        setError,
+    } = useForm({});
 
-    const handleRegisterClick = (event) => {
-        console.log('Try to register', this.state.email, this.state.password);
-        const body = {
-            email,
-            password
-        };
-        fetch('http://localhost:8080/accounts/register ', {
-            method: 'POST',
-            body: JSON.stringify(body),
-            headers: {
-                'Content-Type': 'application/json'
+    const onSubmit = async (data) => {
+        try {
+            setIsLoading(true);
+            await api.auth.registration(data);
+            const { data: loginData } = await api.auth.login(data);
+            auth.setToken(loginData.token);
+            auth.setUser(loginData.user);
+        } catch (e) {
+            if (e.response.status === 422) {
+                Object.keys(e.response.data.errors).forEach((key) => {
+                    setError(key, {
+                        type: "manual",
+                        message: e.response.data.errors[key],
+                    });
+                });
             }
-        //    todo - ошибка 400
-        }).then(response => response.json()
-        ).then(json => this.setState({
-            message: json.message
-        }));
-        event.preventDefault();
-    }
-
-    // blurHandler = (e) => {
-    //     switch (e.target.name) {
-    //         case "email":
-    //             this.state.emailDirty(true)
-    //             break
-    //         case "password":
-    //             this.state.passwordDirty(true)
-    //             break
-    //     }
-    // }
-    // passwordHandler = (e) => {
-    //     this.state.password(e.target.value)
-    //
-    //     if (e.target.value.length < 3) {
-    //         this.state.passwordError("Password должен быть длиннее 3 символов!")
-    //         if (!e.target.value) {
-    //             this.state.passwordError("Password не может быть пустым!")
-    //         }
-    //     } else {
-    //         this.state.passwordError('')
-    //     }
-    // }
-    // emailHandler = (e) => {
-    //     this.state.emailError(e.target.value)
-    //     const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
-    //     if (!re.test(String(e.target.value).toLowerCase())) {
-    //         this.state.emailError("email некоректный!")
-    //     } else {
-    //         this.state.emailError('')
-    //     }
-    // }
+        } finally {
+            setIsLoading(false);
+        }
+    };
 
         return (
             <div className="messenger">
-                <form>
-
-                    {console.log(localStorage.getItem("token"))}
-                    {/*{console.log(localStorage.getItem('isLoggedIn'))}*/}
-                    {/*{console.log(localStorage.getItem('token'))}*/}
+                <form onSubmit={handleSubmit(onSubmit)}>
+                    {/*{console.log(auth.login)}*/}
                     <div className="login-box">
                         <span className="text-center">Registration</span>
                         <div className="input-container">
-
                             <div className="error-text">
                                 {message ? message : ''}
                             </div>
+                        </div>
+
+                        <div className="input-container">
+                            <Controller
+                                name="username"
+                                control={control}
+                                defaultValue=""
+                                render={({ field }) => (
+                                    <TextField
+                                        {...field}
+                                        id="standard-basic1"
+                                        variant="standard"
+                                        error={Boolean(errors.firstName?.message)}
+                                        fullWidth={true}
+                                        label="Username"
+                                        helperText={errors.firstName?.message}
+                                    />
+                                )}
+                            />
 
                         </div>
 
                         <div className="input-container">
-                            <input onChange={handleChange}
-                                   type="text"
-                                   name="username"
-                                   id="username"
-                                   className="validate"
-                                   required="required"/>
-                            <label>Username</label>
-                        </div>
-
-                        <div className="input-container">
-                            <input
-
-                                value={email}
+                            <Controller
                                 name="email"
-                                id="email"
-                                className="validate"
-                                required="required"/>
-                            <label>Email</label>
+                                control={control}
+                                defaultValue=""
+                                render={({ field }) => (
+                                    <TextField
+                                        {...field}
+                                        id="standard-basic2"
+                                        variant="standard"
+                                        error={Boolean(errors.email?.message)}
+                                        fullWidth={true}
+                                        type="email"
+                                        label="Email"
+                                        helperText={errors.email?.message}
+                                    />
+                                )}
+                            />
                         </div>
 
                         <div className="input-container">
-                            <input
-                                onChange={handleChange}
-                                type="password"
+                            <Controller
                                 name="password"
-                                id="password"
-                                className="validate"
-                                required="required"/>
-                            <label>Password</label>
+                                control={control}
+                                defaultValue=""
+                                render={({ field }) => (
+                                    <TextField
+                                        {...field}
+                                        id="standard-basic3"
+                                        variant="standard"
+                                        error={Boolean(errors.password?.message)}
+                                        type="password"
+                                        fullWidth={true}
+                                        label="Password"
+                                        helperText={errors.password?.message}
+                                    />
+                                )}
+                            />
                         </div>
 
                         <button className="btn1"
                                 variant="primary"
                                 type="submit"
-                                onClick={handleRegisterClick}>submit</button>
+                        >submit</button>
 
                         <Link to="/login">
                             <button type="button" className="btn-register">

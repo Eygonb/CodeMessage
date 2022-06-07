@@ -1,9 +1,8 @@
 import React, {useState} from "react";
 import './Login.css';
 import '../../index.css';
-import {Link} from "react-router-dom";
+import {Link, Navigate} from "react-router-dom";
 import {useForm, Controller } from "react-hook-form";
-
 
 import {
     TextField,
@@ -11,8 +10,7 @@ import {
 import api from "./services";
 import useAuth from "./loginUtils/useAuth";
 
-function Login(props) {
-    const [authenticated, setAuthenticated] = useState(false)
+function Login() {
     const [isLoading, setIsLoading] = useState(false);
 
     const {
@@ -21,17 +19,18 @@ function Login(props) {
         formState: {errors},
         setError,
     } = useForm({});
+
     const auth = useAuth();
 
     const onSubmit = async (data) => {
         try {
-            console.log(data)
             setIsLoading(true);
             const {data: loginData} = await api.auth.login(data);
-
             auth.setToken(loginData);
-            setAuthenticated(true);
-            console.log(loginData)
+            const {data: loginData2} = await api.auth.getProfile();
+            auth.setUser(loginData2);
+            // auth.setToken(loginData);
+            // console.log(loginData)
         } catch (e) {
             if (e.response.status === 401) {
                 Object.keys(e.response.data.errors).forEach((key) => {
@@ -46,9 +45,14 @@ function Login(props) {
         }
     };
 
-    return (
+    return auth.user ? (
+        <Navigate
+            to={{
+                pathname: "/"
+            }}
+        />):(
         <div className="messenger">
-            {console.log(authenticated)}
+            {console.log(auth)}
             <form onSubmit={handleSubmit(onSubmit)}>
                 <div className="login-box">
                     <span className="text-center">login</span>
@@ -60,11 +64,11 @@ function Login(props) {
                             render={({ field }) => (
                                 <TextField
                                     {...field}
-                                    id="standard-basic"
+                                    id="standard-basic1"
                                     variant="standard"
                                     error={Boolean(errors.email?.message)}
                                     fullWidth={true}
-                                    label="Email"
+                                    label="username"
                                     helperText={errors.email?.message}
                                 />
                                 )}
@@ -79,7 +83,7 @@ function Login(props) {
                             render={({ field }) => (
                                 <TextField
                                     {...field}
-                                    id="standard-basic"
+                                    id="standard-basic2"
                                     variant="standard"
                                     error={Boolean(errors.password?.message)}
                                     type="password"
