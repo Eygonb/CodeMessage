@@ -1,83 +1,100 @@
 import React, {useState} from "react";
-
 import './Login.css';
 import '../../index.css';
 import {Link} from "react-router-dom";
+import {useForm, Controller } from "react-hook-form";
 
-function Login (props, isLoggedIn) {
-    const [username, setUsername] = useState('')
-    const [password, setPassword]= useState('')
-    const [message, setMessage]= useState('')
+
+import {
+    TextField,
+} from "@mui/material/";
+import api from "./services";
+import useAuth from "./loginUtils/useAuth";
+
+function Login(props) {
     const [authenticated, setAuthenticated] = useState(false)
+    const [isLoading, setIsLoading] = useState(false);
 
-    const [token, setToken]= useState('')
+    const {
+        control,
+        handleSubmit,
+        formState: {errors},
+        setError,
+    } = useForm({});
+    const auth = useAuth();
 
-    const handleChangeUsername = (enterredUsername) =>{
-       setUsername(enterredUsername)
-    }
+    const onSubmit = async (data) => {
+        try {
+            console.log(data)
+            setIsLoading(true);
+            const {data: loginData} = await api.auth.login(data);
 
-    const handleChangePassword =(enterredPassword) =>{
-        setPassword(enterredPassword)
-    }
-
-    const handleLoginClick = (event) =>{
-        console.log('Try to login ', username, password)
-        const body = {
-            username,
-            password
-        };
-        fetch('http://localhost:8080/authenticate', {
-            method: 'POST',
-            body: JSON.stringify(body),
-            headers: {
-                'Content-Type': 'application/json'
+            auth.setToken(loginData);
+            setAuthenticated(true);
+            console.log(loginData)
+        } catch (e) {
+            if (e.response.status === 401) {
+                Object.keys(e.response.data.errors).forEach((key) => {
+                    setError(key, {
+                        type: "manual",
+                        message: e.response.data.errors[key],
+                    });
+                });
             }
-        }).then(response => {
-            if (response.status === 200) {
-                // setAuthenticated(true)
-                console.log("LOGGED IN!")
-                console.log(token)
-                localStorage.setItem("isLoggedIn", true)
-                localStorage.setItem("token", response.text())
-
-            } else if (response.status === 401) {
-                setMessage(response.text)
-                console.log(response.text)
-            } else {
-                setMessage('Что-то пошло не так...')
-            }
-        });
-        // event.preventDefault();
-    }
-
+        } finally {
+            setIsLoading(false);
+        }
+    };
 
     return (
-        <div className="messenger" >
-            <form>
-                {console.log(localStorage.getItem("token"))}
+        <div className="messenger">
+            {console.log(authenticated)}
+            <form onSubmit={handleSubmit(onSubmit)}>
                 <div className="login-box">
                     <span className="text-center">login</span>
-                    <span> {message} </span>
                     <div className="input-container">
-                        <input className="validate" onChange={handleChangeUsername}
-                               type="text"
-                               name="username"
-                               required="required"/>
-                        <label>Username</label>
+                        <Controller
+                            name="username"
+                            control={control}
+                            defaultValue=""
+                            render={({ field }) => (
+                                <TextField
+                                    {...field}
+                                    id="standard-basic"
+                                    variant="standard"
+                                    error={Boolean(errors.email?.message)}
+                                    fullWidth={true}
+                                    label="Email"
+                                    helperText={errors.email?.message}
+                                />
+                                )}
+                        />
                     </div>
 
                     <div className="input-container">
-                        <input onChange={handleChangePassword}
-                               name="password"
-                               id="password"
-                               type="password"
-                               className="validate"
-                               required="required"/>
-                        <label>Password</label>
+                        <Controller
+                            name="password"
+                            control={control}
+                            defaultValue=""
+                            render={({ field }) => (
+                                <TextField
+                                    {...field}
+                                    id="standard-basic"
+                                    variant="standard"
+                                    error={Boolean(errors.password?.message)}
+                                    type="password"
+                                    fullWidth={true}
+                                    label="Password"
+                                    helperText={errors.password?.message}
+                                />
+                            )}
+                        />
                     </div>
                     <button className="btn1"
+                            variant="contained"
+                            color="primary"
                             type="submit"
-                            onClick={handleLoginClick}
+                            disabled={isLoading}
                     >
                         submit
                     </button>
