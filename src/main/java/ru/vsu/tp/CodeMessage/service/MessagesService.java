@@ -6,6 +6,8 @@ import org.springframework.stereotype.Service;
 import ru.vsu.tp.CodeMessage.entity.Account;
 import ru.vsu.tp.CodeMessage.entity.Chat;
 import ru.vsu.tp.CodeMessage.entity.Message;
+import ru.vsu.tp.CodeMessage.entity.UnreadMsg;
+import ru.vsu.tp.CodeMessage.entity.id.UnreadMsgsId;
 import ru.vsu.tp.CodeMessage.entity.type.ChatType;
 import ru.vsu.tp.CodeMessage.exception.exceptions.ObjectNotFoundException;
 import ru.vsu.tp.CodeMessage.repository.MessagesRepository;
@@ -14,15 +16,18 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 import java.util.UUID;
+import java.util.stream.Collectors;
 
 @Service
 public class MessagesService implements ServiceTemplate<Message, UUID> {
     private MessagesRepository repository;
     private ChatsService chatsService;
+    private UnreadMsgsService unreadMsgsService;
 
-    public MessagesService(MessagesRepository repository, ChatsService chatsService) {
+    public MessagesService(MessagesRepository repository, ChatsService chatsService, UnreadMsgsService unreadMsgsService) {
         this.repository = repository;
         this.chatsService = chatsService;
+        this.unreadMsgsService = unreadMsgsService;
     }
 
     public List<Message> getMessagesInChat(UUID chatId, int page, int size, UUID userId) {
@@ -35,9 +40,14 @@ public class MessagesService implements ServiceTemplate<Message, UUID> {
                 isIn = true;
                 break;
             }
-        if (isIn)
-            return repository.findByChatIdOrderByTimeMsgDesc(PageRequest.of(page, size), chatId);
-        else return null;
+        if (isIn) {
+            List<Message> messages = repository.findByChatIdOrderByTimeMsgDesc(PageRequest.of(page, size), chatId);
+            List<UnreadMsgsId> unreadMsgsIds = messages.stream().map(message ->
+                    new UnreadMsgsId(userId, message.getId())).collect(Collectors.toList());
+            for (UnreadMsgsId var : unreadMsgsIds)
+                unreadMsgsService.delete(var);
+            return messages;
+        } else return null;
     }
 
     @Override
@@ -57,8 +67,12 @@ public class MessagesService implements ServiceTemplate<Message, UUID> {
     }
 
     @Override
-    public Message add(Message entity) {
-        return repository.save(entity);
+    public Message add(Message msg) {
+        Set<Account> users = chatsService.getById(msg.getChatId()).getAccounts();
+        for (Account user : users)
+            if (user.getId() != msg.getUserId())
+                unreadMsgsService.add(new UnreadMsg(user.getId(), msg.getId()));
+        return repository.save(msg);
     }
 
     @Override

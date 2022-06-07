@@ -11,6 +11,8 @@ import ru.vsu.tp.CodeMessage.repository.ChatsRepository;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
+
 import ru.vsu.tp.CodeMessage.entity.id.BlackListId;
 
 @Service
@@ -19,6 +21,11 @@ public class BlackListService implements ServiceTemplate<BlackList, BlackListId>
 
     public BlackListService(BlackListRepository repository) {
         this.repository = repository;
+    }
+
+    public boolean isBlocked(UUID ownerId, UUID userId) {
+        return repository.findByOwnerIdAndUserId(ownerId, userId) != null ||
+                repository.findByOwnerIdAndUserId(userId, ownerId) != null;
     }
 
     @Override
