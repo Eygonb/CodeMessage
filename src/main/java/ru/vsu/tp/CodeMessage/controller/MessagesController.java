@@ -1,18 +1,12 @@
 package ru.vsu.tp.CodeMessage.controller;
 
 import io.swagger.annotations.Api;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import ru.vsu.tp.CodeMessage.config.jwt.TokenUtil;
-import ru.vsu.tp.CodeMessage.entity.Account;
-import ru.vsu.tp.CodeMessage.entity.Chat;
 import ru.vsu.tp.CodeMessage.entity.Message;
-import ru.vsu.tp.CodeMessage.service.ChatsService;
 import ru.vsu.tp.CodeMessage.service.MessagesService;
 
-
 import java.util.List;
-import java.util.Set;
 import java.util.UUID;
 
 @RestController

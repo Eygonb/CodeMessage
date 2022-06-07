@@ -57,7 +57,7 @@ public class AccountsService {
         final boolean existsByEmail = repository.existsByEmail(entity.getEmail());
 
         if (existsByEmail || existsByUsername) {
-            String emailError = existsByEmail ? "Аккаунт с этим email уже существует " : "";
+            String emailError = existsByEmail ? "Аккаунт с этим email уже существует\n" : "";
             String usernameError = existsByUsername ? "Аккаунт с этим username уже существует" : "";
             throw new IllegalArgumentException(emailError + usernameError);
         }
