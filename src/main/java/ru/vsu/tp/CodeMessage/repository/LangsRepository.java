@@ -6,4 +6,6 @@ import ru.vsu.tp.CodeMessage.entity.Lang;
 import java.util.UUID;
 
 public interface LangsRepository extends JpaRepository<Lang, UUID> {
+
+    Lang findByLangName(String langName);
 }

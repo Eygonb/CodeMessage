@@ -20,6 +20,10 @@ public class LangsService implements ServiceTemplate<Lang, UUID> {
 
     private LangsService() { }
 
+    public UUID getLangIdByName(String name) {
+        return repository.findByLangName(name).getId();
+    }
+
     @Override
     public List<Lang> getAll() {
         List<Lang> target = new ArrayList<>();

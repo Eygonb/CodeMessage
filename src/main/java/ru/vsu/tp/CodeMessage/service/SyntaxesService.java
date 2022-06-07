@@ -7,15 +7,25 @@ import ru.vsu.tp.CodeMessage.entity.id.SyntaxesId;
 import ru.vsu.tp.CodeMessage.exception.exceptions.ObjectNotFoundException;
 import ru.vsu.tp.CodeMessage.repository.SyntaxesRepository;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 @Service
 public class SyntaxesService implements ServiceTemplate<Syntax, SyntaxesId> {
-    private SyntaxesRepository repository;
+    private final SyntaxesRepository repository;
+    private final LangsService langsService;
 
-    public SyntaxesService(SyntaxesRepository repository) {
+    public SyntaxesService(SyntaxesRepository repository, LangsService langsService) {
         this.repository = repository;
+        this.langsService = langsService;
+    }
+
+    public Map<String, String> getSyntax(String lang) {
+        UUID langId = langsService.getLangIdByName(lang);
+        List<Syntax> syn = repository.findAllByLangId(langId);
+        HashMap<String, String> map = new HashMap<>();
+        for (Syntax a : syn)
+            map.put(a.getKeyword(), a.getColor());
+        return map;
     }
 
     @Override
