@@ -89,7 +89,7 @@ create table langs (
 create table syntaxes (
     lang_id uuid not null,
     keyword text not null,
-    color character varying(6)[] not null,
+    color text not null,
     primary key (lang_id, keyword),
     foreign key (lang_id) references langs(id)
 );
