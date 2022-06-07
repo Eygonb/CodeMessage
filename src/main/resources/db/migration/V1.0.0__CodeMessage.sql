@@ -1,5 +1,3 @@
-create extension if not exists uuid_ossp;
-
 create table uploaded_files (
     id uuid default uuid_generate_v4() not null,
     file_name text not null,
