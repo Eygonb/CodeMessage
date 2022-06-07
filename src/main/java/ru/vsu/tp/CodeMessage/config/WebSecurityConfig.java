@@ -48,6 +48,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity httpSecurity) throws Exception {
         httpSecurity.csrf().disable()
+                .cors().and()
                 .authorizeRequests()
                 .antMatchers("/authenticate", "/accounts/register", "/chats/open/**",
                         "/messages/chats/open/**", "/swagger-ui/**", "/swagger-resources/**", "/v2/api-docs/**")

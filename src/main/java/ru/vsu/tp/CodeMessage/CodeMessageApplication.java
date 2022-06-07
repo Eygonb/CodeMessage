@@ -20,7 +20,7 @@ public class CodeMessageApplication {
             @Override
             public void addCorsMappings(CorsRegistry registry) {
                 registry.addMapping("/**")
-                        .allowedOrigins("http://localhost:4200", "https://codemessage.herokuapp.com")
+                        .allowedOrigins("http://localhost:3000", "https://codemessage.herokuapp.com")
                         .allowedMethods("*");
             }
         };
