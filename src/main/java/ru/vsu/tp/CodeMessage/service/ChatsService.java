@@ -3,6 +3,7 @@ package ru.vsu.tp.CodeMessage.service;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 import ru.vsu.tp.CodeMessage.entity.Chat;
+import ru.vsu.tp.CodeMessage.entity.Message;
 import ru.vsu.tp.CodeMessage.entity.type.ChatType;
 import ru.vsu.tp.CodeMessage.exception.exceptions.ObjectNotFoundException;
 import ru.vsu.tp.CodeMessage.repository.ChatsRepository;
@@ -13,7 +14,7 @@ import java.util.UUID;
 
 @Service
 public class ChatsService implements ServiceTemplate<Chat, UUID> {
-    private ChatsRepository repository;
+    private final ChatsRepository repository;
 
     public ChatsService(ChatsRepository repository) {
         this.repository = repository;
@@ -35,7 +36,8 @@ public class ChatsService implements ServiceTemplate<Chat, UUID> {
 
     @Override
     public List<Chat> getAll() {
-        List<Chat> target = repository.findAll();
+        List<Chat> target = new ArrayList<>();
+        repository.findAll().forEach(target::add);
         System.out.println(target);
         return target;
     }

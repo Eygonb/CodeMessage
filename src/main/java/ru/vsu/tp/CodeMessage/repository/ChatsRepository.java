@@ -18,7 +18,7 @@ public interface ChatsRepository extends JpaRepository<Chat, UUID> {
             "(select * from chats where id in (select chat_id from user_chats where user_id = :userId)) as table1 " +
             "left join (select chat_id, max(time_msg) as time_msg from messages group by chat_id) as table2 on " +
             "id = chat_id order by time_msg desc) limit :size offset :from", nativeQuery = true)
-    List<Chat> findChatOrderByLastMessage(@Param("userId") UUID userId, @Param("from") int from, @Param("to") int size);
+    List<Chat> findChatOrderByLastMessage(@Param("userId") UUID userId, @Param("from") int from, @Param("size") int size);
 
     //  Выборка чатов пользователя по названию с пагинацией и сортировкой по времени сообщения
     @Query(value = "(select id, type, img_id, chat_name, time_msg from " +
@@ -27,7 +27,7 @@ public interface ChatsRepository extends JpaRepository<Chat, UUID> {
             "id = chat_id where lower(chat_name) like '%' || lower(:search) || '%' order by time_msg desc) " +
             "limit :size offset :from", nativeQuery = true)
     List<Chat> findChatByChatNameOrderByLastMessage(@Param("userId") UUID userId, @Param("from") int from,
-                                                    @Param("to") int size, @Param("search") String search);
+                                                    @Param("size") int size, @Param("search") String search);
 
     List<Chat> findByIdAndType(Pageable pageable, UUID id, ChatType type);
 }

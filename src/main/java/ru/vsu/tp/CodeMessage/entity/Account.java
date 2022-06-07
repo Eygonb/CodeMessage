@@ -28,11 +28,11 @@ public class Account implements EntityTemplate<Account, UUID> {
     @Column(name = "img_id")
     private UUID imgId;
 
-    @ManyToMany(fetch = FetchType.LAZY)
-    @JoinTable(name = "user_chats",
-            joinColumns = {@JoinColumn(name = "user_id")},
-            inverseJoinColumns = {@JoinColumn(name = "chat_id")})
-    private Set<Chat> chats = new HashSet<>();
+//    @ManyToMany(fetch = FetchType.LAZY)
+//    @JoinTable(name = "user_chats",
+//            joinColumns = {@JoinColumn(name = "user_id")},
+//            inverseJoinColumns = {@JoinColumn(name = "chat_id")})
+//    private Set<Chat> chats = new HashSet<>();
 
     public Account(UUID id, String username, String email,
                    String password, AccountType type, String title, UUID imgId) {
@@ -115,7 +115,4 @@ public class Account implements EntityTemplate<Account, UUID> {
         this.imgId = imgId;
     }
 
-    public Set<Chat> getChats() {
-        return new HashSet<>(chats);
-    }
 }

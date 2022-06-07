@@ -15,7 +15,6 @@ public class AccountDto {
     private AccountType type;
     private String title;
     private UUID imgId;
-    private Set<Chat> chats;
 
     public AccountDto(Account account) {
         this.id = account.getId();
@@ -24,7 +23,6 @@ public class AccountDto {
         this.type = account.getType();
         this.title = account.getTitle();
         this.imgId = account.getImgId();
-        this.chats = account.getChats();
     }
 
     public UUID getId() {

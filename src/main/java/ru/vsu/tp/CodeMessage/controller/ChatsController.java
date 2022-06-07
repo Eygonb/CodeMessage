@@ -7,6 +7,7 @@ import ru.vsu.tp.CodeMessage.entity.Chat;
 import ru.vsu.tp.CodeMessage.service.ChatsService;
 
 import java.util.List;
+import java.util.Objects;
 import java.util.UUID;
 
 @RestController
@@ -22,11 +23,12 @@ public class ChatsController implements Controller<Chat, UUID> {
     }
 
     @GetMapping
-    public List<Chat> getAll(@RequestParam int page, @RequestParam int size,
-                             @RequestParam String search, @RequestHeader(name="Authorization") String header) {
+    public List<Chat> getAll(@RequestParam(defaultValue = "0") int page, @RequestParam(defaultValue = "10") int size,
+                             @RequestParam(defaultValue = "") String search,
+                             @RequestHeader(name="Authorization") String header) {
         String token = jwtTokenUtil.getTokenFromHeader(header);
         UUID userId = jwtTokenUtil.getUserIdFromToken(token);
-        if (search == null)
+        if (Objects.equals(search, ""))
             return service.getSome(userId, page, size);
         else return service.getSomeByName(userId, page, size, search);
     }
