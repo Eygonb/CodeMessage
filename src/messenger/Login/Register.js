@@ -22,7 +22,7 @@ function Register (props){
             email,
             password
         };
-        fetch('localhost:8080/accounts/register ', {
+        fetch('http://localhost:8080/accounts/register ', {
             method: 'POST',
             body: JSON.stringify(body),
             headers: {
@@ -71,6 +71,10 @@ function Register (props){
         return (
             <div className="messenger">
                 <form>
+
+                    {console.log(localStorage.getItem("token"))}
+                    {/*{console.log(localStorage.getItem('isLoggedIn'))}*/}
+                    {/*{console.log(localStorage.getItem('token'))}*/}
                     <div className="login-box">
                         <span className="text-center">Registration</span>
                         <div className="input-container">

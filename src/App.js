@@ -18,8 +18,10 @@ function App() {
             <Routes>
                 {/*неприватные*/}
                 <Route path="/login"
-                       element={<Login authenticated={isLoggedIn} isLoggedIn ={isLoggedIn => setIsLoggedIn(isLoggedIn)}/>}
+                       element={<Login isLoggedIn ={isLoggedIn => setIsLoggedIn(isLoggedIn)}/>}
+
                 />
+
                 <Route path="/register"
                        element={<Register/>}
                 />

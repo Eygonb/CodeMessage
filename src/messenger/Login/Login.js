@@ -16,8 +16,8 @@ function Login (props, isLoggedIn) {
        setUsername(enterredUsername)
     }
 
-    const handleChangePassword =(enterredpassword) =>{
-        setPassword(enterredpassword)
+    const handleChangePassword =(enterredPassword) =>{
+        setPassword(enterredPassword)
     }
 
     const handleLoginClick = (event) =>{
@@ -34,27 +34,27 @@ function Login (props, isLoggedIn) {
             }
         }).then(response => {
             if (response.status === 200) {
-                setToken(response.text())
-                setAuthenticated(true)
-                localStorage.setItem("username", username)
+                // setAuthenticated(true)
                 console.log("LOGGED IN!")
-                props.history.push('/');
-                isLoggedIn()
+                console.log(token)
+                localStorage.setItem("isLoggedIn", true)
+                localStorage.setItem("token", response.text())
+
             } else if (response.status === 401) {
                 setMessage(response.text)
                 console.log(response.text)
             } else {
                 setMessage('Что-то пошло не так...')
-
             }
         });
-        event.preventDefault();
+        // event.preventDefault();
     }
 
 
     return (
-        <div className="messenger" onChange={() =>  isLoggedIn}>
+        <div className="messenger" >
             <form>
+                {console.log(localStorage.getItem("token"))}
                 <div className="login-box">
                     <span className="text-center">login</span>
                     <span> {message} </span>
@@ -76,7 +76,6 @@ function Login (props, isLoggedIn) {
                         <label>Password</label>
                     </div>
                     <button className="btn1"
-                            variant="primary"
                             type="submit"
                             onClick={handleLoginClick}
                     >
