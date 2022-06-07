@@ -5,6 +5,7 @@ import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import ru.vsu.tp.CodeMessage.config.jwt.TokenUtil;
 import ru.vsu.tp.CodeMessage.dto.AccountDto;
 import ru.vsu.tp.CodeMessage.entity.Account;
 import ru.vsu.tp.CodeMessage.service.AccountsService;
@@ -17,9 +18,11 @@ import java.util.UUID;
 @Api(description = "Контроллер аккаунтов пользователей")
 public class AccountsController {
     private final AccountsService service;
+    private TokenUtil jwtTokenUtil;
 
-    public AccountsController(AccountsService service) {
+    public AccountsController(AccountsService service, TokenUtil jwtTokenUtil) {
         this.service = service;
+        this.jwtTokenUtil = jwtTokenUtil;
     }
 
     @GetMapping
@@ -32,6 +35,14 @@ public class AccountsController {
     @ApiOperation("Получение объекта по идентификатору")
     public AccountDto get(@PathVariable("id") UUID id) {
         return service.getById(id);
+    }
+
+    @GetMapping("/me")
+    @ApiOperation("Получение собственного аккаунта по токену")
+    public AccountDto getMe(@RequestHeader(name="Authorization") String header) {
+        String token = jwtTokenUtil.getTokenFromHeader(header);
+        UUID userId = jwtTokenUtil.getUserIdFromToken(token);
+        return service.getById(userId);
     }
 
     @PostMapping("/register")
