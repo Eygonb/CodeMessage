@@ -20,10 +20,11 @@ spring:
         show sql: true
         temp:
           use_jdbc_metadata_defaults: false
-flyway:
-  url: ${SPRING_DATASOURCE_URL:jdbc:postgresql://localhost:5432/code_message}
-  user: ${SPRING_DATASOURCE_USERNAME:postgres}
-  password: ${SPRING_DATASOURCE_PASSWORD:123}
-  schemas: public
+  flyway:
+    baselineOnMigrate: true
+    url: ${SPRING_DATASOURCE_URL:jdbc:postgresql://localhost:5432/code_message}
+    user: ${SPRING_DATASOURCE_USERNAME:postgres}
+    password: ${SPRING_DATASOURCE_PASSWORD:123}
+    schemas: public
 jwt:
   secret: ${JWT_SECRET:"jwt_secret_key"}
