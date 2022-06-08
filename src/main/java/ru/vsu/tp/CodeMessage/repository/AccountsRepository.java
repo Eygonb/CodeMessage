@@ -11,7 +11,6 @@ import java.util.UUID;
 public interface AccountsRepository extends JpaRepository<Account, UUID> {
     Optional<Account> findByUsername(String username);
 
-    //TODO(Уточнить, как реализуется поиск записей)
     List<Account> findByUsernameStartsWith(Pageable pageable, String username);
 
     Boolean existsByUsername(String username);

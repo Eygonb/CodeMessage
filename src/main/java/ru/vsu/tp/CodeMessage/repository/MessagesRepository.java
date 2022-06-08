@@ -9,6 +9,5 @@ import java.util.UUID;
 
 public interface MessagesRepository extends JpaRepository<Message, UUID> {
 
-    //TODO(Проверить)
     List<Message> findByChatIdOrderByTimeMsgDesc(Pageable pageable, UUID chatId);
 }

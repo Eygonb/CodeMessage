@@ -12,6 +12,7 @@ import ru.vsu.tp.CodeMessage.entity.type.ChatType;
 import ru.vsu.tp.CodeMessage.exception.exceptions.ObjectNotFoundException;
 import ru.vsu.tp.CodeMessage.repository.MessagesRepository;
 
+import java.time.ZonedDateTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
@@ -68,11 +69,13 @@ public class MessagesService implements ServiceTemplate<Message, UUID> {
 
     @Override
     public Message add(Message msg) {
+        msg.setTimeMsg(ZonedDateTime.now());
+        msg = repository.save(msg);
         Set<Account> users = chatsService.getById(msg.getChatId()).getAccounts();
         for (Account user : users)
             if (user.getId() != msg.getUserId())
                 unreadMsgsService.add(new UnreadMsg(user.getId(), msg.getId()));
-        return repository.save(msg);
+        return msg;
     }
 
     @Override

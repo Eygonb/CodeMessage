@@ -79,8 +79,8 @@ public class ChatsService implements ServiceTemplate<Chat, UUID> {
     }
 
     @Override
-    public void delete(UUID id) {
-        repository.deleteById(id);
+    public void delete(UUID chatId) {
+        repository.deleteById(chatId);
     }
 
     @Override
