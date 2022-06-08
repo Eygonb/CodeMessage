@@ -17,5 +17,5 @@
 * username=admin password=admin
 * [Ссылка на приложение](https://codemessage.herokuapp.com)
 # Видеоматериалы
-* [Техническое видео](https://youtu.be/QlIISqomjzM)
+* [Техническое видео](https://disk.yandex.ru/d/ZT-1HJjq1swuNQ)
 * [Презентация](https://youtu.be/MGrJnCtxB20)
