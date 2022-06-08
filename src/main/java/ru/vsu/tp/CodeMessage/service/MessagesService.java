@@ -30,8 +30,11 @@ public class MessagesService implements ServiceTemplate<Message, UUID> {
 
     public List<Message> getMessagesInChat(UUID chatId, int page, int size, UUID userId) {
         Chat chat = chatsService.getById(chatId);
-        if (chat.getType() == ChatType.OPEN_GROUP)
-            return repository.findByChatIdOrderByTimeMsgDesc(PageRequest.of(page, size), chatId);
+        if (chat.getType() == ChatType.OPEN_GROUP && userId == null) {
+            List<Message> messages = repository.findByChatIdOrderByTimeMsgDesc(PageRequest.of(page, size), chatId);
+            Collections.reverse(messages);
+            return messages;
+        }
         boolean isIn = false;
         for (Account user : chat.getAccounts())
             if (user.getId() == userId) {
