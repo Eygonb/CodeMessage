@@ -7,11 +7,11 @@ import api from "../../Login/services";
 import {Form} from "react-bootstrap";
 import {useForm, Controller } from "react-hook-form";
 import {TextField} from "@mui/material";
+import { useTimer } from 'react-timer-hook';
 
 export default function Conversation(props) {
     const [isOpen, setIsOpen] = useState(false);
     let selectedChat = localStorage.getItem("selectedChat")
-    const [status, setStatus] = useState('')
     const [isLoading, setIsLoading] = useState(false);
 
     let myID = localStorage.getItem("logginUserId")
@@ -22,7 +22,7 @@ export default function Conversation(props) {
     }
     const {imgId, chatName, chatId} = props.data;
 
-    const getConversations = (page, size) => {
+    const getConversations = (size) => {
         const tokenData = Cookies.get("auth-token");
         setTokenData(tokenData);
         const requestOptions = {
@@ -30,62 +30,82 @@ export default function Conversation(props) {
                 'Content-Type': 'application/json'
             }
         };
-
-        api.auth.getMessagesInChat(requestOptions, selectedChat, page, size)
+        api.auth.getMessagesInChat(requestOptions, selectedChat, currentPage, size)
             .then(function (response) {
                 console.log(response.data);
                 setMessagesList([...messagesList, ...response.data])
-            });
+                setCurrentPage( prevState => prevState +1)
+            })
+            .finally( () => setFetching(false));
     }
 
     const [currentPage, setCurrentPage] = useState(0)
     const [fetching, setFetching] = useState(true)
+    const [timeLeft, setTimeLeft] = useState(60);
+
+    // useEffect(() => {
+    //     if (!timeLeft) {
+    //             getConversations(19);
+    //         setTimeLeft(180);
+    //     }
+    //
+    //     const intervalId = setInterval(() => {
+    //         setTimeLeft(timeLeft - 1);
+    //     }, 10);
+    //
+    //     console.log(timeLeft)
+    //     return () => clearInterval(intervalId);
+    // }, [timeLeft], [fetching ]);
+
 
     useEffect(() => {
         if (fetching) {
-            getConversations(0, 19)
+
+            getConversations(19);
+            console.log(currentPage)
         }
-    }, [fetching])
+    }, [fetching ])
 
     useEffect(() => {
-        document.addEventListener("scroll", scrollHandler)
+        const scrollContent = document.querySelector('.msg_card_body');
 
-        return function () {
-            document.removeEventListener("scroll", scrollHandler)
-        }
+        scrollContent.addEventListener('scroll', () => {
+            const scrolled = scrollContent.scrollTop;
+            // console.log(scrollContent.scrollHeight);
+            if(scrollContent.scrollHeight- (scrolled + window.innerHeight )<100){
+                // console.log(scrolled);
+                // console.log(window.innerHeight)
+                setFetching(true)
+            }
+
+        });
+
     }, [])
-
-    const scrollHandler = (e) => {
-        console.log("scrolHeight", e.target.documentElement.scrollHeight)
-        console.log("scrolTop", e.target.documentElement.scrollTop)
-        console.log("innerHeight", window.innerHeight)
-    }
 
 
     const sendData = async (data)  => {
-        let mes = ''+data.message
-        console.log(mes)
-
-
+        console.log(data.message)
+        const article = {
+            textMsg: data.message,
+            chatId: selectedChat
+        };
         const requestOptions = {
-
-            method: "POST",
+            method: 'POST',
             headers: {
                 'Authorization': 'Bearer ' + token,
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({
-                textMsg: data.message,
-                chatId: selectedChat,
-                type: "USERS"
-            })
+            body: JSON.stringify(article
+            )
         };
-        await fetch("http://localhost:8080/chats", requestOptions).then(response => { console.log(response)});
+        await fetch("http://localhost:8080/messages", requestOptions).then(response => {
+            console.log(response);
+            setTimeout(function(){
+                window.location.reload();
+            }, 3000);
+        });
     }
 
-    const handleChange = (event) => {
-        setStatus(event.target.value)
-    }
     const {
         control,
         handleSubmit,
@@ -144,9 +164,9 @@ export default function Conversation(props) {
                                             <TextField
                                                 {...field}
                                                 error={Boolean(errors.password?.message)}
-                                                type="password"
+
                                                 fullWidth={true}
-                                                label="Password"
+                                                label="Enter your message..."
                                                 variant="filled"
                                                 className="form-control type_msg"
                                                 placeholder="Type your message..."
