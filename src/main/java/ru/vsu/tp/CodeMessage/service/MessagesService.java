@@ -13,10 +13,7 @@ import ru.vsu.tp.CodeMessage.exception.exceptions.ObjectNotFoundException;
 import ru.vsu.tp.CodeMessage.repository.MessagesRepository;
 
 import java.time.ZonedDateTime;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Set;
-import java.util.UUID;
+import java.util.*;
 import java.util.stream.Collectors;
 
 @Service
@@ -47,6 +44,7 @@ public class MessagesService implements ServiceTemplate<Message, UUID> {
                     new UnreadMsgsId(userId, message.getId())).collect(Collectors.toList());
             for (UnreadMsgsId var : unreadMsgsIds)
                 unreadMsgsService.delete(var);
+            Collections.reverse(messages);
             return messages;
         } else return null;
     }
