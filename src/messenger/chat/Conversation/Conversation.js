@@ -5,15 +5,42 @@ import PopupConv from "./PopupConv";
 
 import JsonData from "../../../testdata/chat/2.json"
 import ConversationItem from "./ConversationItem/ConversationItem";
+import Cookies from "js-cookie";
+import api from "../../Login/services";
 
 export default function Conversation(props) {
     const [isOpen, setIsOpen] = useState(false);
+    let selectedChat = localStorage.getItem("selectedChat")
+    useEffect(() => {
+        getConversations()
+    }, [])
 
+    let myID = localStorage.getItem("logginUserId")
+    const [messagesList, setMessagesList] = useState([]);
+    const [token, setTokenData] = useState(null);
     const togglePopup = () => {
         setIsOpen(!isOpen);
     }
     const {imgId, chatName} = props.data;
-    const messagesList = JsonData;
+
+    const getConversations = (page, size) => {
+
+        const tokenData = Cookies.get("auth-token");
+
+        setTokenData(tokenData);
+        const requestOptions = {
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        };
+
+        api.auth.getMessagesInChat(requestOptions, selectedChat, 0,20)
+            .then(function (response) {
+                console.log(response.data);
+                setMessagesList([...messagesList, ...response.data])
+            });
+    }
+
     return (
         <div className="container">
             <div className="col-md-8 col-xl-6">
@@ -36,10 +63,14 @@ export default function Conversation(props) {
                         </div>
                         {isOpen && <PopupConv data={props.data} handleClose={togglePopup}/>}
                         <div className="card-body msg_card_body">
+
                             {messagesList.map((message) => {
 
                                     return (
-                                        <ConversationItem messages={message} imgId={imgId} key={message.mes_id}/>)
+                                        <ConversationItem messages={message}
+                                                          imgId={imgId}
+                                                          myID = {myID}
+                                                          key={message.mes_id}/>)
                                 }
                             )}
                         </div>

@@ -29,6 +29,7 @@ function Login() {
             auth.setToken(loginData);
             const {data: loginData2} = await api.auth.getProfile();
             auth.setUser(loginData2);
+
             // auth.setToken(loginData);
             // console.log(loginData)
         } catch (e) {

@@ -31,6 +31,8 @@ function AuthProvider(props) {
             if (tokenData) {
                 const { data } = await api.auth.getProfile();
                 setUser(data);
+                localStorage.setItem("logginUserId", data.id);
+                // console.log(localStorage.getItem("logginUserId"))
             }
         } catch {
             setToken(null);

@@ -5,36 +5,47 @@ import axios from "axios";
 import ConversationListItem from "./ConversationListItem";
 import AddChat from "../AddChat";
 import JsonData from "../../../testdata/ConversList.json"
+import api from "../../Login/services";
+import Cookies from "js-cookie";
 
 
-export default function ConversationList(props, changeChatID) {
+export default function ConversationList(props) {
+    const [token, setTokenData] = useState(null);
     const [conversations, setConversations] = useState([]);
+    const [isOpen, setIsOpen] = useState(false);
+
+
     useEffect(() => {
         getConversations()
     }, [])
 
-    const [isOpen, setIsOpen] = useState(false);
-    const ConversationList = JsonData;
+    const getConversations = (page, size) => {
+        const tokenData = Cookies.get("auth-token");
+
+        setTokenData(tokenData);
+        // console.log(token)
+        const requestOptions = {
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        };
+        api.auth.getChatsList(requestOptions, 0, 20)
+            .then(function (response) {
+                // console.log(response.data);
+                setConversations([...conversations, ...response.data])
+            });
+    }
+
     const togglePopup = () => {
         setIsOpen(!isOpen);
     }
 
-    const getConversations = () => {
-        axios.get('https://randomuser.me/api/?results=20').then(response => {
-            let newConversations = response.data.results.map(result => {
-                return {
-                    id: result.login.uuid,
-                    imgId: result.picture.large,
-                    chatName: `${result.name.first} ${result.name.last}`,
-                    mes_text: `${result.gender}`,
-                    unread: `${Math.floor(Math.random() * 8)}`
-                };
-            });
-            setConversations([...conversations, ...newConversations])
-        });
+    const setStorage = (data) =>{
+        localStorage.setItem('selectedChat',data);
+        // Cookies.remove('selectedChat')
+        // Cookies.set("selectedChat", chat.id)
+        // console.log(localStorage.getItem("selectedChat"))
     }
-
-    const [selectChatid, setSelectChatid] = useState(0)
 
     return (
         <div className="container" >
@@ -50,21 +61,17 @@ export default function ConversationList(props, changeChatID) {
                                 className="fa fa-plus"></i></span>
                         </div>
                     </div>
-                    {/*{console.log(selectChatid)}*/}
-                    <div onChange={() => changeChatID(selectChatid) }>
-                    {ConversationList.map((conversation) => {
-                        return(
-
-                                <ConversationListItem
-                                    chat = {conversation}
-                                    key ={conversation.id}
-                                    change={selectChatid =>setSelectChatid(selectChatid)}
-                                />
-
-
-                        )
-                        }
-                    )}</div>
+                    <div>
+                        {conversations.map((conversation) => {
+                                return (
+                                    <ConversationListItem
+                                        onClick={setStorage(conversation.id)}
+                                        chat={conversation}
+                                        key={conversation.id}
+                                    />
+                                )
+                            }
+                        )}</div>
                 </div>
             </div>
 

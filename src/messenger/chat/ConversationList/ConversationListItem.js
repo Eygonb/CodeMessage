@@ -1,18 +1,18 @@
 import React, {useEffect} from 'react';
 import "./ConversationList.css"
 import shave from 'shave';
-import JsonData from "../../../testdata/ConversList.json"
+import Cookies from 'js-cookie'
 
-function ConversationListItem({chat, change}) {
+function ConversationListItem({chat}) {
     useEffect(() => {
         shave('.conversation-snippet', 20);
     })
 
+
     return (
-        <div  onClick={() => change(chat.id)}>
-            <div className="conversation-list-item"
-                 >
-                <ul className="list-unstyled chat-list mt-2 mb-0">
+        <div  >
+            <div className="conversation-list-item" >
+                <ul className="list-unstyled chat-list mt-2 mb-0" >
                     <li className="clearfix">
                         <img src={chat.imgId} alt="avatar"/>
                         <div className="about">
