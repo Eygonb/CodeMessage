@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import ru.vsu.tp.CodeMessage.config.jwt.TokenUtil;
 import ru.vsu.tp.CodeMessage.dto.AccountDto;
 import ru.vsu.tp.CodeMessage.entity.Account;
+import ru.vsu.tp.CodeMessage.entity.type.AccountType;
 import ru.vsu.tp.CodeMessage.service.AccountsService;
 
 import java.util.List;
@@ -51,6 +52,7 @@ public class AccountsController {
     @ApiOperation("Добавление нового объекта")
     public ResponseEntity add(@RequestBody Account account) {
         try {
+            account.setType(AccountType.USER);
             AccountDto accountDto = service.add(account);
             return ResponseEntity.ok(accountDto);
         } catch (IllegalArgumentException e) {
