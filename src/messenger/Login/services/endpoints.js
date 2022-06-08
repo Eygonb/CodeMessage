@@ -12,6 +12,8 @@ const endpoints = {
     getChatByID: (data, id) => axios.get("/chats/", id),
     getMessagesInChat:
         (data, chat_id, page, size) => axios.get("/messages/chats/"+ chat_id+"?page="+page+"&size="+size),
+    postMessage: (data) => ("/chats", data),
+    newChat: (data, id, chatName, users,) => axios.post("/chats/", id),
 };
 
 export default endpoints;

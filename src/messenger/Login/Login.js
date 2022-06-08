@@ -53,7 +53,6 @@ function Login() {
             }}
         />):(
         <div className="messenger">
-            {console.log(auth)}
             <form onSubmit={handleSubmit(onSubmit)}>
                 <div className="login-box">
                     <span className="text-center">login</span>

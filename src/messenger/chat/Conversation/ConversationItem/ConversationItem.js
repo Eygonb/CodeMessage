@@ -2,7 +2,7 @@ import React from 'react';
 import Cookies from "js-cookie";
 
 const ConversationItem = ({messages, imgId, myID}) => {
-    console.log(myID)
+
     return (
         <div>
             {messages.user_id === myID ?

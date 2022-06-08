@@ -2,9 +2,11 @@ import * as React from 'react';
 import {Link} from "react-router-dom";
 
 import './Nav-styles.css';
-
+import Cookies from "js-cookie";
+const tokenData = Cookies.get("auth-token");
 export const NavBar = () => {
     return (
+
         <div className="navbar-cm">
             <div className="nav_element-box">
                 <div className="nav_element">
@@ -31,6 +33,7 @@ export const NavBar = () => {
 
             <div className="nav_element-box">
                 <div className="nav_element">
+
                     <Link to="/login">
                         <i className="nav_element fa fa-id-badge  fa-fw"></i>
                         {/*<img src={loginIMG} className="nav_element"/>*/}

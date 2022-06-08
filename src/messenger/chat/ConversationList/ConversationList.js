@@ -1,10 +1,8 @@
 import React, {useState, useEffect} from 'react';
 
 import "./ConversationList.css"
-import axios from "axios";
 import ConversationListItem from "./ConversationListItem";
 import AddChat from "../AddChat";
-import JsonData from "../../../testdata/ConversList.json"
 import api from "../../Login/services";
 import Cookies from "js-cookie";
 

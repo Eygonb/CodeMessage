@@ -26,11 +26,12 @@ function Register (props){
         try {
             setIsLoading(true);
             await api.auth.registration(data);
-            const { data: loginData } = await api.auth.login(data);
-            auth.setToken(loginData.token);
-            auth.setUser(loginData.user);
+            const {data: loginData} = await api.auth.login(data);
+            auth.setToken(loginData);
+            const {data: loginData2} = await api.auth.getProfile();
+            auth.setUser(loginData2);
         } catch (e) {
-            if (e.response.status === 422) {
+            if (e.response.status === 403) {
                 Object.keys(e.response.data.errors).forEach((key) => {
                     setError(key, {
                         type: "manual",
