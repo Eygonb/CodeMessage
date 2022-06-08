@@ -12,3 +12,9 @@
 * [Курсовой проект.docx](https://github.com/Eygonb/CodeMessage/blob/main/Documentation/%D0%9A%D1%83%D1%80%D1%81%D0%BE%D0%B2%D0%BE%D0%B9%20%D0%BF%D1%80%D0%BE%D0%B5%D0%BA%D1%82.docx)
 * [Курсовой проект.pdf](https://github.com/Eygonb/CodeMessage/blob/main/Documentation/%D0%9A%D1%83%D1%80%D1%81%D0%BE%D0%B2%D0%BE%D0%B9%20%D0%BF%D1%80%D0%BE%D0%B5%D0%BA%D1%82.pdf)
 * [Swagger](https://codemessage-v1.herokuapp.com/swagger-ui/)
+* Аккаунты для авторизации в приложении:
+* username=admin password=admin
+* [Ссылка на приложение](https://codemessage.herokuapp.com)
+# Видеоматериалы
+* [Техническое видео]()
+* [Презентация](https://youtu.be/MGrJnCtxB20)
